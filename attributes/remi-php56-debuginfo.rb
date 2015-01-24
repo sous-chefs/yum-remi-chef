@@ -5,9 +5,15 @@ default['yum']['remi-php56-debuginfo']['enabled'] = false
 default['yum']['remi-php56-debuginfo']['managed'] = false
 
 case node['platform']
-when 'amazon'
-  default['yum']['remi-php56-debuginfo']['baseurl'] = 'http://rpms.famillecollet.com/enterprise/6/debug-php56/$basearch/'
-  default['yum']['remi-php56-debuginfo']['description'] = 'Les RPM de remi de PHP 5.6 pour Enterprise Linux 6 - $basearch - debuginfo'
+when 'fedora'
+  case node['platform_version'].to_i
+  when 20
+    default['yum']['remi-php56-debuginfo']['baseurl'] = 'http://rpms.famillecollet.com/fedora/20/debug-php56/$basearch/'
+    default['yum']['remi-php56-debuginfo']['description'] = 'Les RPM de remi de PHP 5.6 pour Fedora Linux 20 - $basearch - debuginfo'
+  when 21
+    default['yum']['remi-php56-debuginfo']['baseurl'] = 'http://rpms.famillecollet.com/fedora/21/debug-php56/$basearch/'
+    default['yum']['remi-php56-debuginfo']['description'] = 'Les RPM de remi de php 5.6 pour Fedora Linux 21 - $basearch - debuginfo'
+  end
 else
   case node['platform_version'].to_i
   when 5

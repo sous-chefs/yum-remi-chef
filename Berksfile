@@ -4,4 +4,5 @@ metadata
 
 group :integration do
   cookbook 'yum-epel'
+  cookbook 'selinux'
 end

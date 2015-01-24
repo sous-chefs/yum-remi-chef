@@ -56,23 +56,32 @@ platforms:
 #   run_list:
 #   - recipe[selinux::disabled]
 
-# - name: redhat-7.0
-#   driver_plugin: ec2
-#   driver_config:
-#     image_id: ami-a8d369c0
-#     username: ec2-user
-#     ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
-#   run_list:
-#   - recipe[selinux::disabled]
+- name: redhat-7.0
+  driver_plugin: ec2
+  driver_config:
+    image_id: ami-a8d369c0
+    username: ec2-user
+    ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
+  run_list:
+  - recipe[selinux::disabled]
 
-# - name: fedora-20
-#   driver_plugin: digital_ocean
-#   driver_config:
-#     size: 2gb
-#     image: fedora-20-x64
-#     region: <%= ENV['DIGITAL_OCEAN_REGION'] %>
-#     ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
-#     ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
+- name: fedora-20
+  driver_plugin: digital_ocean
+  driver_config:
+    size: 2gb
+    image: fedora-20-x64
+    region: <%= ENV['DIGITAL_OCEAN_REGION'] %>
+    ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
+    ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
+
+- name: fedora-21
+  driver_plugin: digital_ocean
+  driver_config:
+    size: 2gb
+    image: fedora-21-x64
+    region: <%= ENV['DIGITAL_OCEAN_REGION'] %>
+    ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
+    ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
 
 suites:
 - name: remi
@@ -95,6 +104,10 @@ suites:
       remi-php55:
         enabled: true
         managed: true
+  excludes: [ 
+    'fedora-20',
+    'fedora-21',
+  ]
 
 - name: remi-php56
   run_list:
@@ -107,3 +120,6 @@ suites:
       remi-php56:
         enabled: true
         managed: true
+  excludes: [
+    'fedora-21' 
+  ]

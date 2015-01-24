@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include_recipe 'yum-epel'
+include_recipe 'yum-epel' unless node['platform'] == 'fedora'
 
 %w(remi remi-debuginfo).each do |repo|
   next unless node['yum'][repo]['managed']

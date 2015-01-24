@@ -3,5 +3,5 @@
 }
 
 @test "verify expected version" {
-      php --version | grep "^PHP 5.4"
+      php --version | grep "^PHP 5.4" || cat /etc/issue | grep ^Fedora
 }
