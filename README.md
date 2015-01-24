@@ -33,6 +33,10 @@ The following platforms have been tested with Test Kitchen:
 |-----------+------+------------+------------|
 ```
 
+Amazon Linux is *not* supported by the Remi repository. Amazon
+maintains their own PHP packages natively, as php53, php54, php55, and
+php56.
+
 Attributes
 ----------
 The following attributes are set by default
