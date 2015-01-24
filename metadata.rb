@@ -7,5 +7,7 @@ version '0.1.0'
 
 supports 'centos'
 supports 'redhat'
+supports 'scientific'
+supports 'fedora'
 
 depends 'yum-epel'
