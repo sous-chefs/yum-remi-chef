@@ -11,6 +11,20 @@ Requirements
 * Chef 11 or higher
 * yum cookbook version 3.0.0 or higher
 
+Platform Support
+----------------
+The following platforms have been tested with Test Kitchen:
+
+|----------+------+------------+------------|
+|          | remi | remi-php55 | remi-php56 |
+|----------+------+------------+------------|
+| centos-5 | X    | X          | X          |
+|----------+------+------------+------------|
+| centos-6 | X    | X          | X          |
+|----------+------+------------+------------|
+| centos-7 | X    | X          | X          |
+|----------+------+------------+------------|
+
 Attributes
 ----------
 The following attributes are set by default
