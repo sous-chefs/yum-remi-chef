@@ -15,6 +15,7 @@ Platform Support
 ----------------
 The following platforms have been tested with Test Kitchen:
 
+```
 |----------+------+------------+------------|
 |          | remi | remi-php55 | remi-php56 |
 |----------+------+------------+------------|
@@ -24,6 +25,7 @@ The following platforms have been tested with Test Kitchen:
 |----------+------+------------+------------|
 | centos-7 | X    | X          | X          |
 |----------+------+------------+------------|
+```
 
 Attributes
 ----------
