@@ -3,7 +3,7 @@ maintainer 'Chef'
 maintainer_email 'Sean OMeara <sean@chef.io>'
 license 'Apache 2.0'
 description 'Installs/Configures yum-remi'
-version '0.1.0'
+version '0.1.1'
 
 supports 'centos'
 supports 'redhat'
