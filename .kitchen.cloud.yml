@@ -1,23 +1,11 @@
 #<% require 'kitchen-sync' %>
 ---
 driver_config:
-  digitalocean_client_id: <%= ENV['DIGITAL_OCEAN_CLIENT_ID'] %>
-  google_client_email: <%= ENV['GOOGLE_CLIENT_EMAIL'] %>
-  google_key_location: <%= ENV['GOOGLE_KEY_LOCATION'] %>
-  google_project: <%= ENV['GOOGLE_PROJECT'] %>
-  joyent_username: <%= ENV['SDC_CLI_ACCOUNT'] %>
-  joyent_keyfile: <%= ENV['SDC_CLI_IDENTITY'] %>
-  joyent_keyname: <%= ENV['SDC_CLI_KEY_ID'] %>
-  joyent_url: <%= ENV['SDC_CLI_URL'] %>
-  aws_access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
-  aws_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
-  aws_ssh_key_id: <%= ENV['AWS_KEYPAIR_NAME'] %>
-  flavor_id: <%= ENV['EC2_FLAVOR_ID'] %>
-  availability_zone: <%= ENV['AWS_AVAILABILITY_ZONE'] %>
+   digitalocean_api_token: <%= ENV['DIGITALOCEAN_API_TOKEN'] %>
 
 provisioner:
   name: chef_zero
-  require_chef_omnibus: 12.0.3
+  require_chef_omnibus: latest
 
 platforms:
 - name: centos-5.8
@@ -25,68 +13,41 @@ platforms:
   driver_config:
     size: 2gb
     image: centos-5-8-x64
-    region: <%= ENV['DIGITAL_OCEAN_REGION'] %>
-    ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
-    ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
+    region: <%= ENV['DIGITALOCEAN_REGION'] %>
+    ssh_key_ids: <%= ENV['DIGITALOCEAN_SSH_KEY_IDS'] %>
+    ssh_key: <%= ENV['DIGITALOCEAN_SSH_KEY_PATH'] %>
 
 - name: centos-6.5
   driver_plugin: digital_ocean
   driver_config:
     size: 2gb
     image: centos-6-5-x64
-    region: <%= ENV['DIGITAL_OCEAN_REGION'] %>
-    ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
-    ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
+    region: <%= ENV['DIGITALOCEAN_REGION'] %>
+    ssh_key_ids: <%= ENV['DIGITALOCEAN_SSH_KEY_IDS'] %>
+    ssh_key: <%= ENV['DIGITALOCEAN_SSH_KEY_PATH'] %>
 
 - name: centos-7.0
   driver_plugin: digital_ocean
   driver_config:
     size: 2gb
     image: centos-7-0-x64
-    region: <%= ENV['DIGITAL_OCEAN_REGION'] %>
-    ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
-    ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
-
-# - name: redhat-6.5
-#   driver_plugin: ec2
-#   driver_config:
-#     image_id: ami-8d756fe4
-#     username: ec2-user
-#     ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
-#   run_list:
-#   - recipe[selinux::disabled]
-
-- name: redhat-7.0
-  driver_plugin: ec2
-  driver_config:
-    image_id: ami-a8d369c0
-    username: ec2-user
-    ssh_key: <%= ENV['EC2_SSH_KEY_PATH'] %>
-  run_list:
-  - recipe[selinux::disabled]
-
-- name: fedora-20
-  driver_plugin: digital_ocean
-  driver_config:
-    size: 2gb
-    image: fedora-20-x64
-    region: <%= ENV['DIGITAL_OCEAN_REGION'] %>
-    ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
-    ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
+    region: <%= ENV['DIGITALOCEAN_REGION'] %>
+    ssh_key_ids: <%= ENV['DIGITALOCEAN_SSH_KEY_IDS'] %>
+    ssh_key: <%= ENV['DIGITALOCEAN_SSH_KEY_PATH'] %>
 
 - name: fedora-21
   driver_plugin: digital_ocean
   driver_config:
     size: 2gb
     image: fedora-21-x64
-    region: <%= ENV['DIGITAL_OCEAN_REGION'] %>
-    ssh_key_ids: <%= ENV['DIGITAL_OCEAN_SSH_KEY_IDS'] %>
-    ssh_key: <%= ENV['DIGITAL_OCEAN_SSH_KEY_PATH'] %>
+    region: <%= ENV['DIGITALOCEAN_REGION'] %>
+    ssh_key_ids: <%= ENV['DIGITALOCEAN_SSH_KEY_IDS'] %>
+    ssh_key: <%= ENV['DIGITALOCEAN_SSH_KEY_PATH'] %>
 
 suites:
 - name: remi
   run_list:
-  - recipe[yum-remi::remi]
+  - recipe[yum-remi-chef::remi]
   attributes:
     yum:
       remi:
@@ -95,7 +56,7 @@ suites:
 
 - name: remi-php55
   run_list:
-  - recipe[yum-remi::remi-php55]
+  - recipe[yum-remi-chef::remi-php55]
   attributes:
     yum:
       remi:
@@ -111,7 +72,7 @@ suites:
 
 - name: remi-php56
   run_list:
-  - recipe[yum-remi::remi-php56]
+  - recipe[yum-remi-chef::remi-php56]
   attributes:
     yum:
       remi:

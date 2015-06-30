@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe 'yum-remi::remi-php55' do
+describe 'yum-remi-chef::remi-php55' do
   cached(:centos_70_remi_php55) do
     ChefSpec::ServerRunner.new(
       platform: 'centos',
       version: '7.0'
-      ) do |node|
+    ) do |node|
       node.set['yum']['remi-php55']['enabled'] = true
       node.set['yum']['remi-php55']['managed'] = true
       node.set['yum']['remi-php55-debuginfo']['enabled'] = true

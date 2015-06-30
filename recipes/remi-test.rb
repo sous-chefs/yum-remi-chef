@@ -1,6 +1,6 @@
 #
 # Author:: Sean OMeara (<sean@chef.io>)
-# Recipe:: yum-remi::remi
+# Recipe:: yum-remi-chef::remi
 #
 # Copyright 2015, Chef
 #

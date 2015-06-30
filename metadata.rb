@@ -1,4 +1,4 @@
-name 'yum-remi'
+name 'yum-remi-chef'
 maintainer 'Chef'
 maintainer_email 'Sean OMeara <sean@chef.io>'
 license 'Apache 2.0'

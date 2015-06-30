@@ -1,6 +1,6 @@
 #
 # Author:: Sean OMeara (<sean@chef.io>)
-# Recipe:: yum-remi::remi-php56
+# Recipe:: yum-remi-chef::remi-php56
 #
 # Copyright 2015, Chef
 #
@@ -17,7 +17,7 @@
 # limitations under the License.
 
 include_recipe 'yum-epel' unless node['platform'] == 'fedora'
-include_recipe 'yum-remi::remi'
+include_recipe 'yum-remi-chef::remi'
 
 %w(remi-php56 remi-php56-debuginfo).each do |repo|
   next unless node['yum'][repo]['managed']
