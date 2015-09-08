@@ -1,5 +1,7 @@
 yum-remi Cookbook
 =================
+[![Build Status](https://travis-ci.org/chef-cookbooks/yum-remi.svg?branch=master)](http://travis-ci.org/chef-cookbooks/yum-epel)
+[![Cookbook Version](https://img.shields.io/cookbook/v/yum-remi.svg)](https://supermarket.chef.io/cookbooks/yum-epel)
 
 The yum-remi cookbook takes over management of the repositoryids of
 the [remi](http://rpms.famillecollet.com/) repository . It allows
