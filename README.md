@@ -10,11 +10,13 @@ attribute manipulation of `remi`, `remi-php55`, `remi-php56`, and
 
 Requirements
 ------------
-* Chef 11 or higher
-* yum cookbook version 3.0.0 or higher
+#### Chef
+* Chef 11+
 
-Platform Support
-----------------
+#### Cookbooks
+* yum version 3.0.0 or higher
+
+#### Platforms
 The following platforms have been tested with Test Kitchen:
 
 ```
@@ -117,11 +119,11 @@ include_recipe 'yum-remi'
 
 License & Authors
 -----------------
-- Author:: Sean OMeara (<sean@chef.io>)
 
-```text
-Copyright:: 2015 Chef Software, Inc.
+**Author:** Cookbook Engineering Team (<cookbooks@chef.io>)
 
+**Copyright:** 2015, Chef Software, Inc.
+```
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
