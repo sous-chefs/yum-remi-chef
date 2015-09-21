@@ -11,6 +11,42 @@ platforms:
   - name: fedora-21
 
 suites:
-  - name: default
-    run_list:
-      - recipe[yum-remi::default]
+- name: remi
+  run_list:
+  - recipe[yum-remi-chef::remi]
+  attributes:
+    yum:
+      remi:
+        enabled: true
+        managed: true
+
+- name: remi-php55
+  run_list:
+  - recipe[yum-remi-chef::remi-php55]
+  attributes:
+    yum:
+      remi:
+        enabled: true
+        managed: true
+      remi-php55:
+        enabled: true
+        managed: true
+  excludes: [ 
+    'fedora-20',
+    'fedora-21',
+  ]
+
+- name: remi-php56
+  run_list:
+  - recipe[yum-remi-chef::remi-php56]
+  attributes:
+    yum:
+      remi:
+        enabled: true
+        managed: true
+      remi-php56:
+        enabled: true
+        managed: true
+  excludes: [
+    'fedora-21' 
+  ]
