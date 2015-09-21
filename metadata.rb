@@ -1,4 +1,4 @@
-name 'yum-remi'
+name 'yum-remi-chef'
 maintainer 'Chef Software, Inc.'
 maintainer_email 'cookbooks@chef.io'
 license 'Apache 2.0'
