@@ -6,6 +6,7 @@ description 'Installs/Configures yum-remi'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '0.1.1'
 
+depends 'yum', '~> 3.2'
 depends 'yum-epel'
 
 %w(amazon centos fedora oracle redhat scientific).each do |os|
