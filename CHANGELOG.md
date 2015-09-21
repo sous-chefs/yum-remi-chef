@@ -1,6 +1,6 @@
-yum-remi Cookbook CHANGELOG
+yum-remi-chef Cookbook CHANGELOG
 ===========================
-This file is used to list changes made in each version of the yum-remi cookbook.
+This file is used to list changes made in each version of the yum-remi-chef cookbook.
 
 v0.1.1
 ------

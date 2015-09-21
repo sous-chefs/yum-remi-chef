@@ -1,9 +1,9 @@
-yum-remi Cookbook
+yum-remi-chef Cookbook
 =================
-[![Build Status](https://travis-ci.org/chef-cookbooks/yum-remi.svg?branch=master)](http://travis-ci.org/chef-cookbooks/yum-epel)
-[![Cookbook Version](https://img.shields.io/cookbook/v/yum-remi.svg)](https://supermarket.chef.io/cookbooks/yum-epel)
+[![Build Status](https://travis-ci.org/chef-cookbooks/yum-remi-chef.svg?branch=master)](http://travis-ci.org/chef-cookbooks/yum-remi-chef)
+[![Cookbook Version](https://img.shields.io/cookbook/v/yum-remi-chef.svg)](https://supermarket.chef.io/cookbooks/yum-remi-chef)
 
-The yum-remi cookbook takes over management of the repositoryids of
+The yum-remi-chef cookbook takes over management of the repository ids of
 the [remi](http://rpms.famillecollet.com/) repository . It allows
 attribute manipulation of `remi`, `remi-php55`, `remi-php56`, and
 `remi-test` repositories.
