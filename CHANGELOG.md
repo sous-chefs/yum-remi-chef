@@ -2,6 +2,10 @@ yum-remi-chef Cookbook CHANGELOG
 ===========================
 This file is used to list changes made in each version of the yum-remi-chef cookbook.
 
+v1.0.1 (2015-09-21)
+-------------------
+- Fix repo URLs in metadata
+
 v1.0.0 (2015-09-21)
 -------------------
 - Fixed the cookbook name in the metadata, readme, and tests.  The cookbook repo was named yum-remi-chef, supermarket listed it as yum-remi-chef, but the metadata listed yum-remi, which is a name already used on Supermarket.  The metadata has been corrected to use the same name.  If you used this cookbook previously you'll need to update all references to use the new name.
