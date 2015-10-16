@@ -1,0 +1,56 @@
+settings:
+  parallel: true
+
+driver:
+  name: docker
+  # privileged is required otherwise the container doesn't boot right
+  privileged: true
+
+platforms:
+- name: centos-7.1
+  driver:
+    image: centos:7
+    platform: rhel
+    run_command: /usr/lib/systemd/systemd
+    provision_command:
+      - /bin/yum install -y initscripts net-tools wget
+
+suites:
+- name: remi
+  run_list:
+  - recipe[yum-remi-chef::remi]
+  attributes:
+    yum:
+      remi:
+        enabled: true
+        managed: true
+
+- name: remi-php55
+  run_list:
+  - recipe[yum-remi-chef::remi-php55]
+  attributes:
+    yum:
+      remi:
+        enabled: true
+        managed: true
+      remi-php55:
+        enabled: true
+        managed: true
+  excludes: [ 
+    'fedora-21',
+  ]
+
+- name: remi-php56
+  run_list:
+  - recipe[yum-remi-chef::remi-php56]
+  attributes:
+    yum:
+      remi:
+        enabled: true
+        managed: true
+      remi-php56:
+        enabled: true
+        managed: true
+  excludes: [
+    'fedora-21' 
+  ]
