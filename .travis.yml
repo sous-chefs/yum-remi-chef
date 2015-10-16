@@ -14,9 +14,9 @@ services: docker
 
 env:
   matrix:
-  - INSTANCE=default-remi-php56
-  - INSTANCE=default-remi-php55
-  - INSTANCE=default-remi
+  - INSTANCE=remi-php56-centos-71
+  - INSTANCE=remi-php55-centos-71
+  - INSTANCE=remi-centos-71
 
 # Don't `bundle install`
 install: echo "skip bundle install"
