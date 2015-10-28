@@ -1,6 +1,9 @@
-yum-remi-chef Cookbook CHANGELOG
-===========================
-This file is used to list changes made in each version of the yum-remi-chef cookbook.
+yum-remi-chef CHANGELOG
+=======================
+
+v1.0.2 (2015-10-28)
+-------------------
+- Fixing Chef 13 nil property deprecation warnings
 
 v1.0.1 (2015-09-21)
 -------------------
