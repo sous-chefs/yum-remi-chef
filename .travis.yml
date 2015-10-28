@@ -17,7 +17,6 @@ env:
   - INSTANCE=remi-centos-5
   - INSTANCE=remi-centos-6
   - INSTANCE=remi-centos-7
-  - INSTANCE=remi-fedora-22
   - INSTANCE=remi-php55-centos-5
   - INSTANCE=remi-php55-centos-6
   - INSTANCE=remi-php55-centos-7
