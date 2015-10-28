@@ -3,17 +3,23 @@ settings:
 
 driver:
   name: docker
-  # privileged is required otherwise the container doesn't boot right
-  privileged: true
 
 platforms:
-- name: centos-7.1
+- name: centos-5
+  driver:
+    image: centos:5
+
+- name: centos-6
+  driver:
+    image: centos:6
+
+- name: centos-7
   driver:
     image: centos:7
-    platform: rhel
-    run_command: /usr/lib/systemd/systemd
-    provision_command:
-      - /bin/yum install -y initscripts net-tools wget
+
+- name: fedora-22
+  driver:
+    image: fedora:22
 
 suites:
 - name: remi
@@ -37,7 +43,7 @@ suites:
         enabled: true
         managed: true
   excludes: [ 
-    'fedora-21',
+    'fedora-22',
   ]
 
 - name: remi-php56
@@ -52,5 +58,5 @@ suites:
         enabled: true
         managed: true
   excludes: [
-    'fedora-21' 
+    'fedora-22' 
   ]

@@ -14,9 +14,16 @@ services: docker
 
 env:
   matrix:
-  - INSTANCE=remi-php56-centos-71
-  - INSTANCE=remi-php55-centos-71
-  - INSTANCE=remi-centos-71
+  - INSTANCE=remi-centos-5
+  - INSTANCE=remi-centos-6
+  - INSTANCE=remi-centos-7
+  - INSTANCE=remi-fedora-22
+  - INSTANCE=remi-php55-centos-5
+  - INSTANCE=remi-php55-centos-6
+  - INSTANCE=remi-php55-centos-7
+  - INSTANCE=remi-php56-centos-5
+  - INSTANCE=remi-php56-centos-6
+  - INSTANCE=remi-php56-centos-7
 
 # Don't `bundle install`
 install: echo "skip bundle install"
