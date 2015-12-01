@@ -1,16 +1,14 @@
-yum-remi-chef CHANGELOG
-=======================
+# yum-remi-chef CHANGELOG
+## v1.0.3 (2015-11-30)
+- Fixed false values not being passed
 
-v1.0.2 (2015-10-28)
--------------------
+## v1.0.2 (2015-10-28)
 - Fixing Chef 13 nil property deprecation warnings
 
-v1.0.1 (2015-09-21)
--------------------
+## v1.0.1 (2015-09-21)
 - Fix repo URLs in metadata
 
-v1.0.0 (2015-09-21)
--------------------
+## v1.0.0 (2015-09-21)
 - Fixed the cookbook name in the metadata, readme, and tests.  The cookbook repo was named yum-remi-chef, supermarket listed it as yum-remi-chef, but the metadata listed yum-remi, which is a name already used on Supermarket.  The metadata has been corrected to use the same name.  If you used this cookbook previously you'll need to update all references to use the new name.
 - Added Yum dependency to the metadata
 - Added Chef standard Rubocop file
@@ -21,10 +19,8 @@ v1.0.0 (2015-09-21)
 - Added Travis and cookbook version badges to the readme
 - Added Oracle Linux and Amazon Linux to the metadata
 
-v0.1.1 (2015-06-30)
-------
+## v0.1.1 (2015-06-30)
 Fixing up some tests
 
-v0.1.0
-------
+## v0.1.0
 initial release
