@@ -1,7 +1,7 @@
 @test "install a package" {
-      sudo yum install -y php
+    yum install -y php
 }
 
 @test "verify expected version" {
-      php --version | grep "^PHP 5.5"
+    php --version | grep "^PHP 5.5"
 }
