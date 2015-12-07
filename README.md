@@ -82,7 +82,7 @@ default['yum']['remi-php55']['gpgkey'] = 'http://rpms.famillecollet.com/RPM-GPG-
 ## Usage Example
 To disable the remi repository through a Role or Environment definition
 
-```
+```ruby
 default_attributes(
   :yum => {
     :remi => {
@@ -97,7 +97,7 @@ default_attributes(
 ## More Examples
 Point the base and updates repositories at an internally hosted server.
 
-```
+```ruby
 node.default['yum']['remi']['enabled'] = true
 node.default['yum']['remi']['mirrorlist'] = nil
 node.default['yum']['remi']['baseurl'] = 'https://internal.example.com/enterprise/5/remi/$basearch/'
