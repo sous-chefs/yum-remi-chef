@@ -50,3 +50,15 @@ suites:
       remi-php56:
         enabled: true
         managed: true
+
+- name: remi-php70
+  run_list:
+  - recipe[yum-remi-chef::remi-php70]
+  attributes:
+    yum:
+      remi:
+        enabled: true
+        managed: true
+      remi-php70:
+        enabled: true
+        managed: true
