@@ -21,7 +21,6 @@ env:
   - INSTANCE=remi-php56-centos-5
   - INSTANCE=remi-php56-centos-6
   - INSTANCE=remi-php56-centos-7
-  - INSTANCE=remi-php70-centos-5
   - INSTANCE=remi-php70-centos-6
   - INSTANCE=remi-php70-centos-7
 
