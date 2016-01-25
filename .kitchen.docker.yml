@@ -53,7 +53,7 @@ suites:
 
 - name: remi-php70
   run_list:
-  - recipe[yum-remi-chef::remi-php56]
+  - recipe[yum-remi-chef::remi-php70]
   attributes:
     yum:
       remi:

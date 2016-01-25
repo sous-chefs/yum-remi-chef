@@ -1,6 +1,6 @@
 #
 # Author:: Sean OMeara (<sean@chef.io>)
-# Recipe:: yum-remi-chef::remi-php56
+# Recipe:: yum-remi-chef::remi-php70
 #
 # Copyright 2015, Chef Software, Inc.
 #
