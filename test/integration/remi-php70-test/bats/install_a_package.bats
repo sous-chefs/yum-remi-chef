@@ -8,8 +8,8 @@
     [ ! -e "/etc/yum.repos.d/remi-php56.repo" ]
     [ ! -e "/etc/yum.repos.d/remi-php70-debuginfo.repo" ]
     [ ! -e "/etc/yum.repos.d/remi-php70-test-debuginfo.repo" ]
-    [ ! -e "/etc/yum.repos.d/remi-php70-test.repo" ]
-    [ ! -e "/etc/yum.repos.d/remi-php70.repo" ]
+    [ -e "/etc/yum.repos.d/remi-php70-test.repo" ]
+    [ -e "/etc/yum.repos.d/remi-php70.repo" ]
     [ -e "/etc/yum.repos.d/remi-safe.repo" ] || cat /etc/redhat-release | grep ^Fedora
     [ ! -e "/etc/yum.repos.d/remi-test-debuginfo.repo" ]
     [ ! -e "/etc/yum.repos.d/remi-test.repo" ]
@@ -21,5 +21,5 @@
 }
 
 @test "verify expected version" {
-    php --version | grep "^PHP 5.4" || cat /etc/redhat-release | grep ^Fedora
+    php --version | grep "^PHP 7.0"
 }

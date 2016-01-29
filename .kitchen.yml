@@ -14,60 +14,84 @@ verifier:
 
 
 platforms:
-- name: centos-5
-  driver:
-    image: centos:5
+  - name: centos-5
+    driver:
+      image: centos:5
 
-- name: centos-6
-  driver:
-    image: centos:6
+  - name: centos-6
+    driver:
+      image: centos:6
 
-- name: centos-7
-  driver:
-    image: centos:7
+  - name: centos-7
+    driver:
+      image: centos:7
+
+  - name: fedora-20
+    driver:
+      image: fedora:20
+
+  - name: fedora-21
+    driver:
+      image: fedora:21
+
+  - name: fedora-22
+    driver:
+      image: fedora:22
+
+  - name: fedora-23
+    driver:
+      image: fedora:23
 
 suites:
-- name: remi
-  run_list:
-  - recipe[yum-remi-chef::remi]
-  attributes:
-    yum:
-      remi:
-        enabled: true
-        managed: true
+  - name: default
+    run_list:
+      - recipe[yum-remi-chef::default]
 
-- name: remi-php55
-  run_list:
-  - recipe[yum-remi-chef::remi-php55]
-  attributes:
-    yum:
-      remi:
-        enabled: true
-        managed: true
-      remi-php55:
-        enabled: true
-        managed: true
+  - name: remi-php55
+    run_list:
+      - recipe[yum-remi-chef::remi-php55]
+    excludes:
+      - fedora-20
+      - fedora-21
+      - fedora-22
+      - fedora-23
 
-- name: remi-php56
-  run_list:
-  - recipe[yum-remi-chef::remi-php56]
-  attributes:
-    yum:
-      remi:
-        enabled: true
-        managed: true
-      remi-php56:
-        enabled: true
-        managed: true
+  - name: remi-php56
+    run_list:
+      - recipe[yum-remi-chef::remi-php56]
+    excludes:
+      - fedora-21
+      - fedora-22
+      - fedora-23
 
-- name: remi-php70
-  run_list:
-  - recipe[yum-remi-chef::remi-php70]
-  attributes:
-    yum:
-      remi:
-        enabled: true
-        managed: true
-      remi-php70:
-        enabled: true
-        managed: true
+  - name: remi-php70-test
+    run_list:
+      - recipe[yum-remi-chef::remi-php70-test]
+    excludes:
+      - fedora-20
+      - centos-5
+
+  - name: remi-php70
+    run_list:
+      - recipe[yum-remi-chef::remi-php70]
+    excludes:
+      - fedora-20
+      - centos-5
+
+  - name: remi-safe
+    run_list:
+      - recipe[yum-remi-chef::remi-safe]
+    excludes:
+      - fedora-20
+      - fedora-21
+      - fedora-22
+      - fedora-23
+      - centos-5
+
+  - name: remi-test
+    run_list:
+      - recipe[yum-remi-chef::remi-test]
+
+  - name: remi
+    run_list:
+      - recipe[yum-remi-chef::remi]

@@ -10,10 +10,10 @@
     [ ! -e "/etc/yum.repos.d/remi-php70-test-debuginfo.repo" ]
     [ ! -e "/etc/yum.repos.d/remi-php70-test.repo" ]
     [ ! -e "/etc/yum.repos.d/remi-php70.repo" ]
-    [ -e "/etc/yum.repos.d/remi-safe.repo" ] || cat /etc/redhat-release | grep ^Fedora
+    [ -e "/etc/yum.repos.d/remi-safe.repo" ]
     [ ! -e "/etc/yum.repos.d/remi-test-debuginfo.repo" ]
     [ ! -e "/etc/yum.repos.d/remi-test.repo" ]
-    [ -e "/etc/yum.repos.d/remi.repo" ]
+    [ ! -e "/etc/yum.repos.d/remi.repo" ]
 }
 
 @test "install a package" {
@@ -21,5 +21,11 @@
 }
 
 @test "verify expected version" {
-    php --version | grep "^PHP 5.4" || cat /etc/redhat-release | grep ^Fedora
+    expected_version='NaN'
+    if grep -E 'CentOS[^0-9]*6' /etc/redhat-release; then
+        expected_version='5.3'
+    elif grep -E 'CentOS[^0-9]*7' /etc/redhat-release; then
+        expected_version='5.4'
+    fi
+    php --version | grep "^PHP ${expected_version}"
 }
