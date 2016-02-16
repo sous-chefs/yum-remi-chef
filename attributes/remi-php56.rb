@@ -19,7 +19,7 @@ else
   when 5
     default['yum']['remi-php56']['baseurl'] = 'http://rpms.famillecollet.com/enterprise/5/php56/$basearch/'
     default['yum']['remi-php56']['description'] = 'Les RPM de remi de PHP 5.6 pour Enterprise Linux 5 - $basearch'
-  when 6
+  when 6, 2013, 2014, 2015
     default['yum']['remi-php56']['baseurl'] = 'http://rpms.famillecollet.com/enterprise/6/php56/$basearch/'
     default['yum']['remi-php56']['description'] = 'Les RPM de remi de PHP 5.6 pour Enterprise Linux 6 - $basearch'
   when 7
