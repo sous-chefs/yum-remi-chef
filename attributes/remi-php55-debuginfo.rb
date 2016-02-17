@@ -19,7 +19,7 @@ else
   when 5
     default['yum']['remi-php55-debuginfo']['baseurl'] = 'http://rpms.famillecollet.com/enterprise/5/debug-php55/$basearch/'
     default['yum']['remi-php55-debuginfo']['description'] = 'Les RPM de remi de PHP 5.5 pour Enterprise Linux 5 - $basearch - debuginfo'
-  when 6
+  when 6, 2013, 2014, 2015
     default['yum']['remi-php55-debuginfo']['baseurl'] = 'http://rpms.famillecollet.com/enterprise/6/debug-php55/$basearch/'
     default['yum']['remi-php55-debuginfo']['description'] = 'Les RPM de remi de PHP 5.5 pour Enterprise Linux 6 - $basearch - debuginfo'
   when 7
