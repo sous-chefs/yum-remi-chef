@@ -1,4 +1,8 @@
 # yum-remi-chef CHANGELOG
+
+## v1.0.4 (2016-02-16)
+- Add support for Amazon Linux
+
 ## v1.0.3 (2015-11-30)
 - Fixed false values not being passed
 
