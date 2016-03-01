@@ -20,14 +20,10 @@ include_recipe 'yum-epel' unless node['platform'] == 'fedora'
 include_recipe 'yum-remi-chef::remi-safe' unless node['platform'] == 'fedora'
 
 delete_conflicting_repositories = false
-if !node['recipes'].include?('yum-remi-chef::remi-php55') ||
-   !node['recipes'].include?('yum-remi-chef::remi-php55-debuginfo') ||
-   !node['recipes'].include?('yum-remi-chef::remi-php56') ||
-   !node['recipes'].include?('yum-remi-chef::remi-php56-debuginfo') ||
-   !node['recipes'].include?('yum-remi-chef::remi-php70') ||
-   !node['recipes'].include?('yum-remi-chef::remi-php70-debuginfo') ||
-   !node['recipes'].include?('yum-remi-chef::remi-php70-test') ||
-   !node['recipes'].include?('yum-remi-chef::remi-php70-test-debuginfo')
+if !node.recipe?('yum-remi-chef::remi-php55') &&
+   !node.recipe?('yum-remi-chef::remi-php56') &&
+   !node.recipe?('yum-remi-chef::remi-php70') &&
+   !node.recipe?('yum-remi-chef::remi-php70-test')
   delete_conflicting_repositories = true
 end
 
