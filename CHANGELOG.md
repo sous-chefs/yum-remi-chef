@@ -1,6 +1,6 @@
 # yum-remi-chef CHANGELOG
 
-## UNRELEASED
+## v1.1.4 (2016-03-17)
 - php7 repo added [@vvchik](https://github.com/vvchik) [PR #2](https://github.com/chef-cookbooks/yum-remi-chef/pull/2)
 
 ## v1.0.4 (2016-02-16)
