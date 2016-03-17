@@ -34,6 +34,8 @@ The following platforms have been tested with Test Kitchen:
 
 Amazon Linux is _not_ supported by the Remi repository. Amazon maintains their own PHP packages natively, as php53, php54, php55, php56 and php70.
 
+centos-5 with remi-php70 is _not_ working currently. 
+
 ## Attributes
 The following attributes are set by default
 
