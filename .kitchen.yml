@@ -1,6 +1,6 @@
 driver:
   name: dokken
-  chef_version: 12.5.1
+  chef_version: latest
 
 transport:
   name: dokken
@@ -11,6 +11,7 @@ provisioner:
 verifier:
   root_path: '/opt/verifier'
   sudo: false
+
 
 platforms:
 - name: centos-5
@@ -56,5 +57,17 @@ suites:
         enabled: true
         managed: true
       remi-php56:
+        enabled: true
+        managed: true
+
+- name: remi-php70
+  run_list:
+  - recipe[yum-remi-chef::remi-php70]
+  attributes:
+    yum:
+      remi:
+        enabled: true
+        managed: true
+      remi-php70:
         enabled: true
         managed: true
