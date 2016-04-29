@@ -12,7 +12,7 @@
     [ ! -e "/etc/yum.repos.d/remi-php70.repo" ]
     [ -e "/etc/yum.repos.d/remi-safe.repo" ] || cat /etc/redhat-release | grep ^Fedora
     [ ! -e "/etc/yum.repos.d/remi-test-debuginfo.repo" ]
-    [ ! -e "/etc/yum.repos.d/remi-test.repo" ]
+    [ -e "/etc/yum.repos.d/remi-test.repo" ]
     [ -e "/etc/yum.repos.d/remi.repo" ]
 }
 

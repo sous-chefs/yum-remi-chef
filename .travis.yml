@@ -12,17 +12,37 @@ services: docker
 
 env:
   matrix:
-  - INSTANCE=remi-centos-5
-  - INSTANCE=remi-centos-6
-  - INSTANCE=remi-centos-7
-  - INSTANCE=remi-php55-centos-5
-  - INSTANCE=remi-php55-centos-6
-  - INSTANCE=remi-php55-centos-7
-  - INSTANCE=remi-php56-centos-5
-  - INSTANCE=remi-php56-centos-6
-  - INSTANCE=remi-php56-centos-7
-  - INSTANCE=remi-php70-centos-6
-  - INSTANCE=remi-php70-centos-7
+    - INSTANCE=default-centos-5
+    - INSTANCE=default-centos-6
+    - INSTANCE=default-centos-7
+    - INSTANCE=default-fedora-20
+    - INSTANCE=default-fedora-21
+    - INSTANCE=default-fedora-22
+    - INSTANCE=default-fedora-23
+    - INSTANCE=remi-php55-centos-5
+    - INSTANCE=remi-php55-centos-6
+    - INSTANCE=remi-php55-centos-7
+    - INSTANCE=remi-php56-centos-5
+    - INSTANCE=remi-php56-centos-6
+    - INSTANCE=remi-php56-centos-7
+    - INSTANCE=remi-php56-fedora-20
+    - INSTANCE=remi-php70-test-fedora-21
+    - INSTANCE=remi-php70-test-fedora-22
+    - INSTANCE=remi-php70-test-fedora-23
+    - INSTANCE=remi-php70-centos-6
+    - INSTANCE=remi-php70-centos-7
+    - INSTANCE=remi-php70-fedora-21
+    - INSTANCE=remi-php70-fedora-22
+    - INSTANCE=remi-php70-fedora-23
+    - INSTANCE=remi-safe-centos-6
+    - INSTANCE=remi-safe-centos-7
+    - INSTANCE=remi-centos-5
+    - INSTANCE=remi-centos-6
+    - INSTANCE=remi-centos-7
+    - INSTANCE=remi-fedora-20
+    - INSTANCE=remi-fedora-21
+    - INSTANCE=remi-fedora-22
+    - INSTANCE=remi-fedora-23
 
 # Don't `bundle install`
 install: echo "skip bundle install"
