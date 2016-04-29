@@ -55,13 +55,6 @@ suites:
       - fedora-22
       - fedora-23
 
-  - name: remi-php70-test
-    run_list:
-      - recipe[yum-remi-chef::remi-php70-test]
-    excludes:
-      - fedora-20
-      - centos-5
-
   - name: remi-php70
     run_list:
       - recipe[yum-remi-chef::remi-php70]
@@ -78,10 +71,6 @@ suites:
       - fedora-22
       - fedora-23
       - centos-5
-
-  - name: remi-test
-    run_list:
-      - recipe[yum-remi-chef::remi-test]
 
   - name: remi
     run_list:
