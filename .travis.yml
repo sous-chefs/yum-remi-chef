@@ -1,4 +1,5 @@
 sudo: required
+dist: trusty
 
 # install the pre-release chef-dk.  Use chef-stable-precise to install the stable release
 addons:
@@ -15,6 +16,7 @@ env:
   - INSTANCE=remi-centos-5
   - INSTANCE=remi-centos-6
   - INSTANCE=remi-centos-7
+  - INSTANCE=remi-fedora-23
   - INSTANCE=remi-php55-centos-5
   - INSTANCE=remi-php55-centos-6
   - INSTANCE=remi-php55-centos-7
@@ -33,6 +35,7 @@ before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
   - eval "$(/opt/chefdk/bin/chef shell-init bash)"
   - /opt/chefdk/embedded/bin/chef gem install kitchen-dokken
+
 script:
   - /opt/chefdk/embedded/bin/chef --version
   - /opt/chefdk/embedded/bin/rubocop --version
@@ -40,4 +43,4 @@ script:
   - /opt/chefdk/embedded/bin/foodcritic --version
   - /opt/chefdk/embedded/bin/foodcritic . --exclude spec -f any
   - /opt/chefdk/embedded/bin/rspec
-  - KITCHEN_YAML=.kitchen.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
+  - KITCHEN_LOCAL_YAML=.kitchen.docker.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}

@@ -1,30 +1,15 @@
 driver:
-  name: dokken
-  chef_version: latest
-
-transport:
-  name: dokken
+  name: vagrant
 
 provisioner:
-  name: dokken
-
-verifier:
-  root_path: '/opt/verifier'
-  sudo: false
-
+  name: chef_zero
 
 platforms:
-- name: centos-5
-  driver:
-    image: centos:5
-
-- name: centos-6
-  driver:
-    image: centos:6
-
-- name: centos-7
-  driver:
-    image: centos:7
+  - name: centos-5.11
+  - name: centos-6.7
+  - name: centos-7.2
+  - name: fedora-23
+    run_list: yum::dnf_yum_compat
 
 suites:
 - name: remi
