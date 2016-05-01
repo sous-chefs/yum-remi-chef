@@ -4,6 +4,9 @@ driver:
 provisioner:
   name: chef_zero
 
+verifier:
+  name: inspec
+
 platforms:
   - name: centos-5.11
   - name: centos-6.7
@@ -15,6 +18,7 @@ suites:
 - name: remi
   run_list:
   - recipe[yum-remi-chef::remi]
+  - recipe[test::default]
   attributes:
     yum:
       remi:
@@ -24,6 +28,7 @@ suites:
 - name: remi-php55
   run_list:
   - recipe[yum-remi-chef::remi-php55]
+  - recipe[test::default]
   attributes:
     yum:
       remi:
@@ -36,6 +41,7 @@ suites:
 - name: remi-php56
   run_list:
   - recipe[yum-remi-chef::remi-php56]
+  - recipe[test::default]
   attributes:
     yum:
       remi:
@@ -48,6 +54,7 @@ suites:
 - name: remi-php70
   run_list:
   - recipe[yum-remi-chef::remi-php70]
+  - recipe[test::default]
   attributes:
     yum:
       remi:

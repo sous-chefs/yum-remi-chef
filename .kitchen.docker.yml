@@ -10,8 +10,7 @@ provisioner:
   name: dokken
 
 verifier:
-  root_path: '/opt/verifier'
-  sudo: false
+  name: inspec
 
 platforms:
 - name: centos-5
@@ -31,10 +30,10 @@ platforms:
 - name: centos-7
   driver:
     image: centos:7
+    pid_one_command: /usr/lib/systemd/systemd
     intermediate_instructions:
       - RUN yum clean all
       - RUN yum -y install net-tools lsof
-    pid_one_command: /usr/lib/systemd/systemd
 
 - name: fedora-23
   driver:
@@ -46,6 +45,7 @@ suites:
 - name: remi
   run_list:
   - recipe[yum-remi-chef::remi]
+  - recipe[test::default]
   attributes:
     yum:
       remi:
@@ -55,6 +55,7 @@ suites:
 - name: remi-php55
   run_list:
   - recipe[yum-remi-chef::remi-php55]
+  - recipe[test::default]
   attributes:
     yum:
       remi:
@@ -67,6 +68,7 @@ suites:
 - name: remi-php56
   run_list:
   - recipe[yum-remi-chef::remi-php56]
+  - recipe[test::default]
   attributes:
     yum:
       remi:
@@ -79,6 +81,7 @@ suites:
 - name: remi-php70
   run_list:
   - recipe[yum-remi-chef::remi-php70]
+  - recipe[test::default]
   attributes:
     yum:
       remi:
