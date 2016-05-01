@@ -1,7 +1,6 @@
----
 driver:
   name: dokken
-  chef_version: 12.5.1
+  chef_version: latest
   privileged: true # because Docker and SystemD/Upstart
 
 transport:
@@ -40,11 +39,9 @@ platforms:
 - name: fedora-23
   driver:
     image: fedora:23
-    intermediate_instructions:
-    - RUN yum clean all
     pid_one_command: /usr/lib/systemd/systemd
     intermediate_instructions:
-      - RUN yum -y install tar yum
+      - RUN dnf -y install tar yum
 suites:
 - name: remi
   run_list:
