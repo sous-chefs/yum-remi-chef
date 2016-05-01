@@ -20,11 +20,14 @@ env:
   - INSTANCE=remi-php55-centos-5
   - INSTANCE=remi-php55-centos-6
   - INSTANCE=remi-php55-centos-7
+  - INSTANCE=remi-php55-fedora-23
   - INSTANCE=remi-php56-centos-5
   - INSTANCE=remi-php56-centos-6
   - INSTANCE=remi-php56-centos-7
+  - INSTANCE=remi-php56-fedora-23
   - INSTANCE=remi-php70-centos-6
   - INSTANCE=remi-php70-centos-7
+  - INSTANCE=remi-php70-fedora-23
 
 # Don't `bundle install`
 install: echo "skip bundle install"

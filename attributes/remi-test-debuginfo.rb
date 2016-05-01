@@ -6,14 +6,8 @@ default['yum']['remi-test']['managed'] = false
 
 case node['platform']
 when 'fedora'
-  case node['platform_version'].to_i
-  when 20
-    default['yum']['remi-test']['baseurl'] = 'http://rpms.famillecollet.com/fedora/20/debug-remi-test/$basearch/'
-    default['yum']['remi-test']['description'] = 'Les RPM de remi de PHP 5.6 pour Fedora Linux 20 - $basearch - debuginfo'
-  when 21
-    default['yum']['remi-test']['baseurl'] = 'http://rpms.famillecollet.com/fedora/21/debug-remi-test/$basearch/'
-    default['yum']['remi-test']['description'] = 'Les RPM de remi de php 5.6 pour Fedora Linux 21 - $basearch - debuginfo'
-  end
+  default['yum']['remi-test']['baseurl'] = "http://rpms.famillecollet.com/fedora/#{node['platform_version'].to_i}/debug-remi-test/$basearch/"
+  default['yum']['remi-test']['description'] = "Les RPM de remi de PHP 5.6 pour Fedora Linux #{node['platform_version'].to_i} - $basearch - debuginfo"
 else
   case node['platform_version'].to_i
   when 5
