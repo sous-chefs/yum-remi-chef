@@ -1,35 +1,29 @@
-AllCops:
-  Exclude:
-    - vendor/**/*
-    - Guardfile
-
-AlignParameters:
-  Enabled: false
-ClassLength:
-  Enabled: false
-CyclomaticComplexity:
-  Enabled: false
-Documentation:
-  Enabled: false
-Encoding:
-  Enabled: false
-Style/FileName:
-  Enabled: false
-Style/Alias:
-  Enabled: false
-Style/SpaceBeforeFirstArg:
-  Enabled: false
-LineLength:
-  Enabled: false
+# Rubocop todo:
 Lint/AmbiguousRegexpLiteral:
-  Enabled: false
-MethodLength:
-  Enabled: false
-Metrics/AbcSize:
-  Enabled: false
-Metrics/ModuleLength:
-  Enabled: false
-PerceivedComplexity:
-  Enabled: false
-Style/ClassAndModuleChildren:
-  Enabled: false
+  Exclude:
+    - 'test/integration/remi-php55/default_spec.rb'
+    - 'test/integration/remi-php56/default_spec.rb'
+    - 'test/integration/remi-php70/default_spec.rb'
+    - 'test/integration/remi/default_spec.rb'
+
+# Configuration parameters: AllowHeredoc, AllowURI, URISchemes.
+# URISchemes: http, https
+Metrics/LineLength:
+  Max: 161
+
+# Configuration parameters: ExpectMatchingDefinition, Regex, IgnoreExecutableScripts.
+Style/FileName:
+  Exclude:
+    - 'attributes/remi-debuginfo.rb'
+    - 'attributes/remi-php55-debuginfo.rb'
+    - 'attributes/remi-php55.rb'
+    - 'attributes/remi-php56-debuginfo.rb'
+    - 'attributes/remi-php56.rb'
+    - 'attributes/remi-php70-debuginfo.rb'
+    - 'attributes/remi-php70.rb'
+    - 'attributes/remi-test-debuginfo.rb'
+    - 'attributes/remi-test.rb'
+    - 'recipes/remi-php55.rb'
+    - 'recipes/remi-php56.rb'
+    - 'recipes/remi-php70.rb'
+    - 'recipes/remi-test.rb'
