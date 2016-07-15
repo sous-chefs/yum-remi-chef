@@ -9,6 +9,13 @@ addons:
     packages:
       - chefdk
 
+# Don't `bundle install` which takes about 1.5 mins
+install: echo "skip bundle install"
+
+branches:
+  only:
+  - master
+
 services: docker
 
 env:
@@ -16,21 +23,18 @@ env:
   - INSTANCE=remi-centos-5
   - INSTANCE=remi-centos-6
   - INSTANCE=remi-centos-7
-  - INSTANCE=remi-fedora-23
+  - INSTANCE=remi-fedora-latest
   - INSTANCE=remi-php55-centos-5
   - INSTANCE=remi-php55-centos-6
   - INSTANCE=remi-php55-centos-7
-  - INSTANCE=remi-php55-fedora-23
+  - INSTANCE=remi-php55-fedora-latest
   - INSTANCE=remi-php56-centos-5
   - INSTANCE=remi-php56-centos-6
   - INSTANCE=remi-php56-centos-7
-  - INSTANCE=remi-php56-fedora-23
+  - INSTANCE=remi-php56-fedora-latest
   - INSTANCE=remi-php70-centos-6
   - INSTANCE=remi-php70-centos-7
-  - INSTANCE=remi-php70-fedora-23
-
-# Don't `bundle install`
-install: echo "skip bundle install"
+  - INSTANCE=remi-php70-fedora-latest
 
 # Ensure we make ChefDK's Ruby the default
 before_script:
