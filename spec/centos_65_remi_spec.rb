@@ -6,10 +6,10 @@ describe 'yum-remi-chef::remi' do
       platform: 'centos',
       version: '6.5'
     ) do |node|
-      node.set['yum']['remi']['enabled'] = true
-      node.set['yum']['remi']['managed'] = true
-      node.set['yum']['remi-debuginfo']['enabled'] = true
-      node.set['yum']['remi-debuginfo']['managed'] = true
+      node.normal['yum']['remi']['enabled'] = true
+      node.normal['yum']['remi']['managed'] = true
+      node.normal['yum']['remi-debuginfo']['enabled'] = true
+      node.normal['yum']['remi-debuginfo']['managed'] = true
     end.converge(described_recipe)
   end
 
