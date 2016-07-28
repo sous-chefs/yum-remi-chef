@@ -41,7 +41,7 @@ The following attributes are set by default
 
 ```ruby
 default['yum']['remi']['repositoryid'] = 'remi'
-default['yum']['remi']['baseurl'] = 'http://rpms.remirepo.net/enterprise/5/remi/$basearch/'
+default['yum']['remi']['mirrorlist'] = 'http://rpms.remirepo.net/enterprise/5/remi/mirror'
 default['yum']['remi']['description'] = "Remi's RPM repository for Enterprise Linux 5 - $basearch"
 default['yum']['remi']['enabled'] = true
 default['yum']['remi']['gpgcheck'] = true
@@ -50,7 +50,7 @@ default['yum']['remi']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-remi'
 
 ```ruby
 default['yum']['remi-php55']['repositoryid'] = 'remi-php55'
-default['yum']['remi-php55']['baseurl'] = 'http://rpms.remirepo.net/enterprise/5/php55/$basearch/'
+default['yum']['remi-php55']['mirrorlist'] = 'http://rpms.remirepo.net/enterprise/5/php55/mirror'
 default['yum']['remi-php55']['description'] = "Remi's PHP 5.5 RPM repository for Enterprise Linux 5 - $basearch"
 default['yum']['remi-php55']['enabled'] = true
 default['yum']['remi-php55']['gpgcheck'] = true
@@ -59,7 +59,7 @@ default['yum']['remi-php55']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-r
 
 ```ruby
 default['yum']['remi-php56']['repositoryid'] = 'remi-php56'
-default['yum']['remi-php56']['baseurl'] = 'http://rpms.remirepo.net/enterprise/5/php56/$basearch/'
+default['yum']['remi-php56']['mirrorlist'] = 'http://rpms.remirepo.net/enterprise/5/php56/mirror'
 default['yum']['remi-php56']['description'] = "Remi's PHP 5.6 RPM repository for Enterprise Linux 5 - $basearch"
 default['yum']['remi-php56']['enabled'] = true
 default['yum']['remi-php56']['gpgcheck'] = true
@@ -69,7 +69,7 @@ default['yum']['remi-php56']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-r
 ```ruby
 default['yum']['remi-php70']['managed'] = true
 default['yum']['remi-php70']['repositoryid'] = 'remi-php70'
-default['yum']['remi-php70']['baseurl'] = 'http://rpms.remirepo.net/enterprise/6/php70/$basearch/'
+default['yum']['remi-php70']['mirrorlist'] = 'http://rpms.remirepo.net/enterprise/6/php70/mirror'
 default['yum']['remi-php70']['description'] = "Remi's PHP 7.0 RPM repository for Enterprise Linux 6 - $basearch"
 default['yum']['remi-php70']['enabled'] = true
 default['yum']['remi-php70']['gpgcheck'] = true
@@ -83,7 +83,7 @@ default['yum']['remi-php70']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-r
 
 ```ruby
   yum_repository 'remi' do
-    baseurl 'http://rpms.remirepo.net/enterprise/6/remi/$basearch/'
+    mirrorlist 'http://rpms.remirepo.net/enterprise/6/remi/mirror'
     description "Remi's RPM repository for Enterprise Linux 6 - $basearch"
     enabled true
     gpgcheck true
