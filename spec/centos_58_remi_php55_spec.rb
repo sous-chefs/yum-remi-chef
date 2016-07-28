@@ -6,10 +6,10 @@ describe 'yum-remi-chef::remi-php55' do
       platform: 'centos',
       version: '5.8'
     ) do |node|
-      node.set['yum']['remi-php55']['enabled'] = true
-      node.set['yum']['remi-php55']['managed'] = true
-      node.set['yum']['remi-php55-debuginfo']['enabled'] = true
-      node.set['yum']['remi-php55-debuginfo']['managed'] = true
+      node.normal['yum']['remi-php55']['enabled'] = true
+      node.normal['yum']['remi-php55']['managed'] = true
+      node.normal['yum']['remi-php55-debuginfo']['enabled'] = true
+      node.normal['yum']['remi-php55-debuginfo']['managed'] = true
     end.converge('yum-remi-chef::remi-php55')
   end
 
