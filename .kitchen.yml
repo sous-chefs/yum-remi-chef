@@ -69,4 +69,4 @@ suites:
         enabled: true
         managed: true
   excludes:
-  - centos-5
+  - centos-5.11
