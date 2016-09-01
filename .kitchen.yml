@@ -12,7 +12,7 @@ platforms:
   - name: centos-5.11
   - name: centos-6.8
   - name: centos-7.2
-  - name: fedora-23
+  - name: fedora-24
     run_list: yum::dnf_yum_compat
 
 suites:
@@ -39,7 +39,7 @@ suites:
         enabled: true
         managed: true
   excludes:
-  - fedora-23
+  - fedora-24
 
 - name: remi-php56
   run_list:
@@ -54,7 +54,7 @@ suites:
         enabled: true
         managed: true
   excludes:
-  - fedora-23
+  - fedora-24
 
 - name: remi-php70
   run_list:

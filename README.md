@@ -24,11 +24,7 @@ The following platforms have been tested with Test Kitchen:
 |-----------+------+------------+------------+------------|
 | centos-7  | X    | X          | X          | X          |
 |-----------+------+------------+------------+------------|
-| redhat-7  | X    | X          | X          | X          |
-|-----------+------+------------+------------+------------|
-| fedora-21 | X    |            | X          |            |
-|-----------+------+------------+------------+------------|
-| fedora-22 | X    |            |            |            |
+| fedora-24 | X    |            |            |            |
 |-----------+------+------------+------------+------------|
 ```
 
@@ -121,7 +117,7 @@ include_recipe 'yum-remi'
 ## License & Authors
 **Author:** Cookbook Engineering Team ([cookbooks@chef.io](mailto:cookbooks@chef.io))
 
-**Copyright:** 2015, Chef Software, Inc.
+**Copyright:** 2015-2016, Chef Software, Inc.
 
 ```
 Licensed under the Apache License, Version 2.0 (the "License");
