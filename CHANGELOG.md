@@ -1,5 +1,10 @@
 # yum-remi-chef CHANGELOG
 
+## v1.2.1 (2016-09-04)
+
+- Updated Amazon Linux support 
+- Cleaned up attributes file
+
 ## v1.2.0 (2016-04-30)
 
 - Added Amazon Linux support to the PHP7 repo
