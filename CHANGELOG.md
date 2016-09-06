@@ -1,4 +1,8 @@
 # yum-remi-chef CHANGELOG
+This file is used to list changes made in each version of the yum-remi-chef  cookbook.
+
+## 2.0.0 (2016-09-06)
+- Remove Chef 11 support
 
 ## v1.2.1 (2016-09-04)
 
