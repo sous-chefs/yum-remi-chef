@@ -83,3 +83,18 @@ suites:
         managed: true
   excludes:
   - centos-5.11
+
+- name: remi-php71
+  run_list:
+  - recipe[yum-remi-chef::remi-php71]
+  - recipe[test::default]
+  attributes:
+    yum:
+      remi:
+        enabled: true
+        managed: true
+      remi-php71:
+        enabled: true
+        managed: true
+  excludes:
+  - centos-5.11
