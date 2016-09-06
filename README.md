@@ -5,7 +5,7 @@ The yum-remi-chef cookbook takes over management of the repository ids of the [r
 
 ## Requirements
 ### Chef
-- Chef 11+
+- Chef 12+
 
 ### Cookbooks
 - yum version 3.2.0 or higher
