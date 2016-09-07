@@ -1,7 +1,7 @@
 # yum-remi-chef Cookbook
 [![Build Status](https://travis-ci.org/chef-cookbooks/yum-remi-chef.svg?branch=master)](http://travis-ci.org/chef-cookbooks/yum-remi-chef) [![Cookbook Version](https://img.shields.io/cookbook/v/yum-remi-chef.svg)](https://supermarket.chef.io/cookbooks/yum-remi-chef)
 
-The yum-remi-chef cookbook takes over management of the repository ids of the [remi](http://rpms.remirepo.net/) repository . It allows attribute manipulation of `remi`, `remi-php55`, `remi-php56`, `remi-php70` and `remi-test` repositories.
+The yum-remi-chef cookbook takes over management of the repository ids of the [remi](http://rpms.remirepo.net/) repository . It allows attribute manipulation of `remi`, `remi-safe`, `remi-php55`, `remi-php56`, `remi-php70`, and `remi-test` repositories.
 
 ## Requirements
 ### Chef
@@ -15,17 +15,17 @@ The yum-remi-chef cookbook takes over management of the repository ids of the [r
 The following platforms have been tested with Test Kitchen:
 
 ```
-|-----------+------+------------+------------+------------|
-|           | remi | remi-php55 | remi-php56 | remi-php70 |
-|-----------+------+------------+------------+------------|
-| centos-5  | X    | X          | X          |            |
-|-----------+------+------------+------------+------------|
-| centos-6  | X    | X          | X          | X          |
-|-----------+------+------------+------------+------------|
-| centos-7  | X    | X          | X          | X          |
-|-----------+------+------------+------------+------------|
-| fedora    | X    |            |            |            |
-|-----------+------+------------+------------+------------|
+|-----------+------+-----------+------------+------------+------------|
+|           | remi | remi-safe | remi-php55 | remi-php56 | remi-php70 |
+|-----------+------+-----------+------------+------------+------------|
+| centos-5  | X    |           | X          | X          |            |
+|-----------+------+-----------+------------+------------+------------|
+| centos-6  | X    | X         | X          | X          | X          |
+|-----------+------+-----------+------------+------------+------------|
+| centos-7  | X    | X         | X          | X          | X          |
+|-----------+------+-----------+------------+------------+------------|
+| fedora    | X    |           |            |            | X          |
+|-----------+------+-----------+------------+------------+------------|
 ```
 
 Amazon Linux is _not_ supported by the Remi repository. Amazon maintains their own PHP packages natively, as php53, php54, php55, php56 and php70.
@@ -42,6 +42,15 @@ default['yum']['remi']['description'] = "Remi's RPM repository for Enterprise Li
 default['yum']['remi']['enabled'] = true
 default['yum']['remi']['gpgcheck'] = true
 default['yum']['remi']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-remi'
+```
+
+```ruby
+default['yum']['remi-safe']['repositoryid'] = 'remi-safe'
+default['yum']['remi-safe']['mirrorlist'] = 'http://rpms.remirepo.net/enterprise/5/safe/mirror'
+default['yum']['remi-safe']['description'] = "Safe Remi's RPM repository for Enterprise Linux 5 - $basearch"
+default['yum']['remi-safe']['enabled'] = true
+default['yum']['remi-safe']['gpgcheck'] = true
+default['yum']['remi-safe']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-remi'
 ```
 
 ```ruby

@@ -26,6 +26,19 @@ suites:
         enabled: true
         managed: true
 
+- name: remi-safe
+  run_list:
+  - recipe[yum-remi-chef::remi-safe]
+  - recipe[test::default]
+  attributes:
+    yum:
+      remi:
+        enabled: true
+        managed: true
+  excludes:
+  - centos-5.11
+  - fedora-24
+
 - name: remi-php55
   run_list:
   - recipe[yum-remi-chef::remi-php55]
