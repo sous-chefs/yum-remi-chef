@@ -23,6 +23,8 @@ env:
   - INSTANCE=remi-centos-6
   - INSTANCE=remi-centos-7
   - INSTANCE=remi-fedora-latest
+  - INSTANCE=remi-safe-centos-6
+  - INSTANCE=remi-safe-centos-7
   - INSTANCE=remi-php55-centos-6
   - INSTANCE=remi-php55-centos-7
   - INSTANCE=remi-php56-centos-6

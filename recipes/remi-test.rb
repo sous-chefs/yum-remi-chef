@@ -18,6 +18,12 @@
 
 include_recipe 'yum-epel' unless node['platform'] == 'fedora'
 
+if node['platform'] != 'fedora' && node['platform_version'].to_i > 5
+  include_recipe 'yum-remi-chef::remi-safe'
+end
+
+include_recipe 'yum-remi-chef::remi'
+
 %w(remi-test remi-test-debuginfo).each do |repo|
   next unless node['yum'][repo]['managed']
 

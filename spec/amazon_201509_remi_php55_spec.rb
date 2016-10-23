@@ -13,8 +13,8 @@ describe 'yum-remi-chef::remi-php55' do
     end.converge(described_recipe)
   end
 
-  it 'creates yum_repository[remi]' do
-    expect(amazon_2015_remi_php55).to create_yum_repository('remi')
+  it 'creates yum_repository[remi-safe]' do
+    expect(amazon_2015_remi_php55).to create_yum_repository('remi-safe')
   end
 
   %w(

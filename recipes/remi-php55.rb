@@ -17,7 +17,12 @@
 # limitations under the License.
 
 include_recipe 'yum-epel' unless node['platform'] == 'fedora'
-include_recipe 'yum-remi-chef::remi'
+
+if node['platform'] != 'fedora' && node['platform_version'].to_i > 5
+  include_recipe 'yum-remi-chef::remi-safe'
+else
+  include_recipe 'yum-remi-chef::remi'
+end
 
 %w(remi-php55 remi-php55-debuginfo).each do |repo|
   next unless node['yum'][repo]['managed']
