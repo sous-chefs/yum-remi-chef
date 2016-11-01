@@ -1,6 +1,9 @@
 # yum-remi-chef CHANGELOG
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## 2.2.0 (2016-10-31)
+- Adding php 7.1 repository.
+
 ## 2.1.0 (2016-10-23)
 - Added the remi-safe repository.
 - Replace yum dependency with compat_resource
