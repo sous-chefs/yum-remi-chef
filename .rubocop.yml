@@ -4,6 +4,7 @@ Lint/AmbiguousRegexpLiteral:
     - 'test/integration/remi-php55/default_spec.rb'
     - 'test/integration/remi-php56/default_spec.rb'
     - 'test/integration/remi-php70/default_spec.rb'
+    - 'test/integration/remi-php71/default_spec.rb'
     - 'test/integration/remi/default_spec.rb'
 
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes.
