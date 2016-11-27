@@ -1,6 +1,10 @@
 # yum-remi-chef CHANGELOG
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## 2.2.1 (2016-11-26)
+- Use the native inspec formatter now
+- Use a slightly better compat_resource
+
 ## 2.2.0 (2016-10-31)
 - Adding php 7.1 repository.
 
