@@ -6,6 +6,6 @@ end
 
 if os[:family] == 'fedora'
   describe command('php --version') do
-    its('stdout') { should match /7.0/ }
+    its('stdout') { should match /5.6/ }
   end
 end
