@@ -22,7 +22,7 @@ env:
   matrix:
   - INSTANCE=remi-centos-6
   - INSTANCE=remi-centos-7
-  - INSTANCE=remi-fedora-latest
+  - INSTANCE=remi-fedora-24
   - INSTANCE=remi-safe-centos-6
   - INSTANCE=remi-safe-centos-7
   - INSTANCE=remi-php55-centos-6
@@ -31,10 +31,10 @@ env:
   - INSTANCE=remi-php56-centos-7
   - INSTANCE=remi-php70-centos-6
   - INSTANCE=remi-php70-centos-7
-  - INSTANCE=remi-php70-fedora-latest
+  - INSTANCE=remi-php70-fedora-24
   - INSTANCE=remi-php71-centos-6
   - INSTANCE=remi-php71-centos-7
-  - INSTANCE=remi-php71-fedora-latest
+  - INSTANCE=remi-php71-fedora-24
 
 before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )

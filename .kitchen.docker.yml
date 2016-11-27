@@ -37,9 +37,9 @@ platforms:
     intermediate_instructions:
       - RUN yum -y install lsof which net-tools chkconfig
 
-- name: fedora-latest
+- name: fedora-24
   driver:
-    image: fedora:latest
+    image: fedora:24
     pid_one_command: /usr/lib/systemd/systemd
     intermediate_instructions:
       - RUN dnf -y install yum which net-tools chkconfig passwd
