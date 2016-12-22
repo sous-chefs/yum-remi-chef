@@ -1,6 +1,12 @@
 # yum-remi-chef CHANGELOG
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## 2.2.2 (2016-12-22)
+
+- Fedora has 7.X release
+- Ease reading and revert test change
+- Depend on the latest compat_resource cookbook
+
 ## 2.2.1 (2016-11-26)
 - Use the native inspec formatter now
 - Use a slightly better compat_resource
