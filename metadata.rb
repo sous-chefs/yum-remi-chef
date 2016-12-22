@@ -6,7 +6,7 @@ description "Installs and configures the Remi's yum repository"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '2.2.1'
 
-depends 'compat_resource', '>= 12.14.7'
+depends 'compat_resource', '>= 12.16.3'
 depends 'yum-epel'
 
 %w(amazon centos fedora oracle redhat scientific).each do |os|
