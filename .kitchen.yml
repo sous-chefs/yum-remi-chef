@@ -3,15 +3,15 @@ driver:
 
 provisioner:
   name: chef_zero
+  deprecations_as_errors: true
 
 verifier:
   name: inspec
 
 platforms:
   - name: centos-6.8
-  - name: centos-7.2
+  - name: centos-7.3
   - name: fedora-25
-    run_list: yum::dnf_yum_compat
 
 suites:
 - name: remi
