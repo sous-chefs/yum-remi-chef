@@ -6,8 +6,8 @@ describe 'yum-remi-chef::remi-safe' do
       platform: 'centos',
       version: '6.8'
     ) do |node|
-      node.normal['yum']['remi-safe']['enabled'] = true
-      node.normal['yum']['remi-safe']['managed'] = true
+      node.override['yum']['remi-safe']['enabled'] = true
+      node.override['yum']['remi-safe']['managed'] = true
     end.converge(described_recipe)
   end
 

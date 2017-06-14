@@ -6,10 +6,10 @@ describe 'yum-remi-chef::remi-php56' do
       platform: 'centos',
       version: '7.3.1611'
     ) do |node|
-      node.normal['yum']['remi-php56']['enabled'] = true
-      node.normal['yum']['remi-php56']['managed'] = true
-      node.normal['yum']['remi-php56-debuginfo']['enabled'] = true
-      node.normal['yum']['remi-php56-debuginfo']['managed'] = true
+      node.override['yum']['remi-php56']['enabled'] = true
+      node.override['yum']['remi-php56']['managed'] = true
+      node.override['yum']['remi-php56-debuginfo']['enabled'] = true
+      node.override['yum']['remi-php56-debuginfo']['managed'] = true
     end.converge(described_recipe)
   end
 

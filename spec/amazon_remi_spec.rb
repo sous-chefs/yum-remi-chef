@@ -6,10 +6,10 @@ describe 'yum-remi-chef::remi' do
       platform: 'amazon',
       version: '2016.09'
     ) do |node|
-      node.normal['yum']['remi']['enabled'] = true
-      node.normal['yum']['remi']['managed'] = true
-      node.normal['yum']['remi-debuginfo']['enabled'] = true
-      node.normal['yum']['remi-debuginfo']['managed'] = true
+      node.override['yum']['remi']['enabled'] = true
+      node.override['yum']['remi']['managed'] = true
+      node.override['yum']['remi-debuginfo']['enabled'] = true
+      node.override['yum']['remi-debuginfo']['managed'] = true
     end.converge(described_recipe)
   end
 
