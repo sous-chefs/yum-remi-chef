@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe 'yum-remi-chef::remi' do
-  cached(:centos_65_remi) do
-    ChefSpec::ServerRunner.new(
+  cached(:centos_6_remi) do
+    ChefSpec::SoloRunner.new(
       platform: 'centos',
-      version: '6.5'
+      version: '6.8'
     ) do |node|
       node.normal['yum']['remi']['enabled'] = true
       node.normal['yum']['remi']['managed'] = true
@@ -18,7 +18,7 @@ describe 'yum-remi-chef::remi' do
     remi-debuginfo
   ).each do |repo|
     it "creates yum_repository[#{repo}]" do
-      expect(centos_65_remi).to create_yum_repository(repo)
+      expect(centos_6_remi).to create_yum_repository(repo)
     end
   end
 end

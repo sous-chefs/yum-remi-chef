@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe 'yum-remi-chef::remi-safe' do
-  cached(:centos_70_remi_safe) do
-    ChefSpec::ServerRunner.new(
-      platform: 'centos',
-      version: '7.0'
+  cached(:amazon_remi_safe) do
+    ChefSpec::SoloRunner.new(
+      platform: 'amazon',
+      version: '2016.09'
     ) do |node|
       node.normal['yum']['remi-safe']['enabled'] = true
       node.normal['yum']['remi-safe']['managed'] = true
@@ -15,7 +15,7 @@ describe 'yum-remi-chef::remi-safe' do
     remi-safe
   ).each do |repo|
     it "creates yum_repository[#{repo}]" do
-      expect(centos_70_remi_safe).to create_yum_repository(repo)
+      expect(amazon_remi_safe).to create_yum_repository(repo)
     end
   end
 end

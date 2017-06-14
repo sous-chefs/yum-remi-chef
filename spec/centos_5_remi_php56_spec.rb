@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe 'yum-remi-chef::remi-php56' do
-  cached(:amazon_2015_remi_php56) do
-    ChefSpec::ServerRunner.new(
-      platform: 'amazon',
-      version: '2015.09'
+  cached(:centos_5_remi_php56) do
+    ChefSpec::SoloRunner.new(
+      platform: 'centos',
+      version: '5.11'
     ) do |node|
       node.normal['yum']['remi-php56']['enabled'] = true
       node.normal['yum']['remi-php56']['managed'] = true
@@ -13,8 +13,8 @@ describe 'yum-remi-chef::remi-php56' do
     end.converge(described_recipe)
   end
 
-  it 'creates yum_repository[remi-safe]' do
-    expect(amazon_2015_remi_php56).to create_yum_repository('remi-safe')
+  it 'creates yum_repository[remi]' do
+    expect(centos_5_remi_php56).to create_yum_repository('remi')
   end
 
   %w(
@@ -22,7 +22,7 @@ describe 'yum-remi-chef::remi-php56' do
     remi-php56-debuginfo
   ).each do |repo|
     it "creates yum_repository[#{repo}]" do
-      expect(amazon_2015_remi_php56).to create_yum_repository(repo)
+      expect(centos_5_remi_php56).to create_yum_repository(repo)
     end
   end
 end
