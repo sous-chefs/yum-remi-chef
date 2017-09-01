@@ -9,9 +9,9 @@ verifier:
   name: inspec
 
 platforms:
-  - name: centos-6.9
+  - name: centos-6
   - name: centos-7.3
-  - name: fedora-25
+  - name: fedora-26
 
 suites:
 - name: remi
@@ -34,7 +34,7 @@ suites:
         enabled: true
         managed: true
   excludes:
-  - fedora-25
+  - fedora-26
 
 - name: remi-php55
   run_list:
@@ -49,7 +49,7 @@ suites:
         enabled: true
         managed: true
   excludes:
-  - fedora-25
+  - fedora-26
 
 - name: remi-php56
   run_list:
@@ -64,7 +64,7 @@ suites:
         enabled: true
         managed: true
   excludes:
-  - fedora-25
+  - fedora-26
 
 - name: remi-php70
   run_list:
