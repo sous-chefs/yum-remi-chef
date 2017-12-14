@@ -34,6 +34,9 @@ env:
   - INSTANCE=remi-php71-centos-6
   - INSTANCE=remi-php71-centos-7
   - INSTANCE=remi-php71-fedora-24
+  - INSTANCE=remi-php72-centos-6
+  - INSTANCE=remi-php72-centos-7
+  - INSTANCE=remi-php72-fedora-24
 
 before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )

@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/chef-cookbooks/yum-remi-chef.svg?branch=master)](http://travis-ci.org/chef-cookbooks/yum-remi-chef) [![Cookbook Version](https://img.shields.io/cookbook/v/yum-remi-chef.svg)](https://supermarket.chef.io/cookbooks/yum-remi-chef)
 
-The yum-remi-chef cookbook takes over management of the repository ids of the [remi](http://rpms.remirepo.net/) repository . It allows attribute manipulation of `remi`, `remi-safe`, `remi-php55`, `remi-php56`, `remi-php70`, `remi-php71` and `remi-test` repositories.
+The yum-remi-chef cookbook takes over management of the repository ids of the [remi](http://rpms.remirepo.net/) repository . It allows attribute manipulation of `remi`, `remi-safe`, `remi-php55`, `remi-php56`, `remi-php70`, `remi-php71`, `remi-php72` and `remi-test` repositories.
 
 ## Requirements
 
@@ -20,22 +20,22 @@ The yum-remi-chef cookbook takes over management of the repository ids of the [r
 The following platforms have been tested with Test Kitchen:
 
 ```
-|-----------+------+-----------+------------+------------+------------+------------|
-|           | remi | remi-safe | remi-php55 | remi-php56 | remi-php70 | remi-php71 |
-|-----------+------+-----------+------------+------------+------------+------------|
-| centos-5  | X    |           | X          | X          |            |            |
-|-----------+------+-----------+------------+------------+------------+------------|
-| centos-6  | X    | X         | X          | X          | X          | X          |
-|-----------+------+-----------+------------+------------+------------+------------|
-| centos-7  | X    | X         | X          | X          | X          | X          |
-|-----------+------+-----------+------------+------------+------------+------------|
-| fedora    | X    |           |            |            | X          | X          |
-|-----------+------+-----------+------------+------------+------------+------------|
+|-----------+------+-----------+------------+------------+------------+------------+------------|
+|           | remi | remi-safe | remi-php55 | remi-php56 | remi-php70 | remi-php71 | remi-php71 |
+|-----------+------+-----------+------------+------------+------------+------------+------------|
+| centos-5  | X    |           | X          | X          |            |            |            |
+|-----------+------+-----------+------------+------------+------------+------------+------------|
+| centos-6  | X    | X         | X          | X          | X          | X          | X          |
+|-----------+------+-----------+------------+------------+------------+------------+------------|
+| centos-7  | X    | X         | X          | X          | X          | X          | X          |
+|-----------+------+-----------+------------+------------+------------+------------+------------|
+| fedora    | X    |           |            |            | X          | X          | X          |
+|-----------+------+-----------+------------+------------+------------+------------+------------|
 ```
 
 Amazon Linux is _not_ supported by the Remi repository. Amazon maintains their own PHP packages natively, as php53, php54, php55, php56 and php70.
 
-centos-5 with remi-php70 or remi-php71 is _not_ working currently.
+centos-5 with remi-php70, remi-php71 and remi-php72 is _not_ working currently.
 
 ## Attributes
 
@@ -95,6 +95,16 @@ default['yum']['remi-php71']['description'] = "Remi's PHP 7.1 RPM repository for
 default['yum']['remi-php71']['enabled'] = true
 default['yum']['remi-php71']['gpgcheck'] = true
 default['yum']['remi-php71']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-remi'
+```
+
+```ruby
+default['yum']['remi-php72']['managed'] = true
+default['yum']['remi-php72']['repositoryid'] = 'remi-php72'
+default['yum']['remi-php72']['mirrorlist'] = 'http://rpms.remirepo.net/enterprise/6/php72/mirror'
+default['yum']['remi-php72']['description'] = "Remi's PHP 7.2 RPM repository for Enterprise Linux 6 - $basearch"
+default['yum']['remi-php72']['enabled'] = true
+default['yum']['remi-php72']['gpgcheck'] = true
+default['yum']['remi-php72']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-remi'
 ```
 
 ## Recipes
