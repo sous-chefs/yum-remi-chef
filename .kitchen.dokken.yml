@@ -120,3 +120,18 @@ suites:
         managed: true
   excludes:
   - centos-5
+
+- name: remi-php72
+  run_list:
+  - recipe[yum-remi-chef::remi-php72]
+  - recipe[test::default]
+  attributes:
+    yum:
+      remi:
+        enabled: true
+        managed: true
+      remi-php72:
+        enabled: true
+        managed: true
+  excludes:
+  - centos-5
