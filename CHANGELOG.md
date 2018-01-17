@@ -1,6 +1,11 @@
 # yum-remi-chef CHANGELOG
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## 2.3.0 (2018-01-17)
+
+- Use node.override in specs not node.normal
+- Added repository for PHP 7.2
+
 ## 2.2.2 (2016-12-22)
 
 - Fedora has 7.X release
