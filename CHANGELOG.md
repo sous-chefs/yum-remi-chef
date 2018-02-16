@@ -1,6 +1,11 @@
 # yum-remi-chef CHANGELOG
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## 3.0.0 (2018-02-16)
+
+- Fix 7.2 column in platform table in the README.
+- Require Chef 12.14+ and remove compat_resource dependency
+
 ## 2.3.0 (2018-01-17)
 
 - Use node.override in specs not node.normal
