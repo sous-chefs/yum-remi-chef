@@ -4,7 +4,7 @@ describe 'yum-remi-chef::remi-safe' do
   cached(:centos_6_remi_safe) do
     ChefSpec::SoloRunner.new(
       platform: 'centos',
-      version: '6.8'
+      version: '6.9'
     ) do |node|
       node.override['yum']['remi-safe']['enabled'] = true
       node.override['yum']['remi-safe']['managed'] = true
