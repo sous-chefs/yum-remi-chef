@@ -1,6 +1,6 @@
 #
 # Author:: Sean OMeara (<sean@sean.io>)
-# Recipe:: yum-remi-chef::remi
+# Recipe:: yum-remi-chef::remi-php73
 #
 # Copyright:: 2015-2017, Chef Software, Inc.
 #
@@ -18,12 +18,15 @@
 
 unless node['platform'] == 'fedora'
   include_recipe 'yum-epel'
-  include_recipe 'yum-remi-chef::remi-safe' if node['platform_version'].to_i > 5
+
+  if node['platform_version'].to_i > 5
+    include_recipe 'yum-remi-chef::remi-safe'
+  else
+    include_recipe 'yum-remi-chef::remi'
+  end
 end
 
-include_recipe 'yum-remi-chef::remi'
-
-%w(remi-test remi-test-debuginfo).each do |repo|
+%w(remi-php73 remi-php73-debuginfo).each do |repo|
   next unless node['yum'][repo]['managed']
 
   yum_repository repo do

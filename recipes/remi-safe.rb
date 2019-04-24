@@ -31,7 +31,7 @@ include_recipe 'yum-epel' unless node['platform'] == 'fedora'
     failovermethod node['yum'][repo]['failovermethod'] unless node['yum'][repo]['failovermethod'].nil?
     fastestmirror_enabled node['yum'][repo]['fastestmirror_enabled'] unless node['yum'][repo]['fastestmirror_enabled'].nil?
     gpgcheck node['yum'][repo]['gpgcheck'] unless node['yum'][repo]['gpgcheck'].nil?
-    gpgkey node['yum'][repo]['gpgkey'] unless node['yum'][repo]['gpgkey'].nil?
+    gpgkey node['yum-remi-chef']['gpgkey'] unless node['yum-remi-chef']['gpgkey'].nil?
     http_caching node['yum'][repo]['http_caching'] unless node['yum'][repo]['http_caching'].nil?
     include_config node['yum'][repo]['include_config'] unless node['yum'][repo]['include_config'].nil?
     includepkgs node['yum'][repo]['includepkgs'] unless node['yum'][repo]['includepkgs'].nil?

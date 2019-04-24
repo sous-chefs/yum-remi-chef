@@ -1,5 +1,4 @@
 default['yum']['remi-test']['repositoryid'] = 'remi'
-default['yum']['remi-test']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-remi'
 default['yum']['remi-test']['gpgcheck'] = true
 default['yum']['remi-test']['enabled'] = false
 default['yum']['remi-test']['managed'] = false

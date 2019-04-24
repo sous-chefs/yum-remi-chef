@@ -1,5 +1,4 @@
 default['yum']['remi-php72-debuginfo']['repositoryid'] = 'remi-php72-debuginfo'
-default['yum']['remi-php72-debuginfo']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-remi'
 default['yum']['remi-php72-debuginfo']['gpgcheck'] = true
 default['yum']['remi-php72-debuginfo']['enabled'] = false
 default['yum']['remi-php72-debuginfo']['managed'] = false
