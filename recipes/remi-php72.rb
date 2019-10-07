@@ -2,7 +2,7 @@
 # Author:: Sean OMeara (<sean@sean.io>)
 # Recipe:: yum-remi-chef::remi-php72
 #
-# Copyright:: 2015-2017, Chef Software, Inc.
+# Copyright:: 2015-2019, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-unless node['platform'] == 'fedora'
+unless platform?('fedora')
   include_recipe 'yum-epel'
 
   if node['platform_version'].to_i > 5
