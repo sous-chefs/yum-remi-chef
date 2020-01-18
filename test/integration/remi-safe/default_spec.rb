@@ -1,5 +1,5 @@
-if os[:family] == 'centos'
-  if os[:release] >= 7
+if os[:family] == 'redhat'
+  if os[:release].to_i >= 7
     describe command('php --version') do
       its('stdout') { should match(/5.4/) }
     end
