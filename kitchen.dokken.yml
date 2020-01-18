@@ -40,9 +40,9 @@ platforms:
     image: dokken/centos-8
     pid_one_command: /usr/lib/systemd/systemd
 
-- name: fedora-28
+- name: fedora-latest
   driver:
-    image: dokken/fedora-28
+    image: dokken/fedora-latest
     pid_one_command: /usr/lib/systemd/systemd
 
 suites:
@@ -56,7 +56,7 @@ suites:
         enabled: true
         managed: true
   excludes:
-  - fedora-28
+  - fedora-latest
 
 - name: remi-safe
   run_list:
@@ -68,7 +68,7 @@ suites:
         enabled: true
         managed: true
   excludes:
-  - fedora-28
+  - fedora-latest
 
 - name: remi-php55
   run_list:
@@ -83,7 +83,7 @@ suites:
         enabled: true
         managed: true
   excludes:
-  - fedora-28
+  - fedora-latest
 
 - name: remi-php56
   run_list:
@@ -98,7 +98,7 @@ suites:
         enabled: true
         managed: true
   excludes:
-  - fedora-28
+  - fedora-latest
 
 - name: remi-php70
   run_list:
@@ -113,7 +113,7 @@ suites:
         enabled: true
         managed: true
   excludes:
-  - fedora-28
+  - fedora-latest
 
 - name: remi-php71
   run_list:
@@ -128,7 +128,7 @@ suites:
         enabled: true
         managed: true
   excludes:
-  - fedora-28
+  - fedora-latest
 
 - name: remi-php72
   run_list:
