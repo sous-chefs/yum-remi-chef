@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-unless node['platform'] == 'fedora'
+unless platform?('fedora')
   include_recipe 'yum-epel'
 
   if node['platform_version'].to_i > 5
