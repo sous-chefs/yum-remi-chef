@@ -18,7 +18,7 @@
 
 unless platform?('fedora')
   include_recipe 'yum-epel'
-  include_recipe 'yum-remi-chef::remi-safe' if node['platform_version'].to_i > 5
+  include_recipe 'yum-remi-chef::remi-safe'
 end
 
 %w(remi remi-debuginfo).each do |repo|
