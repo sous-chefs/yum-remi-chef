@@ -48,7 +48,7 @@ default['yum']['remi']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/5/rem
 default['yum']['remi']['description'] = "Remi's RPM repository for Enterprise Linux 5 - $basearch"
 default['yum']['remi']['enabled'] = true
 default['yum']['remi']['gpgcheck'] = true
-default['yum']['remi']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-remi'
+default['yum']['remi']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
 ```
 
 ```ruby
@@ -57,7 +57,7 @@ default['yum']['remi-safe']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/
 default['yum']['remi-safe']['description'] = "Safe Remi's RPM repository for Enterprise Linux 5 - $basearch"
 default['yum']['remi-safe']['enabled'] = true
 default['yum']['remi-safe']['gpgcheck'] = true
-default['yum']['remi-safe']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-remi'
+default['yum']['remi-safe']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
 ```
 
 ```ruby
@@ -66,7 +66,7 @@ default['yum']['remi-php55']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise
 default['yum']['remi-php55']['description'] = "Remi's PHP 5.5 RPM repository for Enterprise Linux 5 - $basearch"
 default['yum']['remi-php55']['enabled'] = true
 default['yum']['remi-php55']['gpgcheck'] = true
-default['yum']['remi-php55']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-remi'
+default['yum']['remi-php55']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
 ```
 
 ```ruby
@@ -75,7 +75,7 @@ default['yum']['remi-php56']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise
 default['yum']['remi-php56']['description'] = "Remi's PHP 5.6 RPM repository for Enterprise Linux 5 - $basearch"
 default['yum']['remi-php56']['enabled'] = true
 default['yum']['remi-php56']['gpgcheck'] = true
-default['yum']['remi-php56']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-remi'
+default['yum']['remi-php56']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
 ```
 
 ```ruby
@@ -85,7 +85,7 @@ default['yum']['remi-php70']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise
 default['yum']['remi-php70']['description'] = "Remi's PHP 7.0 RPM repository for Enterprise Linux 6 - $basearch"
 default['yum']['remi-php70']['enabled'] = true
 default['yum']['remi-php70']['gpgcheck'] = true
-default['yum']['remi-php70']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-remi'
+default['yum']['remi-php70']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
 ```
 
 ```ruby
@@ -95,7 +95,7 @@ default['yum']['remi-php71']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise
 default['yum']['remi-php71']['description'] = "Remi's PHP 7.1 RPM repository for Enterprise Linux 6 - $basearch"
 default['yum']['remi-php71']['enabled'] = true
 default['yum']['remi-php71']['gpgcheck'] = true
-default['yum']['remi-php71']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-remi'
+default['yum']['remi-php71']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
 ```
 
 ```ruby
@@ -105,17 +105,17 @@ default['yum']['remi-php72']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise
 default['yum']['remi-php72']['description'] = "Remi's PHP 7.2 RPM repository for Enterprise Linux 6 - $basearch"
 default['yum']['remi-php72']['enabled'] = true
 default['yum']['remi-php72']['gpgcheck'] = true
-default['yum']['remi-php72']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-remi'
+default['yum']['remi-php72']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
 ```
 
 ```ruby
 default['yum']['remi-php73']['managed'] = true
 default['yum']['remi-php73']['repositoryid'] = 'remi-php73'
-default['yum']['remi-php73']['mirrorlist'] = 'http://rpms.remirepo.net/enterprise/6/php73/mirror'
+default['yum']['remi-php73']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/6/php73/mirror'
 default['yum']['remi-php73']['description'] = "Remi's PHP 7.2 RPM repository for Enterprise Linux 6 - $basearch"
 default['yum']['remi-php73']['enabled'] = true
 default['yum']['remi-php73']['gpgcheck'] = true
-default['yum']['remi-php73']['gpgkey'] = 'http://rpms.remirepo.net/RPM-GPG-KEY-remi'
+default['yum']['remi-php73']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
 ```
 
 ## Recipes
@@ -130,7 +130,7 @@ recipe during compilation.
     description "Remi's RPM repository for Enterprise Linux 6 - $basearch"
     enabled true
     gpgcheck true
-    gpgkey 'http://rpms.remirepo.net/RPM-GPG-KEY-remi'
+    gpgkey 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
   end
 ```
 
