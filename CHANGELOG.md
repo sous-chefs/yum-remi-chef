@@ -1,6 +1,13 @@
 # yum-remi-chef CHANGELOG
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## 4.0.0 (2020-01-18)
+
+- Update mirrorlist from rpms.remirepo.net to cdn.remirepo.net (Closes #18) - [@sekrett](https://github.com/sekrett)
+- added support for php 7.3 and removed tests for versions deprecated by remi - [@kevenwyld](https://github.com/kevenwyld)
+- Require Chef 12.15+ - [@tas50](https://github.com/tas50)
+- Remove RHEL 5 support - [@tas50](https://github.com/tas50)
+
 ## 3.0.0 (2018-02-16)
 
 - Fix 7.2 column in platform table in the README.
@@ -33,7 +40,7 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 
 ## v1.2.1 (2016-09-04)
 
-- Updated Amazon Linux support 
+- Updated Amazon Linux support
 - Cleaned up attributes file
 
 ## v1.2.0 (2016-04-30)
