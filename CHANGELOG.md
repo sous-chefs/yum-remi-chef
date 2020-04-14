@@ -1,6 +1,11 @@
 # yum-remi-chef CHANGELOG
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## Unreleased
+
+- resolved cookstyle error: attributes/remi-gpgkey.rb:3:41 refactor: `ChefStyle/UsePlatformHelpers`
+- resolved cookstyle error: attributes/remi-gpgkey.rb:6:44 refactor: `ChefStyle/UsePlatformHelpers`
+
 ## 4.0.0 (2020-01-18)
 
 - Update mirrorlist from rpms.remirepo.net to cdn.remirepo.net (Closes #18) - [@sekrett](https://github.com/sekrett)
