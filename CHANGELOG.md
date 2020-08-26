@@ -1,6 +1,17 @@
 # yum-remi-chef CHANGELOG
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## Unreleased
+
+- resolved cookstyle error: spec/centos_6_remi_php55_spec.rb:5:5 warning: `ChefDeprecations/DeprecatedChefSpecPlatform`
+- resolved cookstyle error: spec/centos_6_remi_php56_spec.rb:5:5 warning: `ChefDeprecations/DeprecatedChefSpecPlatform`
+- resolved cookstyle error: spec/centos_6_remi_php70_spec.rb:5:5 warning: `ChefDeprecations/DeprecatedChefSpecPlatform`
+- resolved cookstyle error: spec/centos_6_remi_php71_spec.rb:5:5 warning: `ChefDeprecations/DeprecatedChefSpecPlatform`
+- resolved cookstyle error: spec/centos_6_remi_php72_spec.rb:5:5 warning: `ChefDeprecations/DeprecatedChefSpecPlatform`
+- resolved cookstyle error: spec/centos_6_remi_php73_spec.rb:5:5 warning: `ChefDeprecations/DeprecatedChefSpecPlatform`
+- resolved cookstyle error: spec/centos_6_remi_safe_spec.rb:5:5 warning: `ChefDeprecations/DeprecatedChefSpecPlatform`
+- resolved cookstyle error: spec/centos_6_remi_spec.rb:5:5 warning: `ChefDeprecations/DeprecatedChefSpecPlatform`
+
 ## 4.0.0 (2020-01-18)
 
 - Update mirrorlist from rpms.remirepo.net to cdn.remirepo.net (Closes #18) - [@sekrett](https://github.com/sekrett)
