@@ -83,3 +83,11 @@ shared_examples 'create PHP 7.4 repos' do
   end
 end
 
+shared_examples 'create PHP 8.0 repos' do
+  %w(
+    remi-php80
+    remi-php80-debuginfo
+  ).each do |repo|
+    it { is_expected.to create_yum_repository(repo) }
+  end
+end

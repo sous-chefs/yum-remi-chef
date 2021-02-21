@@ -52,6 +52,7 @@ jobs:
           - 'remi-php72'
           - 'remi-php73'
           - 'remi-php74'
+          - 'remi-php80'
       fail-fast: false
 
     steps:

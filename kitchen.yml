@@ -185,3 +185,24 @@ suites:
         - default
       inputs:
         version: '7.4'
+
+  - name: remi-php80
+    run_list:
+      - recipe[yum-remi-chef::remi-php80]
+      - recipe[test::default]
+    attributes:
+      yum:
+        remi:
+          enabled: true
+          managed: true
+        remi-php80:
+          enabled: true
+          managed: true
+      remi-test:
+        version: '8.0'
+    verifier:
+      controls:
+        - remi-safe
+        - default
+      inputs:
+        version: '8.0'
