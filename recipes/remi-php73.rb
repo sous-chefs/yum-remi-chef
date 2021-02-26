@@ -16,10 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-unless platform?('fedora')
-  include_recipe 'yum-epel'
-  include_recipe 'yum-remi-chef::remi-safe'
-end
+Chef::Log.fatal 'PHP 7.3 is not available for Fedora' if platform?('fedora')
+
+include_recipe 'yum-remi-chef::remi-safe'
 
 %w(remi-php73 remi-php73-debuginfo).each do |repo|
   next unless node['yum'][repo]['managed']
