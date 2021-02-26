@@ -21,12 +21,6 @@ suites:
     verifier:
       controls:
         - remi
-
-  - name: remi-safe
-    run_list:
-      - recipe[yum-remi-chef::remi-safe]
-    verifier:
-      controls:
         - remi-safe
 
   - name: remi-php55
@@ -43,6 +37,7 @@ suites:
     verifier:
       controls:
         - remi
+        - remi-safe
         - default
       inputs:
         version: '5.5'
@@ -61,6 +56,7 @@ suites:
     verifier:
       controls:
         - remi
+        - remi-safe
         - default
       inputs:
         version: '5.6'
@@ -79,6 +75,7 @@ suites:
     verifier:
       controls:
         - remi
+        - remi-safe
         - default
       inputs:
         version: '7.0'
@@ -97,6 +94,7 @@ suites:
     verifier:
       controls:
         - remi
+        - remi-safe
         - default
       inputs:
         version: '7.1'
@@ -115,6 +113,7 @@ suites:
     verifier:
       controls:
         - remi
+        - remi-safe
         - default
       inputs:
         version: '7.2'

@@ -44,7 +44,6 @@ jobs:
           - centos-7
         suite:
           - 'remi'
-          - 'remi-safe'
           - 'remi-php55'
           - 'remi-php56'
           - 'remi-php70'
