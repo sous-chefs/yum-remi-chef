@@ -18,11 +18,6 @@ suites:
   - name: remi
     run_list:
       - recipe[yum-remi-chef::remi]
-    attributes:
-      yum:
-        remi:
-          enabled: true
-          managed: true
     verifier:
       controls:
         - remi
@@ -30,11 +25,6 @@ suites:
   - name: remi-safe
     run_list:
       - recipe[yum-remi-chef::remi-safe]
-    attributes:
-      yum:
-        remi:
-          enabled: true
-          managed: true
     verifier:
       controls:
         - remi-safe
@@ -45,9 +35,6 @@ suites:
       - recipe[test::default]
     attributes:
       yum:
-        remi:
-          enabled: true
-          managed: true
         remi-php55:
           enabled: true
           managed: true
@@ -66,9 +53,6 @@ suites:
       - recipe[test::default]
     attributes:
       yum:
-        remi:
-          enabled: true
-          managed: true
         remi-php56:
           enabled: true
           managed: true
@@ -87,9 +71,6 @@ suites:
       - recipe[test::default]
     attributes:
       yum:
-        remi:
-          enabled: true
-          managed: true
         remi-php70:
           enabled: true
           managed: true
@@ -108,9 +89,6 @@ suites:
       - recipe[test::default]
     attributes:
       yum:
-        remi:
-          enabled: true
-          managed: true
         remi-php71:
           enabled: true
           managed: true
@@ -129,9 +107,6 @@ suites:
       - recipe[test::default]
     attributes:
       yum:
-        remi:
-          enabled: true
-          managed: true
         remi-php72:
           enabled: true
           managed: true
@@ -150,9 +125,6 @@ suites:
       - recipe[test::default]
     attributes:
       yum:
-        remi:
-          enabled: true
-          managed: true
         remi-php73:
           enabled: true
           managed: true
@@ -171,9 +143,6 @@ suites:
       - recipe[test::default]
     attributes:
       yum:
-        remi:
-          enabled: true
-          managed: true
         remi-php74:
           enabled: true
           managed: true
@@ -192,9 +161,6 @@ suites:
       - recipe[test::default]
     attributes:
       yum:
-        remi:
-          enabled: true
-          managed: true
         remi-php80:
           enabled: true
           managed: true

@@ -2,8 +2,6 @@ require 'spec_helper'
 require 'shared_examples'
 
 describe 'yum-remi-chef::remi-safe' do
-  default_attributes['yum']['remi-safe']['enabled'] = true
-  default_attributes['yum']['remi-safe']['managed'] = true
   default_attributes['yum']['remi-safe-debuginfo']['enabled'] = true
   default_attributes['yum']['remi-safe-debuginfo']['managed'] = true
 
