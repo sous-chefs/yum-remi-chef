@@ -42,7 +42,6 @@ jobs:
         os:
           - amazonlinux-2
           - centos-7
-          - centos-8
           - fedora-latest
         suite:
           - 'remi'
