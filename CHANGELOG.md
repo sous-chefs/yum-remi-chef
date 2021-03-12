@@ -3,14 +3,8 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 
 ## Unreleased
 
-- resolved cookstyle error: spec/centos_6_remi_php55_spec.rb:5:5 warning: `ChefDeprecations/DeprecatedChefSpecPlatform`
-- resolved cookstyle error: spec/centos_6_remi_php56_spec.rb:5:5 warning: `ChefDeprecations/DeprecatedChefSpecPlatform`
-- resolved cookstyle error: spec/centos_6_remi_php70_spec.rb:5:5 warning: `ChefDeprecations/DeprecatedChefSpecPlatform`
-- resolved cookstyle error: spec/centos_6_remi_php71_spec.rb:5:5 warning: `ChefDeprecations/DeprecatedChefSpecPlatform`
-- resolved cookstyle error: spec/centos_6_remi_php72_spec.rb:5:5 warning: `ChefDeprecations/DeprecatedChefSpecPlatform`
-- resolved cookstyle error: spec/centos_6_remi_php73_spec.rb:5:5 warning: `ChefDeprecations/DeprecatedChefSpecPlatform`
-- resolved cookstyle error: spec/centos_6_remi_safe_spec.rb:5:5 warning: `ChefDeprecations/DeprecatedChefSpecPlatform`
-- resolved cookstyle error: spec/centos_6_remi_spec.rb:5:5 warning: `ChefDeprecations/DeprecatedChefSpecPlatform`
+- Sous Chefs Adoption
+- Various Cookstyle fixes
 
 ## 4.0.0 (2020-01-18)
 
@@ -36,17 +30,21 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 - Depend on the latest compat_resource cookbook
 
 ## 2.2.1 (2016-11-26)
+
 - Use the native inspec formatter now
 - Use a slightly better compat_resource
 
 ## 2.2.0 (2016-10-31)
+
 - Adding php 7.1 repository.
 
 ## 2.1.0 (2016-10-23)
+
 - Added the remi-safe repository.
 - Replace yum dependency with compat_resource
 
 ## 2.0.0 (2016-09-06)
+
 - Remove Chef 11 support
 
 ## v1.2.1 (2016-09-04)
