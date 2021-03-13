@@ -6,6 +6,8 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 
 - Sous Chefs Adoption
 - Various Cookstyle fixes
+- Add InSpec tests
+- Add php 7.4 support
 
 ## 4.0.0 (2020-01-18)
 

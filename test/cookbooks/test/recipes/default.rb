@@ -1,1 +1,1 @@
-package 'php-cli'
+package "php#{node['remi-test']['version'].delete('.')}"

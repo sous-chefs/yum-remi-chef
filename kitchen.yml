@@ -18,7 +18,6 @@ suites:
   - name: remi
     run_list:
       - recipe[yum-remi-chef::remi]
-      - recipe[test::default]
     attributes:
       yum:
         remi:
@@ -30,7 +29,6 @@ suites:
   - name: remi-safe
     run_list:
       - recipe[yum-remi-chef::remi-safe]
-      - recipe[test::default]
     attributes:
       yum:
         remi:
@@ -51,6 +49,8 @@ suites:
         remi-php55:
           enabled: true
           managed: true
+      remi-test:
+        version: '5.5'
     excludes:
       - fedora-latest
 
@@ -66,6 +66,8 @@ suites:
         remi-php56:
           enabled: true
           managed: true
+      remi-test:
+        version: '5.6'
     excludes:
       - fedora-latest
 
@@ -81,6 +83,8 @@ suites:
         remi-php70:
           enabled: true
           managed: true
+      remi-test:
+        version: '7.0'
     excludes:
       - fedora-latest
 
@@ -96,6 +100,8 @@ suites:
         remi-php71:
           enabled: true
           managed: true
+      remi-test:
+        version: '7.1'
     excludes:
       - fedora-latest
 
@@ -111,6 +117,8 @@ suites:
         remi-php72:
           enabled: true
           managed: true
+      remi-test:
+        version: '7.2'
     excludes:
       - fedora-latest
 
@@ -126,6 +134,8 @@ suites:
         remi-php73:
           enabled: true
           managed: true
+      remi-test:
+        version: '7.3'
     excludes:
       - fedora-latest
 
@@ -141,3 +151,5 @@ suites:
         remi-php74:
           enabled: true
           managed: true
+      remi-test:
+        version: '7.4'

@@ -1,15 +1,3 @@
-if os[:family] == 'redhat'
-  describe command('php --version') do
-    its('stdout') { should match /5.4/ }
-  end
-end
-
-if os[:family] == 'fedora'
-  describe command('php --version') do
-    its('stdout') { should match /5.6/ }
-  end
-end
-
 describe yum.repo('remi') do
   it { should exist }
   it { should be_enabled }

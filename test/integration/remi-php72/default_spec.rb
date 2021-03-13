@@ -1,4 +1,4 @@
-describe command('php --version') do
+describe command('php72 --version') do
   its('stdout') { should match /7.2/ }
 end
 

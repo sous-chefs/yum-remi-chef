@@ -1,4 +1,4 @@
-describe command('php --version') do
+describe command('php55 --version') do
   its('stdout') { should match /5.5/ }
 end
 
