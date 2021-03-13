@@ -12,7 +12,6 @@ verifier:
 platforms:
   - name: amazonlinux-2
   - name: centos-7
-  - name: fedora-latest
 
 suites:
   - name: remi
@@ -23,8 +22,6 @@ suites:
         remi:
           enabled: true
           managed: true
-    excludes:
-      - fedora-latest
 
   - name: remi-safe
     run_list:
@@ -34,8 +31,6 @@ suites:
         remi:
           enabled: true
           managed: true
-    excludes:
-      - fedora-latest
 
   - name: remi-php55
     run_list:
@@ -51,8 +46,6 @@ suites:
           managed: true
       remi-test:
         version: '5.5'
-    excludes:
-      - fedora-latest
 
   - name: remi-php56
     run_list:
@@ -68,8 +61,6 @@ suites:
           managed: true
       remi-test:
         version: '5.6'
-    excludes:
-      - fedora-latest
 
   - name: remi-php70
     run_list:
@@ -85,8 +76,6 @@ suites:
           managed: true
       remi-test:
         version: '7.0'
-    excludes:
-      - fedora-latest
 
   - name: remi-php71
     run_list:
@@ -102,8 +91,6 @@ suites:
           managed: true
       remi-test:
         version: '7.1'
-    excludes:
-      - fedora-latest
 
   - name: remi-php72
     run_list:
@@ -119,8 +106,6 @@ suites:
           managed: true
       remi-test:
         version: '7.2'
-    excludes:
-      - fedora-latest
 
   - name: remi-php73
     run_list:
@@ -136,8 +121,6 @@ suites:
           managed: true
       remi-test:
         version: '7.3'
-    excludes:
-      - fedora-latest
 
   - name: remi-php74
     run_list:
