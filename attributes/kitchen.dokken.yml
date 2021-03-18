@@ -1,25 +1,23 @@
+---
 driver:
   name: dokken
   privileged: true  # because Docker and SystemD/Upstart
-  chef_version: <%= ENV['CHEF_VERSION'] || 'current' %>
+  env: [CHEF_LICENSE=accept]
 
 transport:
   name: dokken
 
 provisioner:
   name: dokken
-  deprecations_as_errors: true
-  chef_license: accept-no-persist
-
-verifier:
-  name: inspec
+  product_name: chef
+  product_version: <%= ENV['CHEF_VERSION'] || 'latest' %>
+  install_strategy: once
 
 platforms:
-  - name: amazonlinux-2
+  - name: centos-8
     driver:
-      image: dokken/amazonlinux-2
+      image: dokken/centos-8
       pid_one_command: /usr/lib/systemd/systemd
-
   - name: centos-7
     driver:
       image: dokken/centos-7
