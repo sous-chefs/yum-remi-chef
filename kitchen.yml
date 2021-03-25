@@ -8,7 +8,8 @@ provisioner:
 
 verifier:
   name: inspec
-
+  inspec_tests:
+    - path: test/integration/inspec
 platforms:
   - name: amazonlinux-2
   - name: centos-7
@@ -22,6 +23,9 @@ suites:
         remi:
           enabled: true
           managed: true
+    verifier:
+      controls:
+        - remi
 
   - name: remi-safe
     run_list:
@@ -31,6 +35,9 @@ suites:
         remi:
           enabled: true
           managed: true
+    verifier:
+      controls:
+        - remi-safe
 
   - name: remi-php55
     run_list:
@@ -45,6 +52,12 @@ suites:
           enabled: true
           managed: true
       remi-test:
+        version: '5.5'
+    verifier:
+      controls:
+        - remi
+        - default
+      inputs:
         version: '5.5'
 
   - name: remi-php56
@@ -61,6 +74,12 @@ suites:
           managed: true
       remi-test:
         version: '5.6'
+    verifier:
+      controls:
+        - remi
+        - default
+      inputs:
+        version: '5.6'
 
   - name: remi-php70
     run_list:
@@ -75,6 +94,12 @@ suites:
           enabled: true
           managed: true
       remi-test:
+        version: '7.0'
+    verifier:
+      controls:
+        - remi
+        - default
+      inputs:
         version: '7.0'
 
   - name: remi-php71
@@ -91,6 +116,12 @@ suites:
           managed: true
       remi-test:
         version: '7.1'
+    verifier:
+      controls:
+        - remi
+        - default
+      inputs:
+        version: '7.1'
 
   - name: remi-php72
     run_list:
@@ -105,6 +136,12 @@ suites:
           enabled: true
           managed: true
       remi-test:
+        version: '7.2'
+    verifier:
+      controls:
+        - remi
+        - default
+      inputs:
         version: '7.2'
 
   - name: remi-php73
@@ -121,6 +158,12 @@ suites:
           managed: true
       remi-test:
         version: '7.3'
+    verifier:
+      controls:
+        - remi
+        - default
+      inputs:
+        version: '7.3'
 
   - name: remi-php74
     run_list:
@@ -135,4 +178,10 @@ suites:
           enabled: true
           managed: true
       remi-test:
+        version: '7.4'
+    verifier:
+      controls:
+        - remi
+        - default
+      inputs:
         version: '7.4'
