@@ -10,6 +10,7 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 - Various Cookstyle fixes
 - Add InSpec tests
 - Add php 7.4 support
+- Convert inspec tests to inspec profiles
 
 ## 4.0.0 (2020-01-18)
 
