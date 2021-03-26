@@ -1,0 +1,11 @@
+---
+name: yum-remi-chef
+title: Integration tests for the yum-remi-chef Cookbook
+version: 0.1.0
+inputs:
+  - name: version
+    type: string
+    required: true
+supports:
+  - os-family: linux
+  - os-family: amazon
