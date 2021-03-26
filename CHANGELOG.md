@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
-## Unreleased
+## 4.1.1 - *2021-03-26*
 
 - Convert inspec tests to inspec profiles
 
