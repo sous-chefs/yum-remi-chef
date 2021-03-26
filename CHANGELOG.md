@@ -4,13 +4,14 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 
 ## Unreleased
 
+- Convert inspec tests to inspec profiles
+
 ## 4.1.0 - *2021-03-18*
 
 - Sous Chefs Adoption
 - Various Cookstyle fixes
 - Add InSpec tests
 - Add php 7.4 support
-- Convert inspec tests to inspec profiles
 
 ## 4.0.0 (2020-01-18)
 

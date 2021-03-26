@@ -18,7 +18,7 @@
 
 unless platform?('fedora')
   include_recipe 'yum-epel'
-  include_recipe 'yum-remi-chef::remi'
+  include_recipe 'yum-remi-chef::remi-safe'
 end
 
 %w(remi-php73 remi-php73-debuginfo).each do |repo|

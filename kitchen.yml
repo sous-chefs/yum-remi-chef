@@ -160,7 +160,7 @@ suites:
         version: '7.3'
     verifier:
       controls:
-        - remi
+        - remi-safe
         - default
       inputs:
         version: '7.3'
@@ -181,7 +181,7 @@ suites:
         version: '7.4'
     verifier:
       controls:
-        - remi
+        - remi-safe
         - default
       inputs:
         version: '7.4'
