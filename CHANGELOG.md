@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## Unreleased
+
 ## 4.2.0 - *2021-04-05*
 
 - Refactor ChefSpec units to be less repetitious
