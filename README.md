@@ -6,7 +6,7 @@
 [![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-The yum-remi-chef cookbook takes over management of the repository ids of the [remi](http://cdn.remirepo.net/) repository . It allows attribute manipulation of `remi`, `remi-safe`, `remi-php55`, `remi-php56`, `remi-php70`, `remi-php71`, `remi-php72` and `remi-test` repositories.
+The yum-remi-chef cookbook takes over management of the repository ids of the [remi](http://cdn.remirepo.net/) repository . It allows attribute manipulation of `remi`, `remi-safe`, `remi-php55`, `remi-php56`, `remi-php70`, `remi-php71`, `remi-php72`, `remi-php73`, `remi-php74`, `remi-php80`, and `remi-test` repositories.
 
 ## Maintainers
 
@@ -122,6 +122,26 @@ default['yum']['remi-php73']['description'] = "Remi's PHP 7.2 RPM repository for
 default['yum']['remi-php73']['enabled'] = true
 default['yum']['remi-php73']['gpgcheck'] = true
 default['yum']['remi-php73']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
+```
+
+```ruby
+default['yum']['remi-php74']['managed'] = true
+default['yum']['remi-php74']['repositoryid'] = 'remi-php74'
+default['yum']['remi-php74']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/7/php74/mirror'
+default['yum']['remi-php74']['description'] = "Remi's PHP 7.4 RPM repository for Enterprise Linux 7 - $basearch"
+default['yum']['remi-php74']['enabled'] = true
+default['yum']['remi-php74']['gpgcheck'] = true
+default['yum']['remi-php74']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
+```
+
+```ruby
+default['yum']['remi-php80']['managed'] = true
+default['yum']['remi-php80']['repositoryid'] = 'remi-php80'
+default['yum']['remi-php80']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/7/php80/mirror'
+default['yum']['remi-php80']['description'] = "Remi's PHP 8.0 RPM repository for Enterprise Linux 7 - $basearch"
+default['yum']['remi-php80']['enabled'] = true
+default['yum']['remi-php80']['gpgcheck'] = true
+default['yum']['remi-php80']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
 ```
 
 ## Recipes

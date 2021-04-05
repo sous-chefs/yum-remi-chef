@@ -16,10 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-unless platform?('fedora')
-  include_recipe 'yum-epel'
-  include_recipe 'yum-remi-chef::remi'
-end
+include_recipe 'yum-remi-chef::remi' unless platform?('fedora')
 
 %w(remi-php72 remi-php72-debuginfo).each do |repo|
   next unless node['yum'][repo]['managed']

@@ -4,6 +4,9 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 
 ## Unreleased
 
+- Refactor ChefSpec units to be less repetitious
+- Add PHP 8.0 support
+
 ## 4.1.1 - *2021-03-26*
 
 - Convert inspec tests to inspec profiles

@@ -44,7 +44,6 @@ jobs:
           - centos-7
         suite:
           - 'remi'
-          - 'remi-safe'
           - 'remi-php55'
           - 'remi-php56'
           - 'remi-php70'
@@ -52,6 +51,7 @@ jobs:
           - 'remi-php72'
           - 'remi-php73'
           - 'remi-php74'
+          - 'remi-php80'
       fail-fast: false
 
     steps:

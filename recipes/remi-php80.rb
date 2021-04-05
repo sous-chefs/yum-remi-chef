@@ -1,6 +1,6 @@
 #
 # Author:: Sean OMeara (<sean@sean.io>)
-# Recipe:: yum-remi-chef::remi-php73
+# Recipe:: yum-remi-chef::remi-php80
 #
 # Copyright:: 2015-2017, Chef Software, Inc.
 #
@@ -16,11 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-Chef::Log.fatal 'PHP 7.3 is not available for Fedora' if platform?('fedora')
+include_recipe 'yum-remi-chef::remi-safe' unless platform?('fedora')
 
-include_recipe 'yum-remi-chef::remi-safe'
-
-%w(remi-php73 remi-php73-debuginfo).each do |repo|
+%w(remi-php80 remi-php80-debuginfo).each do |repo|
   next unless node['yum'][repo]['managed']
   yum_repository repo do
     node['yum'][repo].each do |config, value|

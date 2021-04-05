@@ -16,10 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-unless platform?('fedora')
-  include_recipe 'yum-epel'
-  include_recipe 'yum-remi-chef::remi-safe' if node['platform_version'].to_i > 5
-end
+include_recipe 'yum-remi-chef::remi-safe' unless platform?('fedora')
 
 include_recipe 'yum-remi-chef::remi'
 
