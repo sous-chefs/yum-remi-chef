@@ -3,16 +3,18 @@ control 'remi-safe' do
     it { should exist }
     it { should be_enabled }
     its('mirrors') do
-      should cmp "#{
-      case os.name
-      when 'fedora'
-        "http://cdn.remirepo.net/fedora/#{os.release.to_i}/safe/mirror"
-      when 'amazon'
-        'http://cdn.remirepo.net/enterprise/7/safe/mirror'
-      else
-        "http://cdn.remirepo.net/enterprise/#{os.release.to_i}/safe/mirror"
-      end
-    }"
+      should cmp case os.name
+                 when 'fedora'
+                   "http://cdn.remirepo.net/fedora/#{os.release.to_i}/safe/$basearch/mirror"
+                 when 'amazon'
+                   'http://cdn.remirepo.net/enterprise/7/safe/mirror'
+                 else # rhel
+                   if os.release.to_i == 7
+                     "http://cdn.remirepo.net/enterprise/#{os.release.to_i}/safe/mirror"
+                   else
+                     "http://cdn.remirepo.net/enterprise/#{os.release.to_i}/safe/$basearch/mirror"
+                   end
+                 end
     end
   end
 
