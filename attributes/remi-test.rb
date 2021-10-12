@@ -1,20 +1,26 @@
-default['yum']['remi-test']['repositoryid'] = 'remi'
+default['yum']['remi-test']['repositoryid'] = 'remi-test'
 default['yum']['remi-test']['gpgcheck'] = true
 default['yum']['remi-test']['enabled'] = false
 default['yum']['remi-test']['managed'] = false
 
-case node['platform']
+case node['platform_family']
 when 'fedora'
-  # default['yum']['remi-test']['baseurl'] = "http://cdn.remirepo.net/fedora/#{node['platform_version'].to_i}/remi-test/$basearch/"
-  default['yum']['remi-test']['mirrorlist'] = "http://cdn.remirepo.net/fedora/#{node['platform_version'].to_i}/remi-test/mirror"
+  # default['yum']['remi-test']['baseurl'] = "http://rpms.remirepo.net/fedora/#{node['platform_version'].to_i}/test/$basearch/"
+  default['yum']['remi-test']['mirrorlist'] = "http://cdn.remirepo.net/fedora/#{node['platform_version'].to_i}/test/$basearch/mirror"
   default['yum']['remi-test']['description'] = "Remi's test RPM repository for Fedora Linux #{node['platform_version'].to_i} - $basearch"
 when 'amazon'
-  # Default to EL7
-  # default['yum']['remi-test']['baseurl'] = 'http://cdn.remirepo.net/enterprise/7/remi-test/$basearch/'
-  default['yum']['remi-test']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/7/remi-test/mirror'
+  # Use CentOS 7 repo
+  # default['yum']['remi-test']['baseurl'] = 'http://rpms.remirepo.net/enterprise/7/test/$basearch/'
+  default['yum']['remi-test']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/7/test/mirror'
   default['yum']['remi-test']['description'] = "Remi's test RPM repository for Enterprise Linux 7 - $basearch"
-else
-  # default['yum']['remi-test']['baseurl'] = "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/remi-test/$basearch/"
-  default['yum']['remi-test']['mirrorlist'] = "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/remi-test/mirror"
+when 'rhel'
+  # default['yum']['remi-safe']['baseurl'] = "http://rpms.remirepo.net/enterprise/#{node['platform_version'].to_i}/test/$basearch/"
+  default['yum']['remi-test']['mirrorlist'] = if node['platform_version'].to_i == 7
+                                                "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/test/mirror"
+                                              else
+                                                "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/test/$basearch/mirror"
+                                              end
   default['yum']['remi-test']['description'] = "Remi's test RPM repository for Enterprise Linux #{node['platform_version'].to_i} - $basearch"
+else
+  raise "platform #{node['platform']} not recognised"
 end
