@@ -4,6 +4,12 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 
 ## Unreleased
 
+- Fix support for CentOS 8 & Fedora
+- Use correct domain for debuginfo repos
+- Remove 5.5 repo support (removed upstream)
+- Add testing for CentOS 8, CentOS Stream 8, Fedora
+- Add PHP 8.1 repo
+
 ## 4.2.2 - *2021-08-31*
 
 - Standardise files with files in sous-chefs/repo-management
