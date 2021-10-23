@@ -2,7 +2,10 @@ version = input('version')
 shortver = version.delete('.').to_i
 
 control 'php' do
-  describe command("php#{shortver} --version") do
+  title 'verify correct version of PHP and repo was installed'
+
+  phpcmd = os.name == 'fedora' ? 'php' : "php#{shortver}"
+  describe command("#{phpcmd} --version") do
     its('stdout') { should match /#{version}/ }
   end
 
@@ -12,14 +15,14 @@ control 'php' do
     its('mirrors') do
       should cmp case os.name
                  when 'fedora'
-                   "http://cdn.remirepo.net/fedora/#{os.release.to_i}/php#{shortver}/$basearch/mirror"
+                   "http://cdn.remirepo.net/fedora/#{os.release.to_i}/php#{shortver}/#{os.arch}/mirror"
                  when 'amazon'
                    "http://cdn.remirepo.net/enterprise/7/php#{shortver}/mirror"
                  else # rhel
                    if os.release.to_i == 7
                      "http://cdn.remirepo.net/enterprise/#{os.release.to_i}/php#{shortver}/mirror"
                    else
-                     "http://cdn.remirepo.net/enterprise/#{os.release.to_i}/php#{shortver}/$basearch/mirror"
+                     "http://cdn.remirepo.net/enterprise/#{os.release.to_i}/php#{shortver}/#{os.arch}/mirror"
                    end
                  end
     end
@@ -27,6 +30,19 @@ control 'php' do
 
   describe ini("/etc/yum.repos.d/remi-php#{shortver}.repo") do
     its("remi-php#{shortver}.gpgcheck") { should cmp 1 }
-    its("remi-php#{shortver}.gpgkey") { should cmp 'https://rpms.remirepo.net/RPM-GPG-KEY-remi' }
+    its("remi-php#{shortver}.gpgkey") do
+      should cmp case os.name
+                 when 'amazon'
+                   'https://rpms.remirepo.net/RPM-GPG-KEY-remi'
+                 when 'fedora'
+                   'https://rpms.remirepo.net/RPM-GPG-KEY-remi2021'
+                 else # rhel
+                   if os.release.to_i == 7
+                     'https://rpms.remirepo.net/RPM-GPG-KEY-remi'
+                   else
+                     'https://rpms.remirepo.net/RPM-GPG-KEY-remi2018'
+                   end
+                 end
+    end
   end
 end

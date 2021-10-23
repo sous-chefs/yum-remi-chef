@@ -88,6 +88,11 @@ suites:
         - php
       inputs:
         version: '5.6'
+    excludes:
+      - amazonlinux-2
+      - centos-8
+      - centos-stream-8
+      - fedora-latest
 
   - name: remi-php70
     run_list:
@@ -107,6 +112,10 @@ suites:
         - php
       inputs:
         version: '7.0'
+    excludes:
+      - centos-8
+      - centos-stream-8
+      - fedora-latest
 
   - name: remi-php71
     run_list:
@@ -126,6 +135,10 @@ suites:
         - php
       inputs:
         version: '7.1'
+    excludes:
+      - centos-8
+      - centos-stream-8
+      - fedora-latest
 
   - name: remi-php72
     run_list:
@@ -145,6 +158,8 @@ suites:
         - php
       inputs:
         version: '7.2'
+    excludes:
+      - fedora-latest
 
   - name: remi-php73
     run_list:
@@ -163,6 +178,8 @@ suites:
         - php
       inputs:
         version: '7.3'
+    excludes:
+      - fedora-latest
 
   - name: remi-php74
     run_list:
@@ -181,6 +198,8 @@ suites:
         - php
       inputs:
         version: '7.4'
+    excludes:
+      - fedora-latest
 
   - name: remi-php80
     run_list:
@@ -199,3 +218,21 @@ suites:
         - php
       inputs:
         version: '8.0'
+
+  - name: remi-php81
+    run_list:
+      - recipe[yum-remi-chef::remi-php81]
+      - recipe[test::php]
+    attributes:
+      yum:
+        remi-php81:
+          enabled: true
+          managed: true
+      remi-test:
+        version: '8.1'
+    verifier:
+      controls:
+        - remi-safe
+        - php
+      inputs:
+        version: '8.1'
