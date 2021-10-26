@@ -10,7 +10,7 @@ The yum-remi-chef cookbook takes over management of the repository ids of the [r
 
 ## Maintainers
 
-This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of Chef cookbook maintainers working together to maintain important cookbooks. If you’d like to know more please visit sous-chefs.org or come chat with us on the Chef Community Slack in #sous-chefs.
+This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of Chef cookbook maintainers working together to maintain important cookbooks. If you’d like to know more please visit [sous-chefs.org](https://sous-chefs.org) or come chat with us on the Chef Community Slack in `#sous-chefs`.
 
 ## Requirements
 
@@ -33,149 +33,12 @@ The following platforms and PHP versions are supported, as per [upstream](https:
 | CentOS 8       |     |     |     |     | x   | x   | x   | x   | x   |
 | Fedora (34/35) |     |     |     |     |     |     |     | x   | x   |
 
-## Attributes
-
-The following attributes are set by default
-
-```ruby
-default['yum']['remi']['repositoryid'] = 'remi'
-default['yum']['remi']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/5/remi/mirror'
-default['yum']['remi']['description'] = "Remi's RPM repository for Enterprise Linux 5 - $basearch"
-default['yum']['remi']['enabled'] = true
-default['yum']['remi']['gpgcheck'] = true
-default['yum']['remi']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
-```
-
-```ruby
-default['yum']['remi-safe']['repositoryid'] = 'remi-safe'
-default['yum']['remi-safe']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/5/safe/mirror'
-default['yum']['remi-safe']['description'] = "Safe Remi's RPM repository for Enterprise Linux 5 - $basearch"
-default['yum']['remi-safe']['enabled'] = true
-default['yum']['remi-safe']['gpgcheck'] = true
-default['yum']['remi-safe']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
-```
-
-```ruby
-default['yum']['remi-php56']['repositoryid'] = 'remi-php56'
-default['yum']['remi-php56']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/5/php56/mirror'
-default['yum']['remi-php56']['description'] = "Remi's PHP 5.6 RPM repository for Enterprise Linux 5 - $basearch"
-default['yum']['remi-php56']['enabled'] = true
-default['yum']['remi-php56']['gpgcheck'] = true
-default['yum']['remi-php56']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
-```
-
-```ruby
-default['yum']['remi-php70']['managed'] = true
-default['yum']['remi-php70']['repositoryid'] = 'remi-php70'
-default['yum']['remi-php70']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/6/php70/mirror'
-default['yum']['remi-php70']['description'] = "Remi's PHP 7.0 RPM repository for Enterprise Linux 6 - $basearch"
-default['yum']['remi-php70']['enabled'] = true
-default['yum']['remi-php70']['gpgcheck'] = true
-default['yum']['remi-php70']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
-```
-
-```ruby
-default['yum']['remi-php71']['managed'] = true
-default['yum']['remi-php71']['repositoryid'] = 'remi-php71'
-default['yum']['remi-php71']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/6/php71/mirror'
-default['yum']['remi-php71']['description'] = "Remi's PHP 7.1 RPM repository for Enterprise Linux 6 - $basearch"
-default['yum']['remi-php71']['enabled'] = true
-default['yum']['remi-php71']['gpgcheck'] = true
-default['yum']['remi-php71']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
-```
-
-```ruby
-default['yum']['remi-php72']['managed'] = true
-default['yum']['remi-php72']['repositoryid'] = 'remi-php72'
-default['yum']['remi-php72']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/6/php72/mirror'
-default['yum']['remi-php72']['description'] = "Remi's PHP 7.2 RPM repository for Enterprise Linux 6 - $basearch"
-default['yum']['remi-php72']['enabled'] = true
-default['yum']['remi-php72']['gpgcheck'] = true
-default['yum']['remi-php72']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
-```
-
-```ruby
-default['yum']['remi-php73']['managed'] = true
-default['yum']['remi-php73']['repositoryid'] = 'remi-php73'
-default['yum']['remi-php73']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/6/php73/mirror'
-default['yum']['remi-php73']['description'] = "Remi's PHP 7.2 RPM repository for Enterprise Linux 6 - $basearch"
-default['yum']['remi-php73']['enabled'] = true
-default['yum']['remi-php73']['gpgcheck'] = true
-default['yum']['remi-php73']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
-```
-
-```ruby
-default['yum']['remi-php74']['managed'] = true
-default['yum']['remi-php74']['repositoryid'] = 'remi-php74'
-default['yum']['remi-php74']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/7/php74/mirror'
-default['yum']['remi-php74']['description'] = "Remi's PHP 7.4 RPM repository for Enterprise Linux 7 - $basearch"
-default['yum']['remi-php74']['enabled'] = true
-default['yum']['remi-php74']['gpgcheck'] = true
-default['yum']['remi-php74']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
-```
-
-```ruby
-default['yum']['remi-php80']['managed'] = true
-default['yum']['remi-php80']['repositoryid'] = 'remi-php80'
-default['yum']['remi-php80']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/7/php80/mirror'
-default['yum']['remi-php80']['description'] = "Remi's PHP 8.0 RPM repository for Enterprise Linux 7 - $basearch"
-default['yum']['remi-php80']['enabled'] = true
-default['yum']['remi-php80']['gpgcheck'] = true
-default['yum']['remi-php80']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
-```
-
-```ruby
-default['yum']['remi-php81']['managed'] = true
-default['yum']['remi-php81']['repositoryid'] = 'remi-php81'
-default['yum']['remi-php81']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/7/php81/mirror'
-default['yum']['remi-php81']['description'] = "Remi's PHP 8.1 RPM repository for Enterprise Linux 7 - $basearch"
-default['yum']['remi-php81']['enabled'] = true
-default['yum']['remi-php81']['gpgcheck'] = true
-default['yum']['remi-php81']['gpgkey'] = 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
-```
-
 ## Recipes
 
-- default - Walks through node attributes and feeds a yum_resource its parameters. The following is an example of a resource generated by the recipe during compilation.
-
-```ruby
-  yum_repository 'remi' do
-    mirrorlist 'http://cdn.remirepo.net/enterprise/7/remi/mirror'
-    description "Remi's RPM repository for Enterprise Linux 7 - $basearch"
-    enabled true
-    gpgcheck true
-    gpgkey 'http://cdn.remirepo.net/RPM-GPG-KEY-remi'
-  end
-```
-
-## Usage Example
-
-To disable the remi repository through a Role or Environment definition
-
-```ruby
-default_attributes(
-  :yum => {
-    :remi => {
-      :enabled => {
-        false
-       }
-     }
-   }
- )
-```
-
-## More Examples
-
-Point the base and updates repositories at an internally hosted server.
-
-```ruby
-node.default['yum']['remi']['enabled'] = true
-node.default['yum']['remi']['mirrorlist'] = nil
-node.default['yum']['remi']['baseurl'] = 'https://internal.example.com/enterprise/6/remi/$basearch/'
-node.default['yum']['remi']['sslverify'] = false
-
-include_recipe 'yum-remi'
-```
+- `::remi` - Sets up the base remi repository.
+- `::remi-safe` - Sets up the remi-safe repo. This contains the `phpXX` "software collections" packages, able to coexist with stock PHP.
+- `::remi-phpXX` - Sets up the corresponding remi PHP version repo. These repos **override** the stock PHP packages. See the above table for supported versions.
+- `::remi-test` - Sets up the remi-test experimental repo.
 
 ## Contributors
 
