@@ -9,6 +9,8 @@ default['yum-remi-chef']['gpgkey'] = case node['platform_family']
                                          'https://rpms.remirepo.net/RPM-GPG-KEY-remi2021'
                                        when 36, 37 # future proofing
                                          'https://rpms.remirepo.net/RPM-GPG-KEY-remi2022'
+                                       else
+                                         Chef::Log.fatal("Fedora #{node['platform_version'].to_i} is not currently supported by this cookbook")
                                        end
                                      when 'amazon'
                                        # Use CentOS 7 key
