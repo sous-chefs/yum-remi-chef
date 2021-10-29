@@ -26,12 +26,13 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 The following platforms and PHP versions are supported, as per [upstream](https://rpms.remirepo.net):
 
-| PHP version    | 5.5 | 5.6 | 7.0 | 7.1 | 7.2 | 7.3 | 7.4 | 8.0 | 8.1 |
-| -------------- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| CentOS 7       | x   | x   | x   | x   | x   | x   | x   | x   | x   |
-| Amazon Linux 2 |     |     | x   | x   | x   | x   | x   | x   | x   |
-| CentOS 8       |     |     |     |     | x   | x   | x   | x   | x   |
-| Fedora (34/35) |     |     |     |     |     |     |     | x   | x   |
+| PHP version     | 5.5 | 5.6 | 7.0 | 7.1 | 7.2 | 7.3 | 7.4 | 8.0 | 8.1 |
+| --------------- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| CentOS 7        | x   | x   | x   | x   | x   | x   | x   | x   | x   |
+| Amazon Linux 2  |     |     | x   | x   | x   | x   | x   | x   | x   |
+| CentOS 8        |     |     |     |     | x   | x   | x   | x   | x   |
+| CentOS Stream 8 |     |     |     |     | x   | x   | x   | x   | x   |
+| Fedora (34/35)  |     |     |     |     |     |     |     | x   | x   |
 
 ## Recipes
 
