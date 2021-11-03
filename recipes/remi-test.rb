@@ -16,8 +16,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include_recipe 'yum-remi-chef::remi-safe' unless platform?('fedora')
-
 include_recipe 'yum-remi-chef::remi'
 
 %w(remi-test remi-test-debuginfo).each do |repo|

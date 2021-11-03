@@ -42,9 +42,12 @@ jobs:
         os:
           - amazonlinux-2
           - centos-7
+          - centos-8
+          - centos-stream-8
+          - fedora-latest
         suite:
           - 'remi'
-          - 'remi-php55'
+          - 'remi-test'
           - 'remi-php56'
           - 'remi-php70'
           - 'remi-php71'
@@ -52,6 +55,34 @@ jobs:
           - 'remi-php73'
           - 'remi-php74'
           - 'remi-php80'
+          - 'remi-php81'
+        exclude:
+          - os: amazonlinux-2
+            suite: remi-php56
+          - os: centos-8
+            suite: remi-php56
+          - os: centos-stream-8
+            suite: remi-php56
+          - os: fedora-latest
+            suite: remi-php56
+          - os: centos-8
+            suite: remi-php70
+          - os: centos-stream-8
+            suite: remi-php70
+          - os: fedora-latest
+            suite: remi-php70
+          - os: centos-8
+            suite: remi-php71
+          - os: centos-stream-8
+            suite: remi-php71
+          - os: fedora-latest
+            suite: remi-php71
+          - os: fedora-latest
+            suite: remi-php72
+          - os: fedora-latest
+            suite: remi-php73
+          - os: fedora-latest
+            suite: remi-php74
       fail-fast: false
 
     steps:

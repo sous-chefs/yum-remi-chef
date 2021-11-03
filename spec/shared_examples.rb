@@ -20,15 +20,6 @@ shared_examples 'create remi-safe repo' do
   it { is_expected.to create_yum_repository('remi-safe') }
 end
 
-shared_examples 'create PHP 5.5 repos' do
-  %w(
-    remi-php55
-    remi-php55-debuginfo
-  ).each do |repo|
-    it { is_expected.to create_yum_repository(repo) }
-  end
-end
-
 shared_examples 'create PHP 5.6 repos' do
   %w(
     remi-php56
@@ -87,6 +78,15 @@ shared_examples 'create PHP 8.0 repos' do
   %w(
     remi-php80
     remi-php80-debuginfo
+  ).each do |repo|
+    it { is_expected.to create_yum_repository(repo) }
+  end
+end
+
+shared_examples 'create PHP 8.1 repos' do
+  %w(
+    remi-php81
+    remi-php81-debuginfo
   ).each do |repo|
     it { is_expected.to create_yum_repository(repo) }
   end

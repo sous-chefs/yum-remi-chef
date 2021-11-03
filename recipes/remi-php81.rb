@@ -1,8 +1,8 @@
 #
 # Author:: Sean OMeara (<sean@sean.io>)
-# Recipe:: yum-remi-chef::remi
+# Recipe:: yum-remi-chef::remi-php81
 #
-# Copyright:: 2015-2019, Chef Software, Inc.
+# Copyright:: 2015-2017, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 
 include_recipe 'yum-remi-chef::remi-safe' unless platform?('fedora')
 
-%w(remi remi-debuginfo).each do |repo|
+%w(remi-php81 remi-php81-debuginfo).each do |repo|
   next unless node['yum'][repo]['managed']
   yum_repository repo do
     node['yum'][repo].each do |config, value|

@@ -3,18 +3,24 @@ default['yum']['remi-php56']['gpgcheck'] = true
 default['yum']['remi-php56']['enabled'] = true
 default['yum']['remi-php56']['managed'] = true
 
-case node['platform']
+case node['platform_family']
 when 'fedora'
   # default['yum']['remi-php56']['baseurl'] = "http://cdn.remirepo.net/fedora/#{node['platform_version'].to_i}/php56/$basearch/"
-  default['yum']['remi-php56']['mirrorlist'] = "http://cdn.remirepo.net/fedora/#{node['platform_version'].to_i}/php56/mirror"
+  default['yum']['remi-php56']['mirrorlist'] = "http://cdn.remirepo.net/fedora/#{node['platform_version'].to_i}/php56/$basearch/mirror"
   default['yum']['remi-php56']['description'] = "Remi's PHP 5.6 RPM repository for Fedora Linux #{node['platform_version'].to_i} - $basearch"
 when 'amazon'
-  # Default to EL7
+  # Use CentOS 7 repo
   # default['yum']['remi-php56']['baseurl'] = 'http://cdn.remirepo.net/enterprise/7/php56/$basearch/'
   default['yum']['remi-php56']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/7/php56/mirror'
   default['yum']['remi-php56']['description'] = "Remi's PHP 5.6 RPM repository for Enterprise Linux 7 - $basearch"
-else
+when 'rhel'
   # default['yum']['remi-php56']['baseurl'] = "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/php56/$basearch/"
-  default['yum']['remi-php56']['mirrorlist'] = "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/php56/mirror"
+  default['yum']['remi-php56']['mirrorlist'] = if node['platform_version'].to_i == 7
+                                                 "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/php56/mirror"
+                                               else
+                                                 "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/php56/$basearch/mirror"
+                                               end
   default['yum']['remi-php56']['description'] = "Remi's PHP 5.6 RPM repository for Enterprise Linux #{node['platform_version'].to_i} - $basearch"
+else
+  raise "platform #{node['platform']} not recognised"
 end

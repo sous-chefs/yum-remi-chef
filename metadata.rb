@@ -8,6 +8,7 @@ source_url        'https://github.com/sous-chefs/yum-remi-chef'
 issues_url        'https://github.com/sous-chefs/yum-remi-chef/issues'
 chef_version      '>= 12.15'
 
+depends 'yum', '>= 7.2.0'  # for `dnf_module`
 depends 'yum-epel'
 
 supports 'amazon'
