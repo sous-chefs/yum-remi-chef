@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
-## Unreleased
+## 5.0.0 - *2021-11-03*
 
 - Fix support for CentOS 8 & Fedora
 - Use correct domain for debuginfo repos
