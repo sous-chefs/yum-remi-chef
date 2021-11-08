@@ -14,6 +14,4 @@ when 'amazon'
 when 'rhel'
   default['yum']['remi-debuginfo']['baseurl'] = "http://rpms.remirepo.net/enterprise/#{node['platform_version'].to_i}/debug-remi/$basearch/"
   default['yum']['remi-debuginfo']['description'] = "Remi's RPM repository for Enterprise Linux #{node['platform_version'].to_i} - $basearch - debuginfo"
-else
-  Chef::Log.warn("platform #{node['platform']} not recognised")
 end

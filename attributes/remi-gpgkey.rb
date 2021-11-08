@@ -21,6 +21,4 @@ default['yum-remi-chef']['gpgkey'] = case node['platform_family']
                                        else
                                          'https://rpms.remirepo.net/RPM-GPG-KEY-remi2018'
                                        end
-                                     else
-                                       Chef::Log.warn("platform #{node['platform']} not recognised")
                                      end

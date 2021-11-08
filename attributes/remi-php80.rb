@@ -21,6 +21,4 @@ when 'rhel'
                                                  "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/php80/$basearch/mirror"
                                                end
   default['yum']['remi-php80']['description'] = "Remi's PHP 8.0 RPM repository for Enterprise Linux #{node['platform_version'].to_i} - $basearch"
-else
-  Chef::Log.warn("platform #{node['platform']} not recognised")
 end

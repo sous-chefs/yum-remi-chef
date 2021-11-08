@@ -4,7 +4,7 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 
 ## Unreleased
 
-- Warn on unsupported platforms instead of raising error
+- Remove error on unsupported platforms
 
 ## 5.0.0 - *2021-11-03*
 

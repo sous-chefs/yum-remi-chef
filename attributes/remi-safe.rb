@@ -21,6 +21,4 @@ when 'rhel'
                                                 "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/safe/$basearch/mirror"
                                               end
   default['yum']['remi-safe']['description'] = "Safe Remi's RPM repository for Enterprise Linux #{node['platform_version'].to_i} - $basearch"
-else
-  Chef::Log.warn("platform #{node['platform']} not recognised")
 end
