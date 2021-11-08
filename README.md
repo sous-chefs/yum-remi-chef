@@ -32,7 +32,8 @@ The following platforms and PHP versions are supported, as per [upstream](https:
 | Amazon Linux 2  |     |     | x   | x   | x   | x   | x   | x   | x   |
 | CentOS 8        |     |     |     |     | x   | x   | x   | x   | x   |
 | CentOS Stream 8 |     |     |     |     | x   | x   | x   | x   | x   |
-| Fedora (34/35)  |     |     |     |     |     |     |     | x   | x   |
+| Fedora 34       |     |     |     |     |     |     |     | x   | x   |
+| Fedora 35       |     |     |     |     |     |     |     |     | x   |
 
 ## Recipes
 

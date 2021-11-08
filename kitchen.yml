@@ -194,6 +194,8 @@ suites:
         - php
       inputs:
         version: '8.0'
+    excludes:
+      - fedora-latest
 
   - name: remi-php81
     run_list:
