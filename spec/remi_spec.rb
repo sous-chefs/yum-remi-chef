@@ -24,4 +24,12 @@ describe 'yum-remi-chef::remi' do
 
     include_examples 'create remi repos'
   end
+
+  context 'on Debian' do
+    platform 'debian'
+
+    it do
+      expect { chef_run }.to_not raise_error
+    end
+  end
 end

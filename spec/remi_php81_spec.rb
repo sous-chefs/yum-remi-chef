@@ -24,4 +24,12 @@ describe 'yum-remi-chef::remi-php81' do
       it_behaves_like 'create PHP 8.1 repos'
     end
   end
+
+  context 'on Debian' do
+    platform 'debian'
+
+    it do
+      expect { chef_run }.to_not raise_error
+    end
+  end
 end

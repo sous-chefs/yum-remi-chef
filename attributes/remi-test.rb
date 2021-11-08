@@ -22,5 +22,5 @@ when 'rhel'
                                               end
   default['yum']['remi-test']['description'] = "Remi's test RPM repository for Enterprise Linux #{node['platform_version'].to_i} - $basearch"
 else
-  raise "platform #{node['platform']} not recognised"
+  Chef::Log.warn("platform #{node['platform']} not recognised")
 end

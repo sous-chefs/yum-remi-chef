@@ -24,4 +24,12 @@ describe 'yum-remi-chef::remi-php74' do
       it_behaves_like 'create PHP 7.4 repos'
     end
   end
+
+  context 'on Debian' do
+    platform 'debian'
+
+    it do
+      expect { chef_run }.to_not raise_error
+    end
+  end
 end
