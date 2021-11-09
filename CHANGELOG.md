@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## Unreleased
+
 ## 5.0.1 - *2021-11-09*
 
 - Remove error on unsupported platforms
