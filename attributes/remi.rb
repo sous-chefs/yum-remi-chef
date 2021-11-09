@@ -21,6 +21,4 @@ when 'rhel'
                                            "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/remi/$basearch/mirror"
                                          end
   default['yum']['remi']['description'] = "Remi's RPM repository for Enterprise Linux #{node['platform_version'].to_i} - $basearch"
-else
-  raise "platform #{node['platform']} not recognised"
 end

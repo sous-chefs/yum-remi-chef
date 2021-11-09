@@ -21,6 +21,4 @@ when 'rhel'
                                                  "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/php73/$basearch/mirror"
                                                end
   default['yum']['remi-php73']['description'] = "Remi's PHP 7.3 RPM repository for Enterprise Linux #{node['platform_version'].to_i} - $basearch"
-else
-  raise "platform #{node['platform']} not recognised"
 end

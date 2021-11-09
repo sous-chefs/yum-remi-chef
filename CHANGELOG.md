@@ -4,6 +4,8 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 
 ## Unreleased
 
+- Remove error on unsupported platforms
+
 ## 5.0.0 - *2021-11-03*
 
 - Fix support for CentOS 8 & Fedora

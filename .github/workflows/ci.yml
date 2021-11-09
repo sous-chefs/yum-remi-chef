@@ -83,6 +83,8 @@ jobs:
             suite: remi-php73
           - os: fedora-latest
             suite: remi-php74
+          - os: fedora-latest
+            suite: remi-php80
       fail-fast: false
 
     steps:
