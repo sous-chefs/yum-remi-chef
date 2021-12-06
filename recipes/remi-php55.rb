@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-raise "`remi-php55` is not available for #{node['platform_family']} #{node['platform_version']}}" if platform?('fedora') || (platform_family?('rhel') && node['platform_version'].to_i >= 8)
+raise "`remi-php55` is not available for #{node['platform']} #{node['platform_version'].to_i}" if rhel_8_or_fedora? || amazon?
 
 include_recipe 'yum-remi-chef::remi'
 

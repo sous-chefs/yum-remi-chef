@@ -15,13 +15,18 @@ describe 'yum-remi-chef::remi-php70' do
     include_examples 'create PHP 7.0 repos'
   end
 
-  %w(7 8).each do |version|
-    context "on CentOS #{version}" do
-      platform 'centos', version
+  context 'on CentOS 7' do
+    platform 'centos', '7'
 
-      include_examples 'create remi-safe repo'
+    include_examples 'create remi-safe repo'
+    include_examples 'create PHP 7.0 repos'
+  end
 
-      include_examples 'create PHP 7.0 repos'
+  context 'on CentOS 8' do
+    platform 'centos', '8'
+
+    it do
+      expect { chef_run }.to raise_error '`remi-php70` is not available for centos 8'
     end
   end
 

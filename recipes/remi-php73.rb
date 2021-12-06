@@ -16,9 +16,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-Chef::Log.fatal 'PHP 7.3 is not available for Fedora' if platform?('fedora')
+raise "`remi-php73` is not available for #{node['platform']} #{node['platform_version'].to_i}" if platform_family?('fedora')
 
-include_recipe 'yum-remi-chef::remi-safe'
+include_recipe 'yum-remi-chef::remi' unless fedora?
+include_recipe 'yum-remi-chef::remi-modular' if rhel_8_or_fedora?
 
 %w(remi-php73 remi-php73-debuginfo).each do |repo|
   next unless node['yum'][repo]['managed']

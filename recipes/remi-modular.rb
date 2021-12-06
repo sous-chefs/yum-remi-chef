@@ -1,6 +1,6 @@
 #
 # Author:: Sean OMeara (<sean@sean.io>)
-# Recipe:: yum-remi-chef::remi-php56
+# Recipe:: yum-remi-chef::remi-modular
 #
 # Copyright:: 2015-2019, Chef Software, Inc.
 #
@@ -16,11 +16,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-raise "`remi-php56` is not available for #{node['platform']} #{node['platform_version'].to_i}" if rhel_8_or_fedora? || amazon?
+raise "`remi-modular` is not available for #{node['platform']} #{node['platform_version'].to_i}" if rhel_7_or_amazon?
 
-include_recipe 'yum-remi-chef::remi' unless fedora?
+include_recipe 'yum-remi-chef::remi'
 
-%w(remi-php56 remi-php56-debuginfo).each do |repo|
+%w(remi-modular remi-modular-debuginfo).each do |repo|
   next unless node['yum'][repo]['managed']
   yum_repository repo do
     node['yum'][repo].each do |config, value|

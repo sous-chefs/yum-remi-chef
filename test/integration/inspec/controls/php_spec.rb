@@ -4,7 +4,14 @@ shortver = version.delete('.').to_i
 control 'php' do
   title 'verify correct version of PHP and repo was installed'
 
-  phpcmd = os.name == 'fedora' ? 'php' : "php#{shortver}"
+  # phpcmd = if os.name == 'amazon' || (os.name == 'redhat' && os.release.to_i == 7)
+  #            "php#{shortver}"
+  #          else
+  #            'php'
+  #          end
+
+  phpcmd = "php#{shortver}"
+
   describe command("#{phpcmd} --version") do
     its('stdout') { should match /#{version}/ }
   end

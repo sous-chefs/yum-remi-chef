@@ -16,7 +16,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include_recipe 'yum-remi-chef::remi-safe' unless platform?('fedora')
+include_recipe 'yum-remi-chef::remi' unless fedora?
+include_recipe 'yum-remi-chef::remi-modular' if rhel_8_or_fedora?
 
 %w(remi-php80 remi-php80-debuginfo).each do |repo|
   next unless node['yum'][repo]['managed']

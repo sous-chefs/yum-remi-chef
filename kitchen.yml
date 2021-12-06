@@ -46,6 +46,23 @@ suites:
         - remi-safe
         - remi-test
 
+  - name: remi-modular
+    run_list:
+      - recipe[yum-remi-chef::remi-modular]
+    attributes:
+      yum:
+        remi-test:
+          enabled: true
+          managed: true
+    verifier:
+      controls:
+        - remi
+        - remi-safe
+        - remi-modular
+    excludes:
+      - amazonlinux-2
+      - centos-7
+
   - name: remi-php56
     run_list:
       - recipe[yum-remi-chef::remi-php56]
