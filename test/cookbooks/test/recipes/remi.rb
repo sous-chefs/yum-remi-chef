@@ -1,1 +1,1 @@
-yum_remi_repo 'remi'
+yum_remi 'default'

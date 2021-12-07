@@ -2,15 +2,15 @@ resource_name :yum_remi_php80
 provides :yum_remi_php80
 unified_mode true
 
-property :baseurl, String, default: lazy { remi_repo_baseurl('remi-php80') }
-property :mirrorlist, String, default: lazy { remi_repo_mirrorlist('remi-php80') }
-property :description, String, default: lazy { remi_repo_description('remi-php80') }
+property :baseurl, String, default: lazy { remi_repo_baseurl('php80') }
+property :mirrorlist, String, default: lazy { remi_repo_mirrorlist('php80') }
+property :description, String, default: lazy { remi_repo_description('php80') }
 property :gpgkey, String, default: lazy { remi_gpg_key }
 property :gpgcheck, [true, false], default: true
 property :enabled, [true, false], default: true
 
 action :create do
-  yum_remi_safe 'default' unless fedora?
+  yum_remi 'default'
 
   # use repo on C7
   if rhel_7_or_amazon?
