@@ -50,7 +50,7 @@ module YumRemiChef
           "http://cdn.remirepo.net/fedora/#{node['platform_version'].to_i}/#{repo_slug}/$basearch/mirror"
         when 'amazon'
           # Use CentOS 7 repo
-          "http://cdn.remirepo.net/enterprise/7/#{repo_slug}/mirror'"
+          "http://cdn.remirepo.net/enterprise/7/#{repo_slug}/mirror"
         when 'rhel'
           if node['platform_version'].to_i == 7
             "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/#{repo_slug}/mirror"
