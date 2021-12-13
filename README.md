@@ -24,23 +24,34 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 ### Platforms
 
-The following platforms and PHP versions are supported, as per [upstream](https://rpms.remirepo.net):
+The following platforms and PHP versions are supported, as per [upstream](https://rpms.remirepo.net) -- `x` via a Yum repo, `M` via DNF modules:
 
 | PHP version     | 5.5 | 5.6 | 7.0 | 7.1 | 7.2 | 7.3 | 7.4 | 8.0 | 8.1 |
 | --------------- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | CentOS 7        | x   | x   | x   | x   | x   | x   | x   | x   | x   |
 | Amazon Linux 2  |     |     | x   | x   | x   | x   | x   | x   | x   |
-| CentOS 8        |     |     |     |     | x   | x   | x   | x   | x   |
-| CentOS Stream 8 |     |     |     |     | x   | x   | x   | x   | x   |
-| Fedora 34       |     |     |     |     |     |     |     | x   | x   |
-| Fedora 35       |     |     |     |     |     |     |     |     | x   |
+| CentOS 8        |     |     |     |     | M   | M   | M   | M   | M   |
+| CentOS Stream 8 |     |     |     |     | M   | M   | M   | M   | M   |
+| Fedora 34       |     |     |     |     |     |     |     | M   | M   |
+| Fedora 35       |     |     |     |     |     |     |     |     | M   |
 
 ## Recipes
 
 - `::remi` - Sets up the base remi repository.
 - `::remi-safe` - Sets up the remi-safe repo. This contains the `phpXX` "software collections" packages, able to coexist with stock PHP.
-- `::remi-phpXX` - Sets up the corresponding remi PHP version repo. These repos **override** the stock PHP packages. See the above table for supported versions.
 - `::remi-test` - Sets up the remi-test experimental repo.
+- `::remi-modular` - Sets up the remi-modular repo for DNF module information. (Only for platforms that support DNF modules -- CentOS 8+ / Fedora)
+- `::remi-phpXX` - Sets up the corresponding remi PHP version repo. These repos **override** the stock PHP packages. See the above table for supported versions.
+
+## Resources
+
+Same function as the above recipes, but as resources instead.
+
+- `yum_remi`
+- `yum_remi_safe`
+- `yum_remi_test`
+- `yum_remi_modular`
+- `yum_remi_phpXX`
 
 ## Contributors
 
