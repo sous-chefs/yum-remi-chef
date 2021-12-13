@@ -18,7 +18,7 @@
 
 raise "`remi-php55` is not available for #{node['platform']} #{node['platform_version'].to_i}" if rhel_8_or_fedora? || amazon?
 
-include_recipe 'yum-remi-chef::remi' unless fedora?
+include_recipe 'yum-remi-chef::remi'
 
 %w(remi-php55 remi-php55-debuginfo).each do |repo|
   next unless node['yum'][repo]['managed']

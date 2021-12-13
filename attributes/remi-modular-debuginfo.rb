@@ -3,7 +3,7 @@ default['yum']['remi-modular-debuginfo']['gpgcheck'] = true
 default['yum']['remi-modular-debuginfo']['enabled'] = false
 default['yum']['remi-modular-debuginfo']['managed'] = false
 
-if platform_family?('fedora')
+if fedora?
   default['yum']['remi-modular-debuginfo']['baseurl'] = "http://rpms.remirepo.net/fedora/#{node['platform_version'].to_i}/debug-modular/$basearch/"
   default['yum']['remi-modular-debuginfo']['description'] = "Remi's Modular repository for Fedora Linux #{node['platform_version'].to_i} - $basearch - debuginfo"
 else

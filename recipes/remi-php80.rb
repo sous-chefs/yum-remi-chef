@@ -16,21 +16,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include_recipe 'yum-remi-chef::remi' unless fedora?
-include_recipe 'yum-remi-chef::remi-modular' if rhel_8_or_fedora?
+include_recipe 'yum-remi-chef::remi'
 
-%w(remi-php80 remi-php80-debuginfo).each do |repo|
-  next unless node['yum'][repo]['managed']
-  yum_repository repo do
-    node['yum'][repo].each do |config, value|
-      case config
-      when 'managed' # rubocop: disable Lint/EmptyWhen
-      when 'baseurl'
-        send(config.to_sym, lazy { value })
-      else
-        send(config.to_sym, value) unless value.nil?
+# use repo on C7
+if rhel_7_or_amazon?
+  %w(remi-php80 remi-php80-debuginfo).each do |repo|
+    next unless node['yum'][repo]['managed']
+    yum_repository repo do
+      node['yum'][repo].each do |config, value|
+        case config
+        when 'managed' # rubocop: disable Lint/EmptyWhen
+        when 'baseurl'
+          send(config.to_sym, lazy { value })
+        else
+          send(config.to_sym, value) unless value.nil?
+        end
       end
+      gpgkey node['yum-remi-chef']['gpgkey'] unless node['yum-remi-chef']['gpgkey'].nil?
     end
-    gpgkey node['yum-remi-chef']['gpgkey'] unless node['yum-remi-chef']['gpgkey'].nil?
   end
+else
+  # use modules on C8 / Fedora
+  include_recipe 'yum-remi-chef::remi-modular'
+
+  dnf_module 'php:remi-8.0'
 end

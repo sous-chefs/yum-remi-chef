@@ -10,7 +10,7 @@ property :gpgcheck, [true, false], default: true
 property :enabled, [true, false], default: true
 
 action :create do
-  raise "`remi-php74` is not available for #{node['platform']} #{node['platform_version']}}" if platform_family?('fedora')
+  raise "`remi-php74` is not available for #{node['platform']} #{node['platform_version']}}" if fedora?
 
   yum_remi 'default'
 

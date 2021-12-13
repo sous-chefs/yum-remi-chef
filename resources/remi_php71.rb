@@ -15,19 +15,12 @@ action :create do
   yum_remi 'default'
 
   # use repo on C7
-  if rhel_7_or_amazon?
-    yum_repository 'remi-php71' do
-      baseurl new_resource.baseurl
-      mirrorlist new_resource.mirrorlist
-      description new_resource.description
-      enabled new_resource.enabled
-      gpgcheck new_resource.gpgcheck
-      gpgkey new_resource.gpgkey
-    end
-  else
-    # use modules on C8 / Fedora
-    yum_remi_modular 'default'
-
-    dnf_module 'php:remi-7.1'
+  yum_repository 'remi-php71' do
+    baseurl new_resource.baseurl
+    mirrorlist new_resource.mirrorlist
+    description new_resource.description
+    enabled new_resource.enabled
+    gpgcheck new_resource.gpgcheck
+    gpgkey new_resource.gpgkey
   end
 end
