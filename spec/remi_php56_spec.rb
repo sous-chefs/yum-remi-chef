@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'shared_examples'
 
 describe 'yum-remi-chef::remi-php56' do
   default_attributes['yum']['remi-php56']['enabled'] = true
@@ -18,8 +17,10 @@ describe 'yum-remi-chef::remi-php56' do
   context 'on CentOS 7' do
     platform 'centos', '7'
 
-    include_examples 'create remi-safe repo'
-    include_examples 'create PHP 5.6 repos'
+    it { is_expected.to create_yum_repository('remi-safe') }
+
+    it { is_expected.to create_yum_repository('remi-php56') }
+    it { is_expected.to create_yum_repository('remi-php56-debuginfo') }
   end
 
   context 'on CentOS 8' do

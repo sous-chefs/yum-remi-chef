@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'shared_examples'
 
 describe 'yum-remi-chef::remi-php70' do
   default_attributes['yum']['remi-php70']['enabled'] = true
@@ -10,16 +9,19 @@ describe 'yum-remi-chef::remi-php70' do
   context 'on Amazon Linux 2' do
     platform 'amazon', '2'
 
-    include_examples 'create remi-safe repo'
+    it { is_expected.to create_yum_repository('remi-safe') }
 
-    include_examples 'create PHP 7.0 repos'
+    it { is_expected.to create_yum_repository('remi-php70') }
+    it { is_expected.to create_yum_repository('remi-php70-debuginfo') }
   end
 
   context 'on CentOS 7' do
     platform 'centos', '7'
 
-    include_examples 'create remi-safe repo'
-    include_examples 'create PHP 7.0 repos'
+    it { is_expected.to create_yum_repository('remi-safe') }
+
+    it { is_expected.to create_yum_repository('remi-php70') }
+    it { is_expected.to create_yum_repository('remi-php70-debuginfo') }
   end
 
   context 'on CentOS 8' do

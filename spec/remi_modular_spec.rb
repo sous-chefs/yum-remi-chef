@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'shared_examples'
 
 describe 'yum-remi-chef::remi-modular' do
   default_attributes['yum']['remi-modular']['enabled'] = true

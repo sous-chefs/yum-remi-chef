@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'shared_examples'
 
 describe 'yum-remi-chef::remi-php72' do
   default_attributes['yum']['remi-php72']['enabled'] = true
@@ -10,19 +9,28 @@ describe 'yum-remi-chef::remi-php72' do
   context 'on Amazon Linux 2' do
     platform 'amazon', '2'
 
-    include_examples 'create remi-safe repo'
+    it { is_expected.to create_yum_repository('remi-safe') }
 
-    include_examples 'create PHP 7.2 repos'
+    it { is_expected.to create_yum_repository('remi-php72') }
+    it { is_expected.to create_yum_repository('remi-php72-debuginfo') }
   end
 
-  %w(7 8).each do |version|
-    context "on CentOS #{version}" do
-      platform 'centos', version
+  context 'on CentOS 7' do
+    platform 'centos', '7'
 
-      include_examples 'create remi-safe repo'
+    it { is_expected.to create_yum_repository('remi-safe') }
 
-      include_examples 'create PHP 7.2 repos'
-    end
+    it { is_expected.to create_yum_repository('remi-php72') }
+    it { is_expected.to create_yum_repository('remi-php72-debuginfo') }
+  end
+
+  context 'on CentOS 8' do
+    platform 'centos', '8'
+
+    it { is_expected.to create_yum_repository('remi-safe') }
+    it { is_expected.to create_yum_repository('remi-modular') }
+
+    it { is_expected.to switch_to_dnf_module('php:remi-7.2') }
   end
 
   context 'on Debian' do

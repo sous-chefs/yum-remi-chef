@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'shared_examples'
 
 describe 'yum-remi-chef::remi-safe' do
   default_attributes['yum']['remi-safe-debuginfo']['enabled'] = true
@@ -8,14 +7,14 @@ describe 'yum-remi-chef::remi-safe' do
   context 'on Amazon Linux 2' do
     platform 'amazon', '2'
 
-    include_examples 'create remi-safe repo'
+    it { is_expected.to create_yum_repository('remi-safe') }
   end
 
   %w(7 8).each do |version|
     context "on CentOS #{version}" do
       platform 'centos', version
 
-      include_examples 'create remi-safe repo'
+      it { is_expected.to create_yum_repository('remi-safe') }
     end
   end
 
