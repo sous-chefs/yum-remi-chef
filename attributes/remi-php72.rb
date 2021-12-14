@@ -13,6 +13,7 @@ when 'amazon'
   # default['yum']['remi-php72']['baseurl'] = 'http://cdn.remirepo.net/enterprise/7/php72/$basearch/'
   default['yum']['remi-php72']['mirrorlist'] = 'http://cdn.remirepo.net/enterprise/7/php72/mirror'
   default['yum']['remi-php72']['description'] = "Remi's PHP 7.2 RPM repository for Enterprise Linux 7 - $basearch"
+  default['yum']['remi-php72']['priority'] = '9' # amazon repos have priority 10, override for correct php
 when 'rhel'
   # default['yum']['remi-php72']['baseurl'] = "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/php72/$basearch/"
   default['yum']['remi-php72']['mirrorlist'] = if node['platform_version'].to_i == 7

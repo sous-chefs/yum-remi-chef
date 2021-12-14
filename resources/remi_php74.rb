@@ -23,6 +23,8 @@ action :create do
       enabled new_resource.enabled
       gpgcheck new_resource.gpgcheck
       gpgkey new_resource.gpgkey
+      # amazon base repo has priority 10, need to override to get the correct php version
+      priority '9' if amazon?
     end
   else
     # use modules on C8 / Fedora

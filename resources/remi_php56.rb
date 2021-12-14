@@ -10,7 +10,7 @@ property :gpgcheck, [true, false], default: true
 property :enabled, [true, false], default: true
 
 action :create do
-  raise "`remi-php56` is not available for #{node['platform']} #{node['platform_version']}}" if rhel_8_or_fedora?
+  raise "`remi-php56` is not available for #{node['platform']} #{node['platform_version']}}" if rhel_8_or_fedora? || amazon?
 
   yum_remi 'default'
 

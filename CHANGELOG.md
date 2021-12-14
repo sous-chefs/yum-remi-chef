@@ -8,6 +8,7 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 - Use DNF modules on supported platforms (CentOS 8+ / Fedora)
 - Add `yum_remi_` custom resources
 - Use modules & new resources in testing
+- Fix repo priority on Amazon Linux
 
 ## 5.0.1 - *2021-11-09*
 
