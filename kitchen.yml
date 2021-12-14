@@ -132,6 +132,9 @@ suites:
   - name: remi-php73
     run_list:
       - recipe[test::php]
+    attributes:
+      remi-test:
+        version: '7.3'
     verifier:
       controls:
         - remi
