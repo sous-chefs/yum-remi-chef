@@ -2,7 +2,7 @@
 # Author:: Sean OMeara (<sean@sean.io>)
 # Recipe:: yum-remi-chef::remi-php74
 #
-# Copyright:: 2015-2017, Chef Software, Inc.
+# Copyright:: 2015-2019, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,30 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-raise "`remi-php74` is not available for #{node['platform']} #{node['platform_version'].to_i}" if fedora?
-
-include_recipe 'yum-remi-chef::remi'
-
-# use repo on C7
-if rhel_7_or_amazon?
-  %w(remi-php74 remi-php74-debuginfo).each do |repo|
-    next unless node['yum'][repo]['managed']
-    yum_repository repo do
-      node['yum'][repo].each do |config, value|
-        case config
-        when 'managed' # rubocop: disable Lint/EmptyWhen
-        when 'baseurl'
-          send(config.to_sym, lazy { value })
-        else
-          send(config.to_sym, value) unless value.nil?
-        end
-      end
-      gpgkey node['yum-remi-chef']['gpgkey'] unless node['yum-remi-chef']['gpgkey'].nil?
-    end
-  end
-else
-  # use modules on C8 / Fedora
-  include_recipe 'yum-remi-chef::remi-modular' if rhel_8_or_fedora?
-
-  dnf_module 'php:remi-7.4'
+yum_remi_php74 'default' do
+  baseurl node['yum']['remi-php74']['baseurl']
+  mirrorlist node['yum']['remi-php74']['mirrorlist']
+  description node['yum']['remi-php74']['description']
+  enabled node['yum']['remi-php74']['enabled']
+  debug_baseurl node['yum']['remi-php74-debuginfo']['baseurl']
+  debug_description node['yum']['remi-php74-debuginfo']['description']
+  debug_enabled node['yum']['remi-php74-debuginfo']['enabled']
+  gpgcheck node['yum']['remi-php74']['gpgcheck']
+  gpgkey node['yum-remi-chef']['gpgkey']
+  only_if { node['yum']['remi-php74']['managed'] }
 end

@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe 'yum-remi-chef::remi-modular' do
+  step_into :yum_remi_modular
+
   default_attributes['yum']['remi-modular']['enabled'] = true
   default_attributes['yum']['remi-modular']['managed'] = true
 
@@ -8,7 +10,7 @@ describe 'yum-remi-chef::remi-modular' do
     platform 'amazon', '2'
 
     it do
-      expect { chef_run }.to raise_error '`remi-modular` is not available for amazon 2'
+      expect { chef_run }.to raise_error /`remi-modular` is not available for amazon 2/
     end
   end
 
@@ -16,7 +18,7 @@ describe 'yum-remi-chef::remi-modular' do
     platform 'centos', '7'
 
     it do
-      expect { chef_run }.to raise_error '`remi-modular` is not available for centos 7'
+      expect { chef_run }.to raise_error /`remi-modular` is not available for centos 7/
     end
   end
 
@@ -29,14 +31,6 @@ describe 'yum-remi-chef::remi-modular' do
         gpgkey: 'https://rpms.remirepo.net/RPM-GPG-KEY-remi2018',
         enabled: true
       )
-    end
-  end
-
-  context 'on Debian' do
-    platform 'debian'
-
-    it do
-      expect { chef_run }.to_not raise_error
     end
   end
 end

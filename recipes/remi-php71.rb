@@ -16,22 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-raise "`remi-php71` is not available for #{node['platform']} #{node['platform_version'].to_i}" if rhel_8_or_fedora?
-
-include_recipe 'yum-remi-chef::remi'
-
-%w(remi-php71 remi-php71-debuginfo).each do |repo|
-  next unless node['yum'][repo]['managed']
-  yum_repository repo do
-    node['yum'][repo].each do |config, value|
-      case config
-      when 'managed' # rubocop: disable Lint/EmptyWhen
-      when 'baseurl'
-        send(config.to_sym, lazy { value })
-      else
-        send(config.to_sym, value) unless value.nil?
-      end
-    end
-    gpgkey node['yum-remi-chef']['gpgkey'] unless node['yum-remi-chef']['gpgkey'].nil?
-  end
+yum_remi_php71 'default' do
+  baseurl node['yum']['remi-php71']['baseurl']
+  mirrorlist node['yum']['remi-php71']['mirrorlist']
+  description node['yum']['remi-php71']['description']
+  enabled node['yum']['remi-php71']['enabled']
+  debug_baseurl node['yum']['remi-php71-debuginfo']['baseurl']
+  debug_description node['yum']['remi-php71-debuginfo']['description']
+  debug_enabled node['yum']['remi-php71-debuginfo']['enabled']
+  gpgcheck node['yum']['remi-php71']['gpgcheck']
+  gpgkey node['yum-remi-chef']['gpgkey']
+  only_if { node['yum']['remi-php71']['managed'] }
 end

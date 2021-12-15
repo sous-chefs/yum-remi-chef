@@ -9,6 +9,10 @@ property :gpgkey, String, default: lazy { remi_gpg_key }
 property :gpgcheck, [true, false], default: true
 property :enabled, [true, false], default: true
 
+property :debug_baseurl, String, default: lazy { remi_repo_baseurl('debug-php81') }
+property :debug_description, String, default: lazy { remi_repo_description('debug-php81') }
+property :debug_enabled, [true, false], default: false
+
 action :create do
   yum_remi 'default'
 
@@ -23,6 +27,14 @@ action :create do
       gpgkey new_resource.gpgkey
       # amazon base repo has priority 10, need to override to get the correct php version
       priority '9' if amazon?
+    end
+
+    yum_repository 'remi-php81-debuginfo' do
+      baseurl new_resource.debug_baseurl
+      description new_resource.debug_description
+      enabled new_resource.debug_enabled
+      gpgcheck new_resource.gpgcheck
+      gpgkey new_resource.gpgkey
     end
   else
     # use modules on C8 / Fedora

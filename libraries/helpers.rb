@@ -35,12 +35,12 @@ module YumRemiChef
       def remi_repo_baseurl(repo_slug)
         case node['platform_family']
         when 'fedora'
-          "http://cdn.remirepo.net/fedora/#{node['platform_version'].to_i}/#{repo_slug}/$basearch/"
+          "http://rpms.remirepo.net/fedora/#{node['platform_version'].to_i}/#{repo_slug}/$basearch/"
         when 'amazon'
           # Use CentOS 7 repo
-          "http://cdn.remirepo.net/enterprise/7/#{repo_slug}/$basearch/"
+          "http://rpms.remirepo.net/enterprise/7/#{repo_slug}/$basearch/"
         when 'rhel'
-          "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/#{repo_slug}/$basearch/"
+          "http://rpms.remirepo.net/enterprise/#{node['platform_version'].to_i}/#{repo_slug}/$basearch/"
         end
       end
 

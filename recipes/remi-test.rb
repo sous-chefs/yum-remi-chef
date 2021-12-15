@@ -1,6 +1,6 @@
 #
 # Author:: Sean OMeara (<sean@sean.io>)
-# Recipe:: yum-remi-chef::remi
+# Recipe:: yum-remi-chef::remi-test
 #
 # Copyright:: 2015-2019, Chef Software, Inc.
 #
@@ -16,20 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include_recipe 'yum-remi-chef::remi'
-
-%w(remi-test remi-test-debuginfo).each do |repo|
-  next unless node['yum'][repo]['managed']
-  yum_repository repo do
-    node['yum'][repo].each do |config, value|
-      case config
-      when 'managed' # rubocop: disable Lint/EmptyWhen
-      when 'baseurl'
-        send(config.to_sym, lazy { value })
-      else
-        send(config.to_sym, value) unless value.nil?
-      end
-    end
-    gpgkey node['yum-remi-chef']['gpgkey'] unless node['yum-remi-chef']['gpgkey'].nil?
-  end
+yum_remi_test 'default' do
+  baseurl node['yum']['remi-test']['baseurl']
+  mirrorlist node['yum']['remi-test']['mirrorlist']
+  description node['yum']['remi-test']['description']
+  enabled node['yum']['remi-test']['enabled']
+  debug_baseurl node['yum']['remi-test-debuginfo']['baseurl']
+  debug_description node['yum']['remi-test-debuginfo']['description']
+  debug_enabled node['yum']['remi-test-debuginfo']['enabled']
+  gpgcheck node['yum']['remi-test']['gpgcheck']
+  gpgkey node['yum-remi-chef']['gpgkey']
+  only_if { node['yum']['remi-test']['managed'] }
 end

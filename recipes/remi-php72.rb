@@ -16,30 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-raise "`remi-php72` is not available for #{node['platform']} #{node['platform_version'].to_i}" if fedora?
-
-include_recipe 'yum-remi-chef::remi'
-
-# use repo on C7
-if rhel_7_or_amazon?
-  %w(remi-php72 remi-php72-debuginfo).each do |repo|
-    next unless node['yum'][repo]['managed']
-    yum_repository repo do
-      node['yum'][repo].each do |config, value|
-        case config
-        when 'managed' # rubocop: disable Lint/EmptyWhen
-        when 'baseurl'
-          send(config.to_sym, lazy { value })
-        else
-          send(config.to_sym, value) unless value.nil?
-        end
-      end
-      gpgkey node['yum-remi-chef']['gpgkey'] unless node['yum-remi-chef']['gpgkey'].nil?
-    end
-  end
-else
-  # use modules on C8 / Fedora
-  include_recipe 'yum-remi-chef::remi-modular' if rhel_8_or_fedora?
-
-  dnf_module 'php:remi-7.2'
+yum_remi_php72 'default' do
+  baseurl node['yum']['remi-php72']['baseurl']
+  mirrorlist node['yum']['remi-php72']['mirrorlist']
+  description node['yum']['remi-php72']['description']
+  enabled node['yum']['remi-php72']['enabled']
+  debug_baseurl node['yum']['remi-php72-debuginfo']['baseurl']
+  debug_description node['yum']['remi-php72-debuginfo']['description']
+  debug_enabled node['yum']['remi-php72-debuginfo']['enabled']
+  gpgcheck node['yum']['remi-php72']['gpgcheck']
+  gpgkey node['yum-remi-chef']['gpgkey']
+  only_if { node['yum']['remi-php72']['managed'] }
 end

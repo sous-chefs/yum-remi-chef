@@ -9,6 +9,10 @@ property :gpgkey, String, default: lazy { remi_gpg_key }
 property :gpgcheck, [true, false], default: true
 property :enabled, [true, false], default: true
 
+property :debug_baseurl, String, default: lazy { remi_repo_baseurl('debug-safe') }
+property :debug_description, String, default: lazy { remi_repo_description('debug-safe') }
+property :debug_enabled, [true, false], default: false
+
 action :create do
   include_recipe 'yum-epel' unless fedora?
 
@@ -18,6 +22,14 @@ action :create do
     enabled new_resource.enabled
     mirrorlist new_resource.mirrorlist
     description new_resource.description
+    gpgkey new_resource.gpgkey
+  end
+
+  yum_repository 'remi-safe-debuginfo' do
+    baseurl new_resource.debug_baseurl
+    description new_resource.debug_description
+    enabled new_resource.debug_enabled
+    gpgcheck new_resource.gpgcheck
     gpgkey new_resource.gpgkey
   end
 end

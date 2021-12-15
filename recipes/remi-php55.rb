@@ -16,22 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-raise "`remi-php55` is not available for #{node['platform']} #{node['platform_version'].to_i}" if rhel_8_or_fedora? || amazon?
-
-include_recipe 'yum-remi-chef::remi'
-
-%w(remi-php55 remi-php55-debuginfo).each do |repo|
-  next unless node['yum'][repo]['managed']
-  yum_repository repo do
-    node['yum'][repo].each do |config, value|
-      case config
-      when 'managed' # rubocop: disable Lint/EmptyWhen
-      when 'baseurl'
-        send(config.to_sym, lazy { value })
-      else
-        send(config.to_sym, value) unless value.nil?
-      end
-    end
-    gpgkey node['yum-remi-chef']['gpgkey'] unless node['yum-remi-chef']['gpgkey'].nil?
-  end
+yum_remi_php55 'default' do
+  baseurl node['yum']['remi-php55']['baseurl']
+  mirrorlist node['yum']['remi-php55']['mirrorlist']
+  description node['yum']['remi-php55']['description']
+  enabled node['yum']['remi-php55']['enabled']
+  debug_baseurl node['yum']['remi-php55-debuginfo']['baseurl']
+  debug_description node['yum']['remi-php55-debuginfo']['description']
+  debug_enabled node['yum']['remi-php55-debuginfo']['enabled']
+  gpgcheck node['yum']['remi-php55']['gpgcheck']
+  gpgkey node['yum-remi-chef']['gpgkey']
+  only_if { node['yum']['remi-php55']['managed'] }
 end

@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe 'yum-remi-chef::remi-safe' do
+  step_into :yum_remi_safe
+
   default_attributes['yum']['remi-safe-debuginfo']['enabled'] = true
   default_attributes['yum']['remi-safe-debuginfo']['managed'] = true
 
@@ -15,14 +17,6 @@ describe 'yum-remi-chef::remi-safe' do
       platform 'centos', version
 
       it { is_expected.to create_yum_repository('remi-safe') }
-    end
-  end
-
-  context 'on Debian' do
-    platform 'debian'
-
-    it do
-      expect { chef_run }.to_not raise_error
     end
   end
 end

@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe 'yum-remi-chef::remi-php56' do
+  step_into :yum_remi_php56
+  step_into :yum_remi_safe
+  step_into :yum_remi
+
   default_attributes['yum']['remi-php56']['enabled'] = true
   default_attributes['yum']['remi-php56']['managed'] = true
   default_attributes['yum']['remi-php56-debuginfo']['enabled'] = true
@@ -10,7 +14,7 @@ describe 'yum-remi-chef::remi-php56' do
     platform 'amazon', '2'
 
     it do
-      expect { chef_run }.to raise_error '`remi-php56` is not available for amazon 2'
+      expect { chef_run }.to raise_error /`remi-php56` is not available for amazon 2/
     end
   end
 
@@ -27,15 +31,7 @@ describe 'yum-remi-chef::remi-php56' do
     platform 'centos', '8'
 
     it do
-      expect { chef_run }.to raise_error '`remi-php56` is not available for centos 8'
-    end
-  end
-
-  context 'on Debian' do
-    platform 'debian'
-
-    it do
-      expect { chef_run }.to_not raise_error
+      expect { chef_run }.to raise_error /`remi-php56` is not available for centos 8/
     end
   end
 end

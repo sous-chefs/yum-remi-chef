@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe 'yum-remi-chef::remi' do
+  step_into :yum_remi
+
   default_attributes['yum']['remi-debuginfo']['enabled'] = true
   default_attributes['yum']['remi-debuginfo']['managed'] = true
 
@@ -25,13 +27,5 @@ describe 'yum-remi-chef::remi' do
 
     it { is_expected.to create_yum_repository('remi') }
     it { is_expected.to create_yum_repository('remi-debuginfo') }
-  end
-
-  context 'on Debian' do
-    platform 'debian'
-
-    it do
-      expect { chef_run }.to_not raise_error
-    end
   end
 end
