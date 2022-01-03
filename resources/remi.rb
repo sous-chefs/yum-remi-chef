@@ -1,4 +1,3 @@
-resource_name :yum_remi
 provides :yum_remi
 unified_mode true
 
@@ -12,6 +11,10 @@ property :enabled, [true, false], default: true
 property :debug_baseurl, String, default: lazy { remi_repo_baseurl('debug-remi') }
 property :debug_description, String, default: lazy { remi_repo_description('debug-remi') }
 property :debug_enabled, [true, false], default: false
+
+action_class do
+  include YumRemiChef::Cookbook::Helpers
+end
 
 action :create do
   yum_remi_safe 'default' unless fedora?

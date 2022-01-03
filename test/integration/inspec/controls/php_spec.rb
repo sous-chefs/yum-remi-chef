@@ -8,7 +8,7 @@ control 'php' do
     its('stdout') { should match /#{version}/ }
   end
 
-  if (os.family == 'redhat' && os.release.to_i == 7) || os.name == 'amazon'
+  if (os.redhat? && os.release.to_i == 7) || os.name == 'amazon'
     describe yum.repo("remi-php#{shortver}") do
       it { should exist }
       it { should be_enabled }

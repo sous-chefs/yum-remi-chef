@@ -1,4 +1,3 @@
-resource_name :yum_remi_php74
 provides :yum_remi_php74
 unified_mode true
 
@@ -12,6 +11,10 @@ property :enabled, [true, false], default: true
 property :debug_baseurl, String, default: lazy { remi_repo_baseurl('debug-php74') }
 property :debug_description, String, default: lazy { remi_repo_description('debug-php74') }
 property :debug_enabled, [true, false], default: false
+
+action_class do
+  include YumRemiChef::Cookbook::Helpers
+end
 
 action :create do
   raise "`remi-php74` is not available for #{node['platform']} #{node['platform_version'].to_i}" if fedora?

@@ -75,5 +75,6 @@ module YumRemiChef
   end
 end
 
-Chef::DSL::Recipe.include ::YumRemiChef::Cookbook::Helpers
+
+
 Chef::Resource.include ::YumRemiChef::Cookbook::Helpers
