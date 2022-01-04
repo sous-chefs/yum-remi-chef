@@ -16,10 +16,11 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 ### Chef
 
-- Chef 12.14+
+- Chef 15.3+
 
 ### Cookbooks
 
+- yum >= 7.2.0
 - yum-epel
 
 ### Platforms
@@ -40,18 +41,18 @@ The following platforms and PHP versions are supported, as per [upstream](https:
 - `::remi` - Sets up the base remi repository.
 - `::remi-safe` - Sets up the remi-safe repo. This contains the `phpXX` "software collections" packages, able to coexist with stock PHP.
 - `::remi-test` - Sets up the remi-test experimental repo.
-- `::remi-modular` - Sets up the remi-modular repo for DNF module information. (Only for platforms that support DNF modules -- CentOS 8+ / Fedora)
+- `::remi-modular` - Sets up the remi-modular repo for DNF module information. (Only for platforms that support DNF modules i.e. CentOS 8+ / Fedora)
 - `::remi-phpXX` - Sets up the corresponding remi PHP version repo. These repos **override** the stock PHP packages. See the above table for supported versions.
 
 ## Resources
 
 Same function as the above recipes, but as resources instead.
 
-- `yum_remi`
-- `yum_remi_safe`
-- `yum_remi_test`
-- `yum_remi_modular`
-- `yum_remi_phpXX`
+- [`yum_remi`](documentation/remi.md)
+- [`yum_remi_safe`](documentation/remi_safe.md)
+- [`yum_remi_test`](documentation/remi_test.md)
+- [`yum_remi_modular`](documentation/remi_modular.md)
+- `yum_remi_phpXX` -- see the corresponding resource under [`documentation/`](documentation/)
 
 ## Contributors
 

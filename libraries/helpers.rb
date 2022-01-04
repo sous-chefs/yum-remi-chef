@@ -75,6 +75,4 @@ module YumRemiChef
   end
 end
 
-
-
 Chef::Resource.include ::YumRemiChef::Cookbook::Helpers
