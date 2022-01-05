@@ -13,7 +13,7 @@ property :debug_description, String, default: lazy { remi_repo_description('debu
 property :debug_enabled, [true, false], default: false
 
 action_class do
-  include  YumRemiChef::Cookbook::Helpers
+  include YumRemiChef::Cookbook::Helpers
 end
 
 action :create do
@@ -21,10 +21,10 @@ action :create do
 
   yum_repository 'remi-test' do
     baseurl new_resource.baseurl
-    gpgcheck new_resource.gpgcheck
-    enabled new_resource.enabled
     mirrorlist new_resource.mirrorlist
     description new_resource.description
+    enabled new_resource.enabled
+    gpgcheck new_resource.gpgcheck
     gpgkey new_resource.gpgkey
   end
 

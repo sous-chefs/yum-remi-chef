@@ -21,10 +21,10 @@ action :create do
 
   yum_repository 'remi-safe' do
     baseurl new_resource.baseurl
-    gpgcheck new_resource.gpgcheck
-    enabled new_resource.enabled
     mirrorlist new_resource.mirrorlist
     description new_resource.description
+    enabled new_resource.enabled
+    gpgcheck new_resource.gpgcheck
     gpgkey new_resource.gpgkey
   end
 

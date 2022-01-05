@@ -13,7 +13,7 @@ property :debug_description, String, default: lazy { remi_repo_description('debu
 property :debug_enabled, [true, false], default: false
 
 action_class do
-  include  YumRemiChef::Cookbook::Helpers
+  include YumRemiChef::Cookbook::Helpers
 end
 
 action :create do
