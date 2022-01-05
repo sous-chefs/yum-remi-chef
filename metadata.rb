@@ -6,7 +6,7 @@ description       'Installs and configures the Remi\'s yum repository'
 version           '5.0.1'
 source_url        'https://github.com/sous-chefs/yum-remi-chef'
 issues_url        'https://github.com/sous-chefs/yum-remi-chef/issues'
-chef_version      '>= 15.3'
+chef_version      '>= 16'
 
 depends 'yum', '>= 7.2.0'  # for `dnf_module`
 depends 'yum-epel'
