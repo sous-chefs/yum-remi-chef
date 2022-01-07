@@ -26,7 +26,7 @@ platforms:
 suites:
   - name: remi
     run_list:
-      - recipe[yum-remi-chef::remi]
+      - recipe[test::remi]
     verifier:
       controls:
         - remi
@@ -34,7 +34,7 @@ suites:
 
   - name: remi-test
     run_list:
-      - recipe[yum-remi-chef::remi-test]
+      - recipe[test::remi-test]
     attributes:
       yum:
         remi-test:
@@ -46,15 +46,22 @@ suites:
         - remi-safe
         - remi-test
 
+  - name: remi-modular
+    run_list:
+      - recipe[test::modular]
+    verifier:
+      controls:
+        - remi
+        - remi-safe
+        - remi-modular
+    excludes:
+      - amazonlinux-2
+      - centos-7
+
   - name: remi-php56
     run_list:
-      - recipe[yum-remi-chef::remi-php56]
       - recipe[test::php]
     attributes:
-      yum:
-        remi-php56:
-          enabled: true
-          managed: true
       remi-test:
         version: '5.6'
     verifier:
@@ -72,13 +79,8 @@ suites:
 
   - name: remi-php70
     run_list:
-      - recipe[yum-remi-chef::remi-php70]
       - recipe[test::php]
     attributes:
-      yum:
-        remi-php70:
-          enabled: true
-          managed: true
       remi-test:
         version: '7.0'
     verifier:
@@ -95,13 +97,8 @@ suites:
 
   - name: remi-php71
     run_list:
-      - recipe[yum-remi-chef::remi-php71]
       - recipe[test::php]
     attributes:
-      yum:
-        remi-php71:
-          enabled: true
-          managed: true
       remi-test:
         version: '7.1'
     verifier:
@@ -118,13 +115,8 @@ suites:
 
   - name: remi-php72
     run_list:
-      - recipe[yum-remi-chef::remi-php72]
       - recipe[test::php]
     attributes:
-      yum:
-        remi-php72:
-          enabled: true
-          managed: true
       remi-test:
         version: '7.2'
     verifier:
@@ -139,17 +131,13 @@ suites:
 
   - name: remi-php73
     run_list:
-      - recipe[yum-remi-chef::remi-php73]
       - recipe[test::php]
     attributes:
-      yum:
-        remi-php73:
-          enabled: true
-          managed: true
       remi-test:
         version: '7.3'
     verifier:
       controls:
+        - remi
         - remi-safe
         - php
       inputs:
@@ -159,17 +147,13 @@ suites:
 
   - name: remi-php74
     run_list:
-      - recipe[yum-remi-chef::remi-php74]
       - recipe[test::php]
     attributes:
-      yum:
-        remi-php74:
-          enabled: true
-          managed: true
       remi-test:
         version: '7.4'
     verifier:
       controls:
+        - remi
         - remi-safe
         - php
       inputs:
@@ -179,17 +163,13 @@ suites:
 
   - name: remi-php80
     run_list:
-      - recipe[yum-remi-chef::remi-php80]
       - recipe[test::php]
     attributes:
-      yum:
-        remi-php80:
-          enabled: true
-          managed: true
       remi-test:
         version: '8.0'
     verifier:
       controls:
+        - remi
         - remi-safe
         - php
       inputs:
@@ -199,17 +179,13 @@ suites:
 
   - name: remi-php81
     run_list:
-      - recipe[yum-remi-chef::remi-php81]
       - recipe[test::php]
     attributes:
-      yum:
-        remi-php81:
-          enabled: true
-          managed: true
       remi-test:
         version: '8.1'
     verifier:
       controls:
+        - remi
         - remi-safe
         - php
       inputs:

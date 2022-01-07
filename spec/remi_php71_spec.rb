@@ -1,7 +1,10 @@
 require 'spec_helper'
-require 'shared_examples'
 
 describe 'yum-remi-chef::remi-php71' do
+  step_into :yum_remi_php71
+  step_into :yum_remi_safe
+  step_into :yum_remi
+
   default_attributes['yum']['remi-php71']['enabled'] = true
   default_attributes['yum']['remi-php71']['managed'] = true
   default_attributes['yum']['remi-php71-debuginfo']['enabled'] = true
@@ -10,26 +13,26 @@ describe 'yum-remi-chef::remi-php71' do
   context 'on Amazon Linux 2' do
     platform 'amazon', '2'
 
-    include_examples 'create remi-safe repo'
+    it { is_expected.to create_yum_repository('remi-safe') }
 
-    include_examples 'create PHP 7.1 repos'
+    it { is_expected.to create_yum_repository('remi-php71') }
+    it { is_expected.to create_yum_repository('remi-php71-debuginfo') }
   end
 
-  %w(7 8).each do |version|
-    context "on CentOS #{version}" do
-      platform 'centos', version
+  context 'on CentOS 7' do
+    platform 'centos', '7'
 
-      include_examples 'create remi-safe repo'
+    it { is_expected.to create_yum_repository('remi-safe') }
 
-      include_examples 'create PHP 7.1 repos'
-    end
+    it { is_expected.to create_yum_repository('remi-php71') }
+    it { is_expected.to create_yum_repository('remi-php71-debuginfo') }
   end
 
-  context 'on Debian' do
-    platform 'debian'
+  context 'on CentOS 8' do
+    platform 'centos', '8'
 
     it do
-      expect { chef_run }.to_not raise_error
+      expect { chef_run }.to raise_error /`remi-php71` is not available for centos 8/
     end
   end
 end

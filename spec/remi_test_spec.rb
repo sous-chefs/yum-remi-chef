@@ -1,7 +1,8 @@
 require 'spec_helper'
-require 'shared_examples'
 
 describe 'yum-remi-chef::remi-test' do
+  step_into :yum_remi_test
+
   default_attributes['yum']['remi-test']['enabled'] = true
   default_attributes['yum']['remi-test']['managed'] = true
   default_attributes['yum']['remi-test-debuginfo']['enabled'] = true
@@ -10,28 +11,23 @@ describe 'yum-remi-chef::remi-test' do
   context 'on Amazon Linux 2' do
     platform 'amazon', '2'
 
-    include_examples 'create remi-test repos'
+    it { is_expected.to create_yum_repository('remi-test') }
+    it { is_expected.to create_yum_repository('remi-test-debuginfo') }
   end
 
   %w(7 8).each do |version|
     context "on CentOS #{version}" do
       platform 'centos', version
 
-      include_examples 'create remi-test repos'
+      it { is_expected.to create_yum_repository('remi-test') }
+      it { is_expected.to create_yum_repository('remi-test-debuginfo') }
     end
   end
 
   context 'on Fedora latest' do
     platform 'fedora'
 
-    include_examples 'create remi-test repos'
-  end
-
-  context 'on Debian' do
-    platform 'debian'
-
-    it do
-      expect { chef_run }.to_not raise_error
-    end
+    it { is_expected.to create_yum_repository('remi-test') }
+    it { is_expected.to create_yum_repository('remi-test-debuginfo') }
   end
 end

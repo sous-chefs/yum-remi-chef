@@ -1,4 +1,10 @@
-package "php#{node['remi-test']['version'].delete('.')}" do
-  # fedora phpXX repos dont have the version prefix
-  package_name 'php' if platform_family?('fedora')
+shortver = node['remi-test']['version'].delete('.')
+
+# programatically define resource as to not have
+# several almost-identical test recipes
+declare_resource(:"yum_remi_php#{shortver}", 'default')
+
+# will install from remi module
+package 'php' do
+  flush_cache [:before] # dnf_module doesnt flush chef's package cache currently
 end

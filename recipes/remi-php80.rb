@@ -2,7 +2,7 @@
 # Author:: Sean OMeara (<sean@sean.io>)
 # Recipe:: yum-remi-chef::remi-php80
 #
-# Copyright:: 2015-2017, Chef Software, Inc.
+# Copyright:: 2015-2019, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,20 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include_recipe 'yum-remi-chef::remi-safe' unless platform?('fedora')
-
-%w(remi-php80 remi-php80-debuginfo).each do |repo|
-  next unless node['yum'][repo]['managed']
-  yum_repository repo do
-    node['yum'][repo].each do |config, value|
-      case config
-      when 'managed' # rubocop: disable Lint/EmptyWhen
-      when 'baseurl'
-        send(config.to_sym, lazy { value })
-      else
-        send(config.to_sym, value) unless value.nil?
-      end
-    end
-    gpgkey node['yum-remi-chef']['gpgkey'] unless node['yum-remi-chef']['gpgkey'].nil?
-  end
+yum_remi_php80 'default' do
+  baseurl node['yum']['remi-php80']['baseurl']
+  mirrorlist node['yum']['remi-php80']['mirrorlist']
+  description node['yum']['remi-php80']['description']
+  enabled node['yum']['remi-php80']['enabled']
+  debug_baseurl node['yum']['remi-php80-debuginfo']['baseurl']
+  debug_description node['yum']['remi-php80-debuginfo']['description']
+  debug_enabled node['yum']['remi-php80-debuginfo']['enabled']
+  gpgcheck node['yum']['remi-php80']['gpgcheck']
+  gpgkey node['yum-remi-chef']['gpgkey']
+  only_if { node['yum']['remi-php80']['managed'] }
 end

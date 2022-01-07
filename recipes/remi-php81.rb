@@ -16,20 +16,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include_recipe 'yum-remi-chef::remi-safe' unless platform?('fedora')
-
-%w(remi-php81 remi-php81-debuginfo).each do |repo|
-  next unless node['yum'][repo]['managed']
-  yum_repository repo do
-    node['yum'][repo].each do |config, value|
-      case config
-      when 'managed' # rubocop: disable Lint/EmptyWhen
-      when 'baseurl'
-        send(config.to_sym, lazy { value })
-      else
-        send(config.to_sym, value) unless value.nil?
-      end
-    end
-    gpgkey node['yum-remi-chef']['gpgkey'] unless node['yum-remi-chef']['gpgkey'].nil?
-  end
+yum_remi_php81 'default' do
+  baseurl node['yum']['remi-php81']['baseurl']
+  gpgcheck node['yum']['remi-php81']['gpgcheck']
+  enabled node['yum']['remi-php81']['enabled']
+  mirrorlist node['yum']['remi-php81']['mirrorlist']
+  description node['yum']['remi-php81']['description']
+  gpgkey node['yum-remi-chef']['gpgkey']
+  only_if { node['yum']['remi-php81']['managed'] }
 end

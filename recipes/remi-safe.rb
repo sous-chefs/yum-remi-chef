@@ -16,20 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include_recipe 'yum-epel' unless platform?('fedora')
-
-%w(remi-safe).each do |repo|
-  next unless node['yum'][repo]['managed']
-  yum_repository repo do
-    node['yum'][repo].each do |config, value|
-      case config
-      when 'managed' # rubocop: disable Lint/EmptyWhen
-      when 'baseurl'
-        send(config.to_sym, lazy { value })
-      else
-        send(config.to_sym, value) unless value.nil?
-      end
-    end
-    gpgkey node['yum-remi-chef']['gpgkey'] unless node['yum-remi-chef']['gpgkey'].nil?
-  end
+yum_remi_safe 'default' do
+  baseurl node['yum']['remi-safe']['baseurl']
+  mirrorlist node['yum']['remi-safe']['mirrorlist']
+  description node['yum']['remi-safe']['description']
+  enabled node['yum']['remi-safe']['enabled']
+  debug_baseurl node['yum']['remi-safe-debuginfo']['baseurl']
+  debug_description node['yum']['remi-safe-debuginfo']['description']
+  debug_enabled node['yum']['remi-safe-debuginfo']['enabled']
+  gpgcheck node['yum']['remi-safe']['gpgcheck']
+  gpgkey node['yum-remi-chef']['gpgkey']
+  only_if { node['yum']['remi-safe']['managed'] }
 end
