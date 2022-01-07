@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
-## Unreleased
+## 6.0.0 - *2022-01-07*
 
 - Add missing `remi-modular` repo for DNF modules
 - Use DNF modules on supported platforms (CentOS 8+ / Fedora)
