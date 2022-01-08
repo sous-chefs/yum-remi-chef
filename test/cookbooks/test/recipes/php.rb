@@ -4,7 +4,5 @@ shortver = node['remi-test']['version'].delete('.')
 # several almost-identical test recipes
 declare_resource(:"yum_remi_php#{shortver}", 'default')
 
-# will install from remi module
-package 'php' do
-  flush_cache [:before] # dnf_module doesnt flush chef's package cache currently
-end
+# will now install from remi module
+package 'php'
