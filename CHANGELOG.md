@@ -4,7 +4,7 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 
 ## Unreleased
 
-- Bump `yum` dependency to `>= 5.3` for proper cache flushing on module switch
+- Bump `yum` dependency to `>= 7.3` for proper cache flushing on module switch
 
 ## 6.0.0 - *2022-01-07*
 
