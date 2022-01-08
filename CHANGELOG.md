@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## Unreleased
+
 ## 6.1.0 - *2022-01-08*
 
 - Bump `yum` dependency to `>= 7.3` for proper cache flushing on module switch
