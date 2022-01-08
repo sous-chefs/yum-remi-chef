@@ -16,11 +16,11 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 ### Chef
 
-- Chef 15.3+
+- Chef 16+
 
 ### Cookbooks
 
-- yum >= 7.2.0
+- yum >= 7.3.0
 - yum-epel
 
 ### Platforms
