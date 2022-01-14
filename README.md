@@ -42,7 +42,7 @@ The following platforms and PHP versions are supported, as per [upstream](https:
 - `::remi-safe` - Sets up the remi-safe repo. This contains the `phpXX` "software collections" packages, able to coexist with stock PHP.
 - `::remi-test` - Sets up the remi-test experimental repo.
 - `::remi-modular` - Sets up the remi-modular repo for DNF module information. (Only for platforms that support DNF modules i.e. CentOS 8+ / Fedora)
-- `::remi-phpXX` - Sets up the corresponding remi PHP version repo. These repos **override** the stock PHP packages. See the above table for supported versions.
+- `::remi-phpXX` - Sets up the corresponding remi PHP version repo. These repos **override** the stock PHP packages. See the table above for supported versions.
 
 ## Resources
 
