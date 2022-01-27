@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
-## Unreleased
+## 6.1.1 - *2022-01-27*
 
 - Add Alma Linux and Rocky Linux to testing
 - Remove CentOS 8 (prefer Stream)
