@@ -18,11 +18,14 @@ verifier:
 
 platforms:
   - name: almalinux-8
+  - name: almalinux-9
   - name: amazonlinux-2
   - name: centos-7
   - name: centos-stream-8
+  - name: centos-stream-9
   - name: fedora-latest
   - name: rockylinux-8
+  - name: rockylinux-9
 
 suites:
   - name: remi
@@ -74,11 +77,13 @@ suites:
         version: '5.6'
     excludes:
       - almalinux-8
+      - almalinux-9
       - amazonlinux-2
-      - centos-8
       - centos-stream-8
+      - centos-stream-9
       - fedora-latest
       - rockylinux-8
+      - rockylinux-9
 
   - name: remi-php70
     run_list:
@@ -95,10 +100,12 @@ suites:
         version: '7.0'
     excludes:
       - almalinux-8
-      - centos-8
+      - almalinux-9
       - centos-stream-8
+      - centos-stream-9
       - fedora-latest
       - rockylinux-8
+      - rockylinux-9
 
   - name: remi-php71
     run_list:
@@ -115,10 +122,12 @@ suites:
         version: '7.1'
     excludes:
       - almalinux-8
-      - centos-8
+      - almalinux-9
       - centos-stream-8
+      - centos-stream-9
       - fedora-latest
       - rockylinux-8
+      - rockylinux-9
 
   - name: remi-php72
     run_list:
@@ -134,7 +143,10 @@ suites:
       inputs:
         version: '7.2'
     excludes:
+      - almalinux-9
+      - centos-stream-9
       - fedora-latest
+      - rockylinux-9
 
   - name: remi-php73
     run_list:
@@ -150,7 +162,10 @@ suites:
       inputs:
         version: '7.3'
     excludes:
+      - almalinux-9
+      - centos-stream-9
       - fedora-latest
+      - rockylinux-9
 
   - name: remi-php74
     run_list:
@@ -197,3 +212,17 @@ suites:
         - php
       inputs:
         version: '8.1'
+
+  - name: remi-php82
+    run_list:
+      - recipe[test::php]
+    attributes:
+      remi-test:
+        version: '8.2'
+    verifier:
+      controls:
+        - remi
+        - remi-safe
+        - php
+      inputs:
+        version: '8.2'

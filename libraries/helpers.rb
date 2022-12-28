@@ -24,10 +24,13 @@ module YumRemiChef
           # Use CentOS 7 key
           'https://rpms.remirepo.net/RPM-GPG-KEY-remi'
         when 'rhel'
-          if node['platform_version'].to_i == 7
+          case node['platform_version'].to_i
+          when 7
             'https://rpms.remirepo.net/RPM-GPG-KEY-remi'
-          else
+          when 8
             'https://rpms.remirepo.net/RPM-GPG-KEY-remi2018'
+          when 9
+            'https://rpms.remirepo.net/RPM-GPG-KEY-remi2021'
           end
         end
       end

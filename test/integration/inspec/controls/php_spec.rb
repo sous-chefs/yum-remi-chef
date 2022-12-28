@@ -35,12 +35,15 @@ control 'php' do
                    when 'amazon'
                      'https://rpms.remirepo.net/RPM-GPG-KEY-remi'
                    when 'fedora'
-                     'https://rpms.remirepo.net/RPM-GPG-KEY-remi2021'
+                     'https://rpms.remirepo.net/RPM-GPG-KEY-remi2022'
                    else # rhel
-                     if os.release.to_i == 7
+                     case os.release.to_i
+                     when 7
                        'https://rpms.remirepo.net/RPM-GPG-KEY-remi'
-                     else
+                     when 8
                        'https://rpms.remirepo.net/RPM-GPG-KEY-remi2018'
+                     when 9
+                       'https://rpms.remirepo.net/RPM-GPG-KEY-remi2021'
                      end
                    end
       end
