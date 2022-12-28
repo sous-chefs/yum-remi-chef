@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## Unreleased
+
 ## 6.2.0 - *2022-12-28*
 
 - Add `remi_php82` resource for supporting PHP 8.2
