@@ -4,6 +4,11 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 
 ## Unreleased
 
+- Add `remi_php82` resource for supporting PHP 8.2
+- Add support for AlmaLinux 9, CentOS Stream 9 and Rocky Linux 9
+- Remove remaining references to CentOS 8
+- Fix CI and update tests
+
 ## 6.1.1 - *2022-01-27*
 
 - Add Alma Linux and Rocky Linux to testing
