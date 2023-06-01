@@ -8,4 +8,3 @@ inputs:
     required: true
 supports:
   - os-family: linux
-  - os-family: amazon

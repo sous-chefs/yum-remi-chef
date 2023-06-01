@@ -5,8 +5,8 @@ module YumRemiChef
         (platform_family?('rhel') && node['platform_version'].to_i >= 8) || platform_family?('fedora')
       end
 
-      def rhel_7_or_amazon?
-        (platform_family?('rhel') && node['platform_version'].to_i == 7) || platform_family?('amazon')
+      def rhel_7?
+        (platform_family?('rhel') && node['platform_version'].to_i == 7)
       end
 
       def remi_gpg_key
@@ -17,12 +17,11 @@ module YumRemiChef
             'https://rpms.remirepo.net/RPM-GPG-KEY-remi2020'
           when 34, 35
             'https://rpms.remirepo.net/RPM-GPG-KEY-remi2021'
-          when 36, 37 # future proofing
+          when 36, 37
             'https://rpms.remirepo.net/RPM-GPG-KEY-remi2022'
+          when 38 # future proofing
+            'https://rpms.remirepo.net/RPM-GPG-KEY-remi2023'
           end
-        when 'amazon'
-          # Use CentOS 7 key
-          'https://rpms.remirepo.net/RPM-GPG-KEY-remi'
         when 'rhel'
           case node['platform_version'].to_i
           when 7
@@ -39,9 +38,6 @@ module YumRemiChef
         case node['platform_family']
         when 'fedora'
           "http://rpms.remirepo.net/fedora/#{node['platform_version'].to_i}/#{repo_slug}/$basearch/"
-        when 'amazon'
-          # Use CentOS 7 repo
-          "http://rpms.remirepo.net/enterprise/7/#{repo_slug}/$basearch/"
         when 'rhel'
           "http://rpms.remirepo.net/enterprise/#{node['platform_version'].to_i}/#{repo_slug}/$basearch/"
         end
@@ -51,9 +47,6 @@ module YumRemiChef
         case node['platform_family']
         when 'fedora'
           "http://cdn.remirepo.net/fedora/#{node['platform_version'].to_i}/#{repo_slug}/$basearch/mirror"
-        when 'amazon'
-          # Use CentOS 7 repo
-          "http://cdn.remirepo.net/enterprise/7/#{repo_slug}/mirror"
         when 'rhel'
           if node['platform_version'].to_i == 7
             "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/#{repo_slug}/mirror"
@@ -67,9 +60,6 @@ module YumRemiChef
         case node['platform_family']
         when 'fedora'
           "Remi's #{repo_slug} repository for Fedora Linux #{node['platform_version'].to_i} - $basearch"
-        when 'amazon'
-          # Use CentOS 7 repo
-          "Remi's #{repo_slug} repository for Enterprise Linux 7 - $basearch"
         when 'rhel'
           "Remi's #{repo_slug} repository for Enterprise Linux #{node['platform_version'].to_i} - $basearch"
         end

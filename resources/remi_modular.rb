@@ -15,7 +15,7 @@ action_class do
 end
 
 action :create do
-  raise "`remi-modular` is not available for #{node['platform']} #{node['platform_version'].to_i}" if rhel_7_or_amazon?
+  raise "`remi-modular` is not available for #{node['platform']} #{node['platform_version'].to_i}" if rhel_7?
 
   yum_remi 'default'
 
@@ -34,5 +34,5 @@ action :create do
     enabled new_resource.debug_enabled
     gpgcheck new_resource.gpgcheck
     gpgkey new_resource.gpgkey
-  end
+  end if new_resource.debug_enabled
 end

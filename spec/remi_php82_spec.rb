@@ -1,22 +1,22 @@
 require 'spec_helper'
 
-describe 'yum-remi-chef::remi-php73' do
-  step_into :yum_remi_php73
+describe 'yum-remi-chef::remi-php82' do
+  step_into :yum_remi_php82
   step_into :yum_remi_modular
   step_into :yum_remi_safe
   step_into :yum_remi
 
-  default_attributes['yum']['remi-php73']['enabled'] = true
-  default_attributes['yum']['remi-php73']['managed'] = true
-  default_attributes['yum']['remi-php73-debuginfo']['enabled'] = true
-  default_attributes['yum']['remi-php73-debuginfo']['managed'] = true
+  default_attributes['yum']['remi-php82']['enabled'] = true
+  default_attributes['yum']['remi-php82']['managed'] = true
+  default_attributes['yum']['remi-php82-debuginfo']['enabled'] = true
+  default_attributes['yum']['remi-php82-debuginfo']['managed'] = true
 
   context 'on CentOS 7' do
     platform 'centos', '7'
 
     it { is_expected.to create_yum_repository('remi-safe') }
-    it { is_expected.to create_yum_repository('remi-php73') }
-    it { is_expected.to create_yum_repository('remi-php73-debuginfo') }
+    it { is_expected.to create_yum_repository('remi-php82') }
+    it { is_expected.to_not create_yum_repository('remi-php82-debuginfo') }
   end
 
   context 'on AlmaLinux 8' do
@@ -24,7 +24,7 @@ describe 'yum-remi-chef::remi-php73' do
 
     it { is_expected.to create_yum_repository('remi-safe') }
     it { is_expected.to create_yum_repository('remi-modular') }
-    it { is_expected.to switch_to_dnf_module('php:remi-7.3') }
+    it { is_expected.to switch_to_dnf_module('php:remi-8.2') }
   end
 
   context 'on AlmaLinux 9' do
@@ -32,6 +32,6 @@ describe 'yum-remi-chef::remi-php73' do
 
     it { is_expected.to create_yum_repository('remi-safe') }
     it { is_expected.to create_yum_repository('remi-modular') }
-    it { is_expected.to switch_to_dnf_module('php:remi-7.3') }
+    it { is_expected.to switch_to_dnf_module('php:remi-8.2') }
   end
 end

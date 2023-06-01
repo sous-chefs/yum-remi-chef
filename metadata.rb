@@ -11,7 +11,6 @@ chef_version      '>= 16'
 depends 'yum', '>= 7.3.0'  # for `dnf_module`
 depends 'yum-epel'
 
-supports 'amazon'
 supports 'centos'
 supports 'fedora'
 supports 'oracle'

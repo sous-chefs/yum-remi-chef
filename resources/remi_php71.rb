@@ -27,8 +27,6 @@ action :create do
     enabled new_resource.enabled
     gpgcheck new_resource.gpgcheck
     gpgkey new_resource.gpgkey
-    # amazon base repo has priority 10, need to override to get the correct php version
-    priority '9' if amazon?
   end
 
   yum_repository 'remi-php71-debuginfo' do
@@ -37,5 +35,5 @@ action :create do
     enabled new_resource.debug_enabled
     gpgcheck new_resource.gpgcheck
     gpgkey new_resource.gpgkey
-  end
+  end if new_resource.debug_enabled
 end

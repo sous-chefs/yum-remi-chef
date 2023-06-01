@@ -32,5 +32,5 @@ action :create do
     enabled new_resource.debug_enabled
     gpgcheck new_resource.gpgcheck
     gpgkey new_resource.gpgkey
-  end
+  end if new_resource.debug_enabled
 end
