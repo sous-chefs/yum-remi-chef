@@ -1,6 +1,6 @@
-[Back to resource list](../README.md#resources)
-
 # `yum_remi_php80`
+
+[Back to resource list](../README.md#resources)
 
 Adds the `remi-php80` repo to the YUM / DNF repo list.
 

@@ -6,15 +6,15 @@ describe 'yum-remi-chef::remi-safe' do
   default_attributes['yum']['remi-safe-debuginfo']['enabled'] = true
   default_attributes['yum']['remi-safe-debuginfo']['managed'] = true
 
-  context 'on Amazon Linux 2' do
-    platform 'amazon', '2'
+  context 'on CentOS 7' do
+    platform 'centos', '7'
 
     it { is_expected.to create_yum_repository('remi-safe') }
   end
 
-  %w(7 8).each do |version|
-    context "on CentOS #{version}" do
-      platform 'centos', version
+  %w(8 9).each do |version|
+    context "on AlmaLinux #{version}" do
+      platform 'almalinux', version
 
       it { is_expected.to create_yum_repository('remi-safe') }
     end

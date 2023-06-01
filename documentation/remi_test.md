@@ -1,6 +1,6 @@
-[Back to resource list](../README.md#resources)
-
 # `yum_remi_test`
+
+[Back to resource list](../README.md#resources)
 
 Adds the `remi-test` repo to the YUM / DNF repo list.
 

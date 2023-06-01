@@ -15,7 +15,7 @@ action_class do
 end
 
 action :create do
-  raise "`remi-php56` is not available for #{node['platform']} #{node['platform_version'].to_i}" if rhel_8_or_fedora? || amazon?
+  raise "`remi-php56` is not available for #{node['platform']} #{node['platform_version'].to_i}" if rhel_8_or_fedora?
 
   yum_remi 'default'
 
@@ -35,5 +35,5 @@ action :create do
     enabled new_resource.debug_enabled
     gpgcheck new_resource.gpgcheck
     gpgkey new_resource.gpgkey
-  end
+  end if new_resource.debug_enabled
 end

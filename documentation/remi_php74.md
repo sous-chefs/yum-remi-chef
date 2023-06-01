@@ -1,11 +1,10 @@
-[Back to resource list](../README.md#resources)
-
 # `yum_remi_php74`
+
+[Back to resource list](../README.md#resources)
 
 Adds the `remi-php74` repo to the YUM / DNF repo list.
 
 > ⚠ This repo **overrides** the system PHP packages!
-
 > ⚠ This repo is not supported on Fedora
 
 ## Actions

@@ -8,8 +8,6 @@ control 'remi-test' do
       should cmp case os.name
                  when 'fedora'
                    "http://cdn.remirepo.net/fedora/#{os.release.to_i}/test/#{os.arch}/mirror"
-                 when 'amazon'
-                   'http://cdn.remirepo.net/enterprise/7/test/mirror'
                  else # rhel
                    if os.release.to_i == 7
                      "http://cdn.remirepo.net/enterprise/#{os.release.to_i}/test/mirror"
@@ -24,10 +22,8 @@ control 'remi-test' do
     its('remi-test.gpgcheck') { should cmp 1 }
     its('remi-test.gpgkey') do
       should cmp case os.name
-                 when 'amazon'
-                   'https://rpms.remirepo.net/RPM-GPG-KEY-remi'
                  when 'fedora'
-                   'https://rpms.remirepo.net/RPM-GPG-KEY-remi2022'
+                   'https://rpms.remirepo.net/RPM-GPG-KEY-remi2023'
                  else # rhel
                    case os.release.to_i
                    when 7

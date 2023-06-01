@@ -1,6 +1,6 @@
-[Back to resource list](../README.md#resources)
-
 # `yum_remi_modular`
+
+[Back to resource list](../README.md#resources)
 
 Adds the `remi-modular` repo to the YUM / DNF repo list.
 

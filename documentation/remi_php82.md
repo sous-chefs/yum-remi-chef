@@ -1,6 +1,6 @@
-[Back to resource list](../README.md#resources)
-
 # `yum_remi_php82`
+
+[Back to resource list](../README.md#resources)
 
 Adds the `remi-php82` repo to the YUM / DNF repo list.
 

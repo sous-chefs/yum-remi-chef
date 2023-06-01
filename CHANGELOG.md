@@ -4,6 +4,15 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 
 ## Unreleased
 
+- Skip creation of debug repos if not enabled
+- Remove support for Amazon Linux
+- Standardized files
+- Remove PHP 5.5 support (deprecated)
+- Add missing attributes for PHP 8.2
+- Fix support for Fedora 38
+- Update tests to support latest platform versions
+- Update GitHub Actions
+
 ## 6.2.0 - *2022-12-28*
 
 - Add `remi_php82` resource for supporting PHP 8.2

@@ -6,7 +6,7 @@
 [![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-The yum-remi-chef cookbook takes over management of the repository ids of the [remi](http://cdn.remirepo.net/) repository . It allows attribute manipulation of `remi`, `remi-safe`, `remi-php56`, `remi-php70`, `remi-php71`, `remi-php72`, `remi-php73`, `remi-php74`, `remi-php80`, `remi-php81`, `remi-php82` and `remi-test` repositories.
+The yum-remi-chef cookbook takes over management of the repository ids of the [remi](https://rpms.remirepo.net/) repository . It allows attribute manipulation of `remi`, `remi-safe`, `remi-php56`, `remi-php70`, `remi-php71`, `remi-php72`, `remi-php73`, `remi-php74`, `remi-php80`, `remi-php81`, `remi-php82` and `remi-test` repositories.
 
 ## Maintainers
 
@@ -27,17 +27,16 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 The following platforms and PHP versions are supported, as per [upstream](https://rpms.remirepo.net) -- `x` via a Yum repo, `M` via DNF modules:
 
-| PHP version     | 5.5 | 5.6 | 7.0 | 7.1 | 7.2 | 7.3 | 7.4 | 8.0 | 8.1 | 8.2 |
-| --------------- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| AlmaLinux 8     |     |     |     |     | M   | M   | M   | M   | M   | M   |
-| AlmaLinux 9     |     |     |     |     |     |     | M   | M   | M   | M   |
-| Amazon Linux 2  |     |     | x   | x   | x   | x   | x   | x   | x   | x   |
-| CentOS 7        | x   | x   | x   | x   | x   | x   | x   | x   | x   | x   |
-| CentOS Stream 8 |     |     |     |     | M   | M   | M   | M   | M   | M   |
-| CentOS Stream 9 |     |     |     |     |     |     | M   | M   | M   | M   |
-| Fedora (latest) |     |     |     |     |     |     |     |     | M   | M   |
-| Rocky Linux 8   |     |     |     |     | M   | M   | M   | M   | M   | M   |
-| Rocky Linux 9   |     |     |     |     |     |     | M   | M   | M   | M   |
+| PHP version     | 5.6 | 7.0 | 7.1 | 7.2 | 7.3 | 7.4 | 8.0 | 8.1 | 8.2 |
+| --------------- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| AlmaLinux 8     |     |     |     | M   | M   | M   | M   | M   | M   |
+| AlmaLinux 9     |     |     |     |     |     | M   | M   | M   | M   |
+| CentOS 7        | x   | x   | x   | x   | x   | x   | x   | x   | x   |
+| CentOS Stream 8 |     |     |     | M   | M   | M   | M   | M   | M   |
+| CentOS Stream 9 |     |     |     |     |     | M   | M   | M   | M   |
+| Fedora (latest) |     |     |     |     |     |     |     | M   | M   |
+| Rocky Linux 8   |     |     |     | M   | M   | M   | M   | M   | M   |
+| Rocky Linux 9   |     |     |     |     |     | M   | M   | M   | M   |
 
 ## Recipes
 

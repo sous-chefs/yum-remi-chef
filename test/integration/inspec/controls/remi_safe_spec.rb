@@ -9,15 +9,11 @@ control 'remi-safe' do
     it { should exist }
     it { should be_enabled }
     its('mirrors') do
-      should cmp case os.name
-                 when 'amazon'
-                   'http://cdn.remirepo.net/enterprise/7/safe/mirror'
-                 else # rhel
-                   if os.release.to_i == 7
-                     "http://cdn.remirepo.net/enterprise/#{os.release.to_i}/safe/mirror"
-                   else
-                     "http://cdn.remirepo.net/enterprise/#{os.release.to_i}/safe/#{os.arch}/mirror"
-                   end
+      should cmp case os.release.to_i
+                 when 7
+                   "http://cdn.remirepo.net/enterprise/#{os.release.to_i}/safe/mirror"
+                 else
+                   "http://cdn.remirepo.net/enterprise/#{os.release.to_i}/safe/#{os.arch}/mirror"
                  end
     end
   end
@@ -26,10 +22,8 @@ control 'remi-safe' do
     its('remi-safe.gpgcheck') { should cmp 1 }
     its('remi-safe.gpgkey') do
       should cmp case os.name
-                 when 'amazon'
-                   'https://rpms.remirepo.net/RPM-GPG-KEY-remi'
                  when 'fedora'
-                   'https://rpms.remirepo.net/RPM-GPG-KEY-remi2022'
+                   'https://rpms.remirepo.net/RPM-GPG-KEY-remi2023'
                  else # rhel
                    case os.release.to_i
                    when 7

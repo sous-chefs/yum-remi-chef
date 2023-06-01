@@ -1,6 +1,6 @@
-[Back to resource list](../README.md#resources)
-
 # `yum_remi_safe`
+
+[Back to resource list](../README.md#resources)
 
 Adds the `remi-safe` repo to the YUM / DNF repo list.
 

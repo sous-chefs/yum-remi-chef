@@ -18,7 +18,7 @@ action :create do
   yum_remi 'default'
 
   # use repo on C7
-  if rhel_7_or_amazon?
+  if rhel_7?
     yum_repository 'remi-php82' do
       baseurl new_resource.baseurl
       mirrorlist new_resource.mirrorlist
@@ -26,8 +26,6 @@ action :create do
       enabled new_resource.enabled
       gpgcheck new_resource.gpgcheck
       gpgkey new_resource.gpgkey
-      # amazon base repo has priority 10, need to override to get the correct php version
-      priority '9' if amazon?
     end
 
     yum_repository 'remi-php82-debuginfo' do
@@ -36,7 +34,7 @@ action :create do
       enabled new_resource.debug_enabled
       gpgcheck new_resource.gpgcheck
       gpgkey new_resource.gpgkey
-    end
+    end if new_resource.debug_enabled
   else
     # use modules on C8 / Fedora
     yum_remi_modular 'default'
