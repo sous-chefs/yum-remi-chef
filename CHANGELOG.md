@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
-## Unreleased
+## 7.0.2 - *2023-06-01*
 
 - Remove Circle CI
 
