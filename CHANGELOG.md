@@ -4,7 +4,11 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 
 ## Unreleased
 
+- Remove Circle CI
+
 ## 7.0.1 - *2023-06-01*
+
+- Pin dependencies
 
 ## 7.0.0 - *2023-06-01*
 
