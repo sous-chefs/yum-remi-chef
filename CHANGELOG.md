@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
-## Unreleased
+## 7.0.8 - *2024-05-06*
 
 ## 7.0.7 - *2024-05-06*
 
