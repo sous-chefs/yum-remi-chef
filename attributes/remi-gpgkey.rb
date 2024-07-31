@@ -10,8 +10,10 @@ default['yum-remi-chef']['gpgkey'] =
       'https://rpms.remirepo.net/RPM-GPG-KEY-remi2021'
     when 36, 37
       'https://rpms.remirepo.net/RPM-GPG-KEY-remi2022'
-    when 38
+    when 38, 39
       'https://rpms.remirepo.net/RPM-GPG-KEY-remi2023'
+    when 40
+      'https://rpms.remirepo.net/RPM-GPG-KEY-remi2024'
     else
       Chef::Log.fatal("Fedora #{node['platform_version'].to_i} is not currently supported by this cookbook")
     end
