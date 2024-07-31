@@ -70,4 +70,4 @@ module YumRemiChef
   end
 end
 
-Chef::Resource.include ::YumRemiChef::Cookbook::Helpers
+# Chef::DSL::Universal.include(::YumRemiChef::Cookbook::Helpers)

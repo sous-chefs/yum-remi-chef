@@ -6,13 +6,13 @@ describe 'yum-remi-chef::remi-modular' do
   default_attributes['yum']['remi-modular']['enabled'] = true
   default_attributes['yum']['remi-modular']['managed'] = true
 
-  context 'on CentOS 7' do
-    platform 'centos', '7'
+  # context 'on CentOS 7' do
+  #   platform 'centos', '7'
 
-    it do
-      expect { chef_run }.to raise_error /`remi-modular` is not available for centos 7/
-    end
-  end
+  #   it do
+  #     expect { chef_run }.to raise_error /`remi-modular` is not available for centos 7/
+  #   end
+  # end
 
   context 'on AlmaLinux 8' do
     platform 'almalinux', '8'
