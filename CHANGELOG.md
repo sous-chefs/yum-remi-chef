@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
-## Unreleased
+## 7.1.0 - *2024-07-31*
 
 - Update for Fedora 39 and 40
 
