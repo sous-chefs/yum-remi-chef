@@ -10,10 +10,6 @@ property :description, String, default: lazy { remi_repo_description('php74') }
 property :debug_baseurl, String, default: lazy { remi_repo_baseurl('debug-php74') }
 property :debug_description, String, default: lazy { remi_repo_description('debug-php74') }
 
-action_class do
-  include YumRemiChef::Cookbook::Helpers
-end
-
 action :create do
   raise "`remi-php74` is not available for #{node['platform']} #{node['platform_version'].to_i}" if fedora?
 

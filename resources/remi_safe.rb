@@ -10,10 +10,6 @@ property :description, String, default: lazy { remi_repo_description('safe') }
 property :debug_baseurl, String, default: lazy { remi_repo_baseurl('debug-safe') }
 property :debug_description, String, default: lazy { remi_repo_description('debug-safe') }
 
-action_class do
-  include YumRemiChef::Cookbook::Helpers
-end
-
 action :create do
   include_recipe 'yum-epel' unless fedora?
 

@@ -23,7 +23,7 @@ control 'remi' do
     its('remi.gpgkey') do
       should cmp case os.name
                  when 'fedora'
-                   'https://rpms.remirepo.net/RPM-GPG-KEY-remi2023'
+                   'https://rpms.remirepo.net/RPM-GPG-KEY-remi2024'
                  else # rhel
                    case os.release.to_i
                    when 7

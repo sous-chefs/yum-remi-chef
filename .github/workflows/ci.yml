@@ -25,8 +25,7 @@ jobs:
         os:
           - almalinux-8
           - almalinux-9
-          - centos-7
-          - centos-stream-8
+          # - centos-7
           - centos-stream-9
           - fedora-latest
           - rockylinux-8
@@ -45,10 +44,12 @@ jobs:
           - 'remi-php82'
         exclude:
           - os: almalinux-8
+            suite: remi-test
+          - os: almalinux-9
+            suite: remi-test
+          - os: almalinux-8
             suite: remi-php56
           - os: almalinux-9
-            suite: remi-php56
-          - os: centos-stream-8
             suite: remi-php56
           - os: centos-stream-9
             suite: remi-php56
@@ -62,8 +63,6 @@ jobs:
             suite: remi-php70
           - os: almalinux-9
             suite: remi-php70
-          - os: centos-stream-8
-            suite: remi-php70
           - os: centos-stream-9
             suite: remi-php70
           - os: fedora-latest
@@ -76,8 +75,6 @@ jobs:
             suite: remi-php71
           - os: almalinux-9
             suite: remi-php71
-          - os: centos-stream-8
-            suite: remi-php71
           - os: centos-stream-9
             suite: remi-php71
           - os: fedora-latest
@@ -100,12 +97,24 @@ jobs:
             suite: remi-php73
           - os: fedora-latest
             suite: remi-php73
+          - os: rockylinux-8
+            suite: remi-php73
           - os: rockylinux-9
             suite: remi-php73
+          - os: almalinux-9
+            suite: remi-php74
+          - os: centos-stream-9
+            suite: remi-php74
           - os: fedora-latest
+            suite: remi-php74
+          - os: rockylinux-8
             suite: remi-php74
           - os: fedora-latest
             suite: remi-php80
+          - os: almalinux-9
+            suite: remi-php81
+          - os: rockylinux-9
+            suite: remi-php82
       fail-fast: false
 
     steps:

@@ -10,10 +10,6 @@ property :description, String, default: lazy { remi_repo_description('test') }
 property :debug_baseurl, String, default: lazy { remi_repo_baseurl('debug-test') }
 property :debug_description, String, default: lazy { remi_repo_description('debug-test') }
 
-action_class do
-  include YumRemiChef::Cookbook::Helpers
-end
-
 action :create do
   yum_remi 'default'
 

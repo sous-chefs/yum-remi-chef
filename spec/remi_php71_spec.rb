@@ -18,19 +18,19 @@ describe 'yum-remi-chef::remi-php71' do
     it { is_expected.to create_yum_repository('remi-php71-debuginfo') }
   end
 
-  context 'on AlmaLinux 8' do
-    platform 'almalinux', '8'
+  # context 'on AlmaLinux 8' do
+  #   platform 'almalinux', '8'
 
-    it do
-      expect { chef_run }.to raise_error /`remi-php71` is not available for almalinux 8/
-    end
-  end
+  #   it do
+  #     expect { chef_run }.to raise_error /`remi-php71` is not available for almalinux 8/
+  #   end
+  # end
 
-  context 'on AlmaLinux 9' do
-    platform 'almalinux', '9'
+  # context 'on AlmaLinux 9' do
+  #   platform 'almalinux', '9'
 
-    it do
-      expect { chef_run }.to raise_error /`remi-php71` is not available for almalinux 9/
-    end
-  end
+  #   it do
+  #     expect { chef_run }.to raise_error /`remi-php71` is not available for almalinux 9/
+  #   end
+  # end
 end

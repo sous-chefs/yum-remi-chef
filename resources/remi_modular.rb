@@ -10,10 +10,6 @@ property :description, String, default: lazy { remi_repo_description('modular') 
 property :debug_baseurl, String, default: lazy { remi_repo_baseurl('debug-modular') }
 property :debug_description, String, default: lazy { remi_repo_description('debug-modular') }
 
-action_class do
-  include YumRemiChef::Cookbook::Helpers
-end
-
 action :create do
   raise "`remi-modular` is not available for #{node['platform']} #{node['platform_version'].to_i}" if rhel_7?
 
