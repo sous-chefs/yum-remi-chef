@@ -69,5 +69,3 @@ module YumRemiChef
     end
   end
 end
-
-# Chef::DSL::Universal.include(::YumRemiChef::Cookbook::Helpers)
