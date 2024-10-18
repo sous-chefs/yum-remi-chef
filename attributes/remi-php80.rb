@@ -10,10 +10,6 @@ when 'fedora'
   default['yum']['remi-php80']['description'] = "Remi's PHP 8.0 RPM repository for Fedora Linux #{node['platform_version'].to_i} - $basearch"
 when 'rhel'
   # default['yum']['remi-php80']['baseurl'] = "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/php80/$basearch/"
-  default['yum']['remi-php80']['mirrorlist'] = if node['platform_version'].to_i == 7
-                                                 "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/php80/mirror"
-                                               else
-                                                 "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/php80/$basearch/mirror"
-                                               end
+  default['yum']['remi-php80']['mirrorlist'] = "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/php80/$basearch/mirror"
   default['yum']['remi-php80']['description'] = "Remi's PHP 8.0 RPM repository for Enterprise Linux #{node['platform_version'].to_i} - $basearch"
 end

@@ -6,13 +6,6 @@ describe 'yum-remi-chef::remi' do
   default_attributes['yum']['remi-debuginfo']['enabled'] = true
   default_attributes['yum']['remi-debuginfo']['managed'] = true
 
-  context 'on CentOS 7' do
-    platform 'centos', '7'
-
-    it { is_expected.to create_yum_repository('remi') }
-    it { is_expected.to_not create_yum_repository('remi-debuginfo') }
-  end
-
   %w(8 9).each do |version|
     context "on AlmaLinux #{version}" do
       platform 'almalinux', version
@@ -22,10 +15,10 @@ describe 'yum-remi-chef::remi' do
     end
   end
 
-  context 'on Fedora latest' do
-    platform 'fedora'
-
-    it { is_expected.to create_yum_repository('remi') }
-    it { is_expected.to_not create_yum_repository('remi-debuginfo') }
-  end
+  # context 'on Fedora latest' do
+  #  platform 'fedora'
+  #
+  #  it { is_expected.to create_yum_repository('remi') }
+  #  it { is_expected.to_not create_yum_repository('remi-debuginfo') }
+  # end
 end

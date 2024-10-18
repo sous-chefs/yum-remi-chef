@@ -4,8 +4,6 @@
 
 Adds the `remi-modular` repo to the YUM / DNF repo list.
 
-> ⚠ This repo is not supported on CentOS 7
-
 ## Actions
 
 | Action    | Description                    |

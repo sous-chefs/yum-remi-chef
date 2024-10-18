@@ -1,11 +1,10 @@
-# `yum_remi_php70`
+# `yum_remi_php84`
 
 [Back to resource list](../README.md#resources)
 
-Adds the `remi-php70` repo to the YUM / DNF repo list.
+Adds the `remi-php84` repo to the YUM / DNF repo list.
 
 > ⚠ This repo **overrides** the system PHP packages!
-> ⚠ This repo is not supported on CentOS 8+ or Fedora
 
 ## Actions
 
@@ -32,5 +31,5 @@ These properties are passed through to `yum_repository`. More information on the
 ## Examples
 
 ```ruby
-yum_remi_php70 'default'
+yum_remi_php84 'default'
 ```

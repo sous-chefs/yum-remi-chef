@@ -4,6 +4,10 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 
 ## Unreleased
 
+- Add support for PHP 8.3 and 8.4
+- Remove support for PHP 5.6, 7.0 and 7.1
+- Remove support for CentOS 7 and CentOS Stream 8
+
 ## 7.1.0 - *2024-07-31*
 
 - Update for Fedora 39 and 40

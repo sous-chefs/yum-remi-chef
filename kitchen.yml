@@ -19,8 +19,6 @@ verifier:
 platforms:
   - name: almalinux-8
   - name: almalinux-9
-  - name: centos-7
-  - name: centos-stream-8
   - name: centos-stream-9
   - name: fedora-latest
   - name: rockylinux-8
@@ -57,74 +55,6 @@ suites:
         - remi
         - remi-safe
         - remi-modular
-    excludes:
-      - centos-7
-
-  - name: remi-php56
-    run_list:
-      - recipe[test::php]
-    attributes:
-      remi-test:
-        version: '5.6'
-    verifier:
-      controls:
-        - remi
-        - remi-safe
-        - php
-      inputs:
-        version: '5.6'
-    excludes:
-      - almalinux-8
-      - almalinux-9
-      - centos-stream-8
-      - centos-stream-9
-      - fedora-latest
-      - rockylinux-8
-      - rockylinux-9
-
-  - name: remi-php70
-    run_list:
-      - recipe[test::php]
-    attributes:
-      remi-test:
-        version: '7.0'
-    verifier:
-      controls:
-        - remi
-        - remi-safe
-        - php
-      inputs:
-        version: '7.0'
-    excludes:
-      - almalinux-8
-      - almalinux-9
-      - centos-stream-8
-      - centos-stream-9
-      - fedora-latest
-      - rockylinux-8
-      - rockylinux-9
-
-  - name: remi-php71
-    run_list:
-      - recipe[test::php]
-    attributes:
-      remi-test:
-        version: '7.1'
-    verifier:
-      controls:
-        - remi
-        - remi-safe
-        - php
-      inputs:
-        version: '7.1'
-    excludes:
-      - almalinux-8
-      - almalinux-9
-      - centos-stream-8
-      - centos-stream-9
-      - fedora-latest
-      - rockylinux-8
-      - rockylinux-9
 
   - name: remi-php72
     run_list:
@@ -223,3 +153,31 @@ suites:
         - php
       inputs:
         version: '8.2'
+
+  - name: remi-php83
+    run_list:
+      - recipe[test::php]
+    attributes:
+      remi-test:
+        version: '8.3'
+    verifier:
+      controls:
+        - remi
+        - remi-safe
+        - php
+      inputs:
+        version: '8.3'
+
+  - name: remi-php84
+    run_list:
+      - recipe[test::php]
+    attributes:
+      remi-test:
+        version: '8.4'
+    verifier:
+      controls:
+        - remi
+        - remi-safe
+        - php
+      inputs:
+        version: '8.4'

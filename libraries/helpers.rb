@@ -5,20 +5,10 @@ module YumRemiChef
         (platform_family?('rhel') && node['platform_version'].to_i >= 8) || platform_family?('fedora')
       end
 
-      def rhel_7?
-        (platform_family?('rhel') && node['platform_version'].to_i == 7)
-      end
-
       def remi_gpg_key
         case node['platform_family']
         when 'fedora'
           case node['platform_version'].to_i
-          when 32, 33
-            'https://rpms.remirepo.net/RPM-GPG-KEY-remi2020'
-          when 34, 35
-            'https://rpms.remirepo.net/RPM-GPG-KEY-remi2021'
-          when 36, 37
-            'https://rpms.remirepo.net/RPM-GPG-KEY-remi2022'
           when 38, 39
             'https://rpms.remirepo.net/RPM-GPG-KEY-remi2023'
           when 40
@@ -26,8 +16,6 @@ module YumRemiChef
           end
         when 'rhel'
           case node['platform_version'].to_i
-          when 7
-            'https://rpms.remirepo.net/RPM-GPG-KEY-remi'
           when 8
             'https://rpms.remirepo.net/RPM-GPG-KEY-remi2018'
           when 9
@@ -50,11 +38,7 @@ module YumRemiChef
         when 'fedora'
           "http://cdn.remirepo.net/fedora/#{node['platform_version'].to_i}/#{repo_slug}/$basearch/mirror"
         when 'rhel'
-          if node['platform_version'].to_i == 7
-            "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/#{repo_slug}/mirror"
-          else
-            "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/#{repo_slug}/$basearch/mirror"
-          end
+          "http://cdn.remirepo.net/enterprise/#{node['platform_version'].to_i}/#{repo_slug}/$basearch/mirror"
         end
       end
 
