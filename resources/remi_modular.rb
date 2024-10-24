@@ -11,8 +11,6 @@ property :debug_baseurl, String, default: lazy { remi_repo_baseurl('debug-modula
 property :debug_description, String, default: lazy { remi_repo_description('debug-modular') }
 
 action :create do
-  raise "`remi-modular` is not available for #{node['platform']} #{node['platform_version'].to_i}" if rhel_7?
-
   yum_remi 'default'
 
   yum_repository 'remi-modular' do

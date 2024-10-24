@@ -9,11 +9,7 @@ control 'remi-test' do
                  when 'fedora'
                    "http://cdn.remirepo.net/fedora/#{os.release.to_i}/test/#{os.arch}/mirror"
                  else # rhel
-                   if os.release.to_i == 7
-                     "http://cdn.remirepo.net/enterprise/#{os.release.to_i}/test/mirror"
-                   else
-                     "http://cdn.remirepo.net/enterprise/#{os.release.to_i}/test/#{os.arch}/mirror"
-                   end
+                   "http://cdn.remirepo.net/enterprise/#{os.release.to_i}/test/#{os.arch}/mirror"
                  end
     end
   end
@@ -26,8 +22,6 @@ control 'remi-test' do
                    'https://rpms.remirepo.net/RPM-GPG-KEY-remi2024'
                  else # rhel
                    case os.release.to_i
-                   when 7
-                     'https://rpms.remirepo.net/RPM-GPG-KEY-remi'
                    when 8
                      'https://rpms.remirepo.net/RPM-GPG-KEY-remi2018'
                    when 9

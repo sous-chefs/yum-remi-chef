@@ -25,7 +25,6 @@ jobs:
         os:
           - almalinux-8
           - almalinux-9
-          # - centos-7
           - centos-stream-9
           - fedora-latest
           - rockylinux-8
@@ -33,56 +32,19 @@ jobs:
         suite:
           - 'remi'
           - 'remi-test'
-          - 'remi-php56'
-          - 'remi-php70'
-          - 'remi-php71'
           - 'remi-php72'
           - 'remi-php73'
           - 'remi-php74'
           - 'remi-php80'
           - 'remi-php81'
           - 'remi-php82'
+          - 'remi-php83'
+          - 'remi-php84'
         exclude:
           - os: almalinux-8
             suite: remi-test
           - os: almalinux-9
             suite: remi-test
-          - os: almalinux-8
-            suite: remi-php56
-          - os: almalinux-9
-            suite: remi-php56
-          - os: centos-stream-9
-            suite: remi-php56
-          - os: rockylinux-8
-            suite: remi-php56
-          - os: rockylinux-9
-            suite: remi-php56
-          - os: fedora-latest
-            suite: remi-php56
-          - os: almalinux-8
-            suite: remi-php70
-          - os: almalinux-9
-            suite: remi-php70
-          - os: centos-stream-9
-            suite: remi-php70
-          - os: fedora-latest
-            suite: remi-php70
-          - os: rockylinux-8
-            suite: remi-php70
-          - os: rockylinux-9
-            suite: remi-php70
-          - os: almalinux-8
-            suite: remi-php71
-          - os: almalinux-9
-            suite: remi-php71
-          - os: centos-stream-9
-            suite: remi-php71
-          - os: fedora-latest
-            suite: remi-php71
-          - os: rockylinux-8
-            suite: remi-php71
-          - os: rockylinux-9
-            suite: remi-php71
           - os: almalinux-9
             suite: remi-php72
           - os: centos-stream-9

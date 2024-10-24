@@ -11,14 +11,6 @@ describe 'yum-remi-chef::remi-php73' do
   default_attributes['yum']['remi-php73-debuginfo']['enabled'] = true
   default_attributes['yum']['remi-php73-debuginfo']['managed'] = true
 
-  context 'on CentOS 7' do
-    platform 'centos', '7'
-
-    it { is_expected.to create_yum_repository('remi-safe') }
-    it { is_expected.to create_yum_repository('remi-php73') }
-    it { is_expected.to create_yum_repository('remi-php73-debuginfo') }
-  end
-
   context 'on AlmaLinux 8' do
     platform 'almalinux', '8'
 

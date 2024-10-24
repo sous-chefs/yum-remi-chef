@@ -6,7 +6,9 @@
 [![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-The yum-remi-chef cookbook takes over management of the repository ids of the [remi](https://rpms.remirepo.net/) repository . It allows attribute manipulation of `remi`, `remi-safe`, `remi-php56`, `remi-php70`, `remi-php71`, `remi-php72`, `remi-php73`, `remi-php74`, `remi-php80`, `remi-php81`, `remi-php82` and `remi-test` repositories.
+The yum-remi-chef cookbook takes over management of the repository ids of the [remi](https://rpms.remirepo.net/)
+repository . It allows attribute manipulation of `remi`, `remi-safe`, `remi-php72`, `remi-php73`, `remi-php74`,
+`remi-php80`, `remi-php81`, `remi-php82`, `remi-php83`, `remi-php84` and `remi-test` repositories.
 
 ## Maintainers
 
@@ -27,16 +29,14 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 The following platforms and PHP versions are supported, as per [upstream](https://rpms.remirepo.net) -- `x` via a Yum repo, `M` via DNF modules:
 
-| PHP version     | 5.6 | 7.0 | 7.1 | 7.2 | 7.3 | 7.4 | 8.0 | 8.1 | 8.2 |
-| --------------- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| AlmaLinux 8     |     |     |     | M   | M   | M   | M   | M   | M   |
-| AlmaLinux 9     |     |     |     |     |     | M   | M   | M   | M   |
-| CentOS 7        | x   | x   | x   | x   | x   | x   | x   | x   | x   |
-| CentOS Stream 8 |     |     |     | M   | M   | M   | M   | M   | M   |
-| CentOS Stream 9 |     |     |     |     |     | M   | M   | M   | M   |
-| Fedora (latest) |     |     |     |     |     |     |     | M   | M   |
-| Rocky Linux 8   |     |     |     | M   | M   | M   | M   | M   | M   |
-| Rocky Linux 9   |     |     |     |     |     | M   | M   | M   | M   |
+| PHP version     | 7.2 | 7.3 | 7.4 | 8.0 | 8.1 | 8.2 | 8.3 | 8.4 |
+| --------------- | --- | --- | --- | --- | --- | --- | --- | --- |
+| AlmaLinux 8     | M   | M   | M   | M   | M   | M   | M   | M   |
+| AlmaLinux 9     |     |     | M   | M   | M   | M   | M   | M   |
+| CentOS Stream 9 |     |     | M   | M   | M   | M   | M   | M   |
+| Fedora (latest) |     |     |     |     | M   | M   | M   | M   |
+| Rocky Linux 8   | M   | M   | M   | M   | M   | M   | M   | M   |
+| Rocky Linux 9   |     |     | M   | M   | M   | M   | M   | M   |
 
 ## Recipes
 
@@ -54,15 +54,14 @@ Same function as the above recipes, but as resources instead.
 - [`yum_remi_safe`](documentation/remi_safe.md)
 - [`yum_remi_test`](documentation/remi_test.md)
 - [`yum_remi_modular`](documentation/remi_modular.md)
-- [`yum_remi_php56`](documentation/remi_php56.md)
-- [`yum_remi_php70`](documentation/remi_php70.md)
-- [`yum_remi_php71`](documentation/remi_php71.md)
 - [`yum_remi_php72`](documentation/remi_php72.md)
 - [`yum_remi_php73`](documentation/remi_php73.md)
 - [`yum_remi_php74`](documentation/remi_php74.md)
 - [`yum_remi_php80`](documentation/remi_php80.md)
 - [`yum_remi_php81`](documentation/remi_php81.md)
 - [`yum_remi_php82`](documentation/remi_php82.md)
+- [`yum_remi_php83`](documentation/remi_php83.md)
+- [`yum_remi_php84`](documentation/remi_php84.md)
 
 ## Contributors
 
