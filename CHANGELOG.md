@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
-## Unreleased
+## 8.0.0 - *2024-10-24*
 
 - Add support for PHP 8.3 and 8.4
 - Remove support for PHP 5.6, 7.0 and 7.1
