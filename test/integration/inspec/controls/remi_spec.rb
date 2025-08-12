@@ -19,13 +19,20 @@ control 'remi' do
     its('remi.gpgkey') do
       should cmp case os.name
                  when 'fedora'
-                   'https://rpms.remirepo.net/RPM-GPG-KEY-remi2024'
+                   case os.release.to_i
+                   when 40, 41
+                     'https://rpms.remirepo.net/RPM-GPG-KEY-remi2024'
+                   when 42
+                     'https://rpms.remirepo.net/RPM-GPG-KEY-remi2025'
+                   end
                  else # rhel
                    case os.release.to_i
                    when 8
                      'https://rpms.remirepo.net/RPM-GPG-KEY-remi2018'
                    when 9
                      'https://rpms.remirepo.net/RPM-GPG-KEY-remi2021'
+                   when 10
+                     'https://rpms.remirepo.net/RPM-GPG-KEY-remi2024'
                    end
                  end
     end

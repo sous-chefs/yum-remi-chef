@@ -33,6 +33,7 @@ The following platforms and PHP versions are supported, as per [upstream](https:
 | --------------- | --- | --- | --- | --- | --- | --- | --- | --- |
 | AlmaLinux 8     | M   | M   | M   | M   | M   | M   | M   | M   |
 | AlmaLinux 9     |     |     | M   | M   | M   | M   | M   | M   |
+| AlmaLinux 10    |     |     | M   | M   | M   | M   | M   | M   |
 | CentOS Stream 9 |     |     | M   | M   | M   | M   | M   | M   |
 | Fedora (latest) |     |     |     |     | M   | M   | M   | M   |
 | Rocky Linux 8   | M   | M   | M   | M   | M   | M   | M   | M   |

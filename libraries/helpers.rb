@@ -11,8 +11,10 @@ module YumRemiChef
           case node['platform_version'].to_i
           when 38, 39
             'https://rpms.remirepo.net/RPM-GPG-KEY-remi2023'
-          when 40
+          when 40, 41
             'https://rpms.remirepo.net/RPM-GPG-KEY-remi2024'
+          when 42
+            'https://rpms.remirepo.net/RPM-GPG-KEY-remi2025'
           end
         when 'rhel'
           case node['platform_version'].to_i
@@ -20,6 +22,8 @@ module YumRemiChef
             'https://rpms.remirepo.net/RPM-GPG-KEY-remi2018'
           when 9
             'https://rpms.remirepo.net/RPM-GPG-KEY-remi2021'
+          when 10
+            'https://rpms.remirepo.net/RPM-GPG-KEY-remi2024'
           end
         end
       end

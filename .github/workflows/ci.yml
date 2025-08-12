@@ -26,7 +26,8 @@ jobs:
           - almalinux-8
           - almalinux-9
           - centos-stream-9
-          - fedora-latest
+            # - fedora-latest
+            # needs modifications for dnf5
           - rockylinux-8
           - rockylinux-9
         suite:
