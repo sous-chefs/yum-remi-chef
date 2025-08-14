@@ -4,6 +4,8 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 
 ## Unreleased
 
+## 8.1.0 - *2025-08-24*
+
 - Add support for AlmaLinux 10
 
 ## 8.0.0 - *2024-10-24*
