@@ -26,4 +26,12 @@ describe 'yum-remi-chef::remi-php81' do
     it { is_expected.to create_yum_repository('remi-modular') }
     it { is_expected.to switch_to_dnf_module('php:remi-8.1') }
   end
+
+  context 'on AlmaLinux 10' do
+    platform 'almalinux', '10'
+
+    it { is_expected.to create_yum_repository('remi-safe') }
+    it { is_expected.to create_yum_repository('remi-modular') }
+    it { is_expected.to switch_to_dnf_module('php:remi-8.1') }
+  end
 end

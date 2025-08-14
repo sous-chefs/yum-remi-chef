@@ -4,6 +4,8 @@ This file is used to list changes made in each version of the yum-remi-chef  coo
 
 ## Unreleased
 
+- Add support for AlmaLinux 10
+
 ## 8.0.0 - *2024-10-24*
 
 - Add support for PHP 8.3 and 8.4

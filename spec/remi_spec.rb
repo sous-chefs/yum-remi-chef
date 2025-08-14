@@ -6,7 +6,7 @@ describe 'yum-remi-chef::remi' do
   default_attributes['yum']['remi-debuginfo']['enabled'] = true
   default_attributes['yum']['remi-debuginfo']['managed'] = true
 
-  %w(8 9).each do |version|
+  %w(8 9 10).each do |version|
     context "on AlmaLinux #{version}" do
       platform 'almalinux', version
 
