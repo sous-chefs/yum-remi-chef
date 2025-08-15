@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## Unreleased
+
 ## 8.1.1 - *2025-08-15*
 
 ## 8.1.1 - *2025-08-15*
