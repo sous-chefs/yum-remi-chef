@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## [8.1.3](https://github.com/sous-chefs/yum-remi-chef/compare/8.1.2...v8.1.3) (2025-10-16)
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#70](https://github.com/sous-chefs/yum-remi-chef/issues/70)) ([a688743](https://github.com/sous-chefs/yum-remi-chef/commit/a688743ec134efbb2707f309370ecefca8b99436))
+
 ## 8.1.0 - *2025-08-24*
 
 * Add support for AlmaLinux 10
