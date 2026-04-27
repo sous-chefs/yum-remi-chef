@@ -4,12 +4,12 @@
 
 Sources:
 
-* https://rpms.remirepo.net/
-* https://rpms.remirepo.net/enterprise/8.8/
-* https://rpms.remirepo.net/enterprise/9/
-* https://rpms.remirepo.net/enterprise/10/
-* https://rpms.remirepo.net/fedora/42/
-* https://rpms.remirepo.net/fedora/44/
+* [Remi repository root](https://rpms.remirepo.net/)
+* [Remi Enterprise Linux 8.8 repository](https://rpms.remirepo.net/enterprise/8.8/)
+* [Remi Enterprise Linux 9 repository](https://rpms.remirepo.net/enterprise/9/)
+* [Remi Enterprise Linux 10 repository](https://rpms.remirepo.net/enterprise/10/)
+* [Remi Fedora 42 repository](https://rpms.remirepo.net/fedora/42/)
+* [Remi Fedora 44 repository](https://rpms.remirepo.net/fedora/44/)
 
 ### DNF/YUM (RHEL family)
 
