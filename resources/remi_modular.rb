@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 provides :yum_remi_modular
 unified_mode true
 
@@ -10,7 +12,13 @@ property :description, String, default: lazy { remi_repo_description('modular') 
 property :debug_baseurl, String, default: lazy { remi_repo_baseurl('debug-modular') }
 property :debug_description, String, default: lazy { remi_repo_description('debug-modular') }
 
+action_class do
+  include YumRemiChef::Cookbook::Helpers
+end
+
 action :create do
+  validate_remi_platform!
+
   yum_remi 'default'
 
   yum_repository 'remi-modular' do

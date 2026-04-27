@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 provides :yum_remi
 unified_mode true
 
@@ -10,8 +12,14 @@ property :description, String, default: lazy { remi_repo_description('remi') }
 property :debug_baseurl, String, default: lazy { remi_repo_baseurl('debug-remi') }
 property :debug_description, String, default: lazy { remi_repo_description('debug-remi') }
 
+action_class do
+  include YumRemiChef::Cookbook::Helpers
+end
+
 action :create do
-  yum_remi_safe 'default' unless fedora?
+  validate_remi_platform!
+
+  yum_remi_safe 'default'
 
   yum_repository 'remi' do
     baseurl new_resource.baseurl

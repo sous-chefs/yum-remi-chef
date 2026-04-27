@@ -7,7 +7,7 @@ Adds the `remi-test` repo to the YUM / DNF repo list.
 ## Actions
 
 | Action    | Description                    |
-| --------- | ------------------------------ |
+|-----------|--------------------------------|
 | `:create` | Creates the repo configuration |
 
 ## Properties
@@ -15,7 +15,7 @@ Adds the `remi-test` repo to the YUM / DNF repo list.
 These properties are passed through to `yum_repository`. More information on these properties can be found on [the Chef docs for `yum_repository`](https://docs.chef.io/resources/yum_repository/).
 
 | Name                | Type            | Default                                                                   |
-| ------------------- | --------------- | ------------------------------------------------------------------------- |
+|---------------------|-----------------|---------------------------------------------------------------------------|
 | `baseurl`           | `String`        | Platform specific, see [`remi_repo_baseurl`](../libraries/helpers.rb)     |
 | `mirrorlist`        | `String`        | Platform specific, see [`remi_repo_mirrorlist`](../libraries/helpers.rb)  |
 | `description`       | `String`        | Platform specific, see [`remi_repo_description`](../libraries/helpers.rb) |

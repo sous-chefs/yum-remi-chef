@@ -1,0 +1,8 @@
+---
+name: php
+title: Integration tests for yum_remi_phpXX resources
+version: 0.1.0
+inputs:
+  - name: version
+    type: string
+    required: true

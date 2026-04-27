@@ -2,32 +2,19 @@
 
 [Back to resource list](../README.md#resources)
 
-Adds the `remi-php73` repo to the YUM / DNF repo list.
+Enables the `php:remi-7.3` DNF module stream after configuring the required Remi repositories.
 
-> ⚠ This repo **overrides** the system PHP packages!
-> ⚠ This repo is not supported on Fedora
+> `php:remi-7.3` is only available on Enterprise Linux 8.
 
 ## Actions
 
-| Action    | Description                    |
-| --------- | ------------------------------ |
-| `:create` | Creates the repo configuration |
+| Action    | Description                            |
+|-----------|----------------------------------------|
+| `:create` | Configures Remi and enables the stream |
 
 ## Properties
 
-These properties are passed through to `yum_repository`. More information on these properties can be found on [the Chef docs for `yum_repository`](https://docs.chef.io/resources/yum_repository/).
-
-| Name                | Type            | Default                                                                   |
-| ------------------- | --------------- | ------------------------------------------------------------------------- |
-| `baseurl`           | `String`        | Platform specific, see [`remi_repo_baseurl`](../libraries/helpers.rb)     |
-| `mirrorlist`        | `String`        | Platform specific, see [`remi_repo_mirrorlist`](../libraries/helpers.rb)  |
-| `description`       | `String`        | Platform specific, see [`remi_repo_description`](../libraries/helpers.rb) |
-| `enabled`           | `true`, `false` | `true`                                                                    |
-| `debug_baseurl`     | `String`        | Platform specific, see [`remi_repo_baseurl`](../libraries/helpers.rb)     |
-| `debug_description` | `String`        | Platform specific, see [`remi_repo_description`](../libraries/helpers.rb) |
-| `debug_enabled`     | `true`, `false` | `false`                                                                   |
-| `gpgkey`            | `String`        | Platform specific, see [`remi_gpg_key`](../libraries/helpers.rb)          |
-| `gpgcheck`          | `true`, `false` | `true`                                                                    |
+This resource does not expose repository properties. If you need to customize repository configuration, manage `yum_remi` and `yum_remi_modular` explicitly before declaring `yum_remi_php73`.
 
 ## Examples
 

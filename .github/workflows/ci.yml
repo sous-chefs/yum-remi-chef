@@ -25,14 +25,14 @@ jobs:
         os:
           - almalinux-8
           - almalinux-9
+          - almalinux-10
           - centos-stream-9
-            # - fedora-latest
-            # needs modifications for dnf5
           - rockylinux-8
           - rockylinux-9
         suite:
           - 'remi'
           - 'remi-test'
+          - 'remi-modular'
           - 'remi-php72'
           - 'remi-php73'
           - 'remi-php74'
@@ -42,49 +42,33 @@ jobs:
           - 'remi-php83'
           - 'remi-php84'
         exclude:
-          - os: almalinux-8
-            suite: remi-test
           - os: almalinux-9
-            suite: remi-test
-          - os: almalinux-9
+            suite: remi-php72
+          - os: almalinux-10
             suite: remi-php72
           - os: centos-stream-9
             suite: remi-php72
-          - os: fedora-latest
+          - os: rockylinux-8
             suite: remi-php72
           - os: rockylinux-9
             suite: remi-php72
           - os: almalinux-9
             suite: remi-php73
-          - os: centos-stream-9
+          - os: almalinux-10
             suite: remi-php73
-          - os: fedora-latest
+          - os: centos-stream-9
             suite: remi-php73
           - os: rockylinux-8
             suite: remi-php73
           - os: rockylinux-9
             suite: remi-php73
-          - os: almalinux-9
-            suite: remi-php74
-          - os: centos-stream-9
-            suite: remi-php74
-          - os: fedora-latest
-            suite: remi-php74
-          - os: rockylinux-8
-            suite: remi-php74
-          - os: fedora-latest
-            suite: remi-php80
-          - os: almalinux-9
-            suite: remi-php81
-          - os: rockylinux-9
-            suite: remi-php82
       fail-fast: false
 
     steps:
       - name: Check out code
         uses: actions/checkout@v6
-      - name: Install Chef
-        uses: actionshub/chef-install@6.0.0
+      - name: Install Cinc Workstation
+        uses: sous-chefs/.github/.github/actions/install-workstation@6.0.0
       - name: Dokken
         uses: actionshub/test-kitchen@3.0.0
         env:

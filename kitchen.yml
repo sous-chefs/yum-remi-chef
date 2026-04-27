@@ -13,174 +13,144 @@ provisioner:
 
 verifier:
   name: inspec
-  inspec_tests:
-    - path: test/integration/inspec
+  sudo: true
 
 platforms:
   - name: almalinux-8
   - name: almalinux-9
   - name: almalinux-10
   - name: centos-stream-9
-  - name: fedora-latest
   - name: rockylinux-8
   - name: rockylinux-9
 
+x-run_lists:
+  remi: &remi_run_list
+    - recipe[test::remi]
+  remi_test: &remi_test_run_list
+    - recipe[test::remi_test]
+  remi_modular: &remi_modular_run_list
+    - recipe[test::remi_modular]
+  remi_php72: &remi_php72_run_list
+    - recipe[test::remi_php72]
+  remi_php73: &remi_php73_run_list
+    - recipe[test::remi_php73]
+  remi_php74: &remi_php74_run_list
+    - recipe[test::remi_php74]
+  remi_php80: &remi_php80_run_list
+    - recipe[test::remi_php80]
+  remi_php81: &remi_php81_run_list
+    - recipe[test::remi_php81]
+  remi_php82: &remi_php82_run_list
+    - recipe[test::remi_php82]
+  remi_php83: &remi_php83_run_list
+    - recipe[test::remi_php83]
+  remi_php84: &remi_php84_run_list
+    - recipe[test::remi_php84]
+
+x-verifiers:
+  remi: &remi_verifier
+    inspec_tests:
+      - path: test/integration/remi
+  remi_test: &remi_test_verifier
+    inspec_tests:
+      - path: test/integration/remi_test
+  remi_modular: &remi_modular_verifier
+    inspec_tests:
+      - path: test/integration/remi_modular
+  remi_php72: &remi_php72_verifier
+    inspec_tests:
+      - path: test/integration/php
+    inputs:
+      version: '7.2'
+  remi_php73: &remi_php73_verifier
+    inspec_tests:
+      - path: test/integration/php
+    inputs:
+      version: '7.3'
+  remi_php74: &remi_php74_verifier
+    inspec_tests:
+      - path: test/integration/php
+    inputs:
+      version: '7.4'
+  remi_php80: &remi_php80_verifier
+    inspec_tests:
+      - path: test/integration/php
+    inputs:
+      version: '8.0'
+  remi_php81: &remi_php81_verifier
+    inspec_tests:
+      - path: test/integration/php
+    inputs:
+      version: '8.1'
+  remi_php82: &remi_php82_verifier
+    inspec_tests:
+      - path: test/integration/php
+    inputs:
+      version: '8.2'
+  remi_php83: &remi_php83_verifier
+    inspec_tests:
+      - path: test/integration/php
+    inputs:
+      version: '8.3'
+  remi_php84: &remi_php84_verifier
+    inspec_tests:
+      - path: test/integration/php
+    inputs:
+      version: '8.4'
+
 suites:
   - name: remi
-    run_list:
-      - recipe[test::remi]
-    verifier:
-      controls:
-        - remi
-        - remi-safe
+    run_list: *remi_run_list
+    verifier: *remi_verifier
 
   - name: remi-test
-    run_list:
-      - recipe[test::remi-test]
-    attributes:
-      yum:
-        remi-test:
-          enabled: true
-          managed: true
-    verifier:
-      controls:
-        - remi
-        - remi-safe
-        - remi-test
+    run_list: *remi_test_run_list
+    verifier: *remi_test_verifier
 
   - name: remi-modular
-    run_list:
-      - recipe[test::modular]
-    verifier:
-      controls:
-        - remi
-        - remi-safe
-        - remi-modular
+    run_list: *remi_modular_run_list
+    verifier: *remi_modular_verifier
 
   - name: remi-php72
-    run_list:
-      - recipe[test::php]
-    attributes:
-      remi-test:
-        version: '7.2'
-    verifier:
-      controls:
-        - remi
-        - remi-safe
-        - php
-      inputs:
-        version: '7.2'
+    run_list: *remi_php72_run_list
+    verifier: *remi_php72_verifier
     excludes:
       - almalinux-9
       - almalinux-10
       - centos-stream-9
-      - fedora-latest
+      - rockylinux-8
       - rockylinux-9
 
   - name: remi-php73
-    run_list:
-      - recipe[test::php]
-    attributes:
-      remi-test:
-        version: '7.3'
-    verifier:
-      controls:
-        - remi
-        - remi-safe
-        - php
-      inputs:
-        version: '7.3'
+    run_list: *remi_php73_run_list
+    verifier: *remi_php73_verifier
     excludes:
       - almalinux-9
       - almalinux-10
       - centos-stream-9
-      - fedora-latest
+      - rockylinux-8
       - rockylinux-9
 
   - name: remi-php74
-    run_list:
-      - recipe[test::php]
-    attributes:
-      remi-test:
-        version: '7.4'
-    verifier:
-      controls:
-        - remi
-        - remi-safe
-        - php
-      inputs:
-        version: '7.4'
-    excludes:
-      - fedora-latest
+    run_list: *remi_php74_run_list
+    verifier: *remi_php74_verifier
 
   - name: remi-php80
-    run_list:
-      - recipe[test::php]
-    attributes:
-      remi-test:
-        version: '8.0'
-    verifier:
-      controls:
-        - remi
-        - remi-safe
-        - php
-      inputs:
-        version: '8.0'
-    excludes:
-      - fedora-latest
+    run_list: *remi_php80_run_list
+    verifier: *remi_php80_verifier
 
   - name: remi-php81
-    run_list:
-      - recipe[test::php]
-    attributes:
-      remi-test:
-        version: '8.1'
-    verifier:
-      controls:
-        - remi
-        - remi-safe
-        - php
-      inputs:
-        version: '8.1'
+    run_list: *remi_php81_run_list
+    verifier: *remi_php81_verifier
 
   - name: remi-php82
-    run_list:
-      - recipe[test::php]
-    attributes:
-      remi-test:
-        version: '8.2'
-    verifier:
-      controls:
-        - remi
-        - remi-safe
-        - php
-      inputs:
-        version: '8.2'
+    run_list: *remi_php82_run_list
+    verifier: *remi_php82_verifier
 
   - name: remi-php83
-    run_list:
-      - recipe[test::php]
-    attributes:
-      remi-test:
-        version: '8.3'
-    verifier:
-      controls:
-        - remi
-        - remi-safe
-        - php
-      inputs:
-        version: '8.3'
+    run_list: *remi_php83_run_list
+    verifier: *remi_php83_verifier
 
   - name: remi-php84
-    run_list:
-      - recipe[test::php]
-    attributes:
-      remi-test:
-        version: '8.4'
-    verifier:
-      controls:
-        - remi
-        - remi-safe
-        - php
-      inputs:
-        version: '8.4'
+    run_list: *remi_php84_run_list
+    verifier: *remi_php84_verifier

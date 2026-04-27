@@ -6,9 +6,9 @@
 [![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-The yum-remi-chef cookbook takes over management of the repository ids of the [remi](https://rpms.remirepo.net/)
-repository . It allows attribute manipulation of `remi`, `remi-safe`, `remi-php72`, `remi-php73`, `remi-php74`,
-`remi-php80`, `remi-php81`, `remi-php82`, `remi-php83`, `remi-php84` and `remi-test` repositories.
+The `yum-remi-chef` cookbook manages Remi repository configuration and PHP module stream selection on supported Enterprise Linux releases.
+
+The legacy root recipes and node attributes were removed as part of the custom resource migration. See [migration.md](migration.md) for upgrade guidance.
 
 ## Maintainers
 
@@ -18,51 +18,64 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 ### Chef
 
-- Chef 16+
+* Chef 16+
 
 ### Cookbooks
 
-- yum >= 7.3.0
-- yum-epel
+* yum >= 7.3.0
+* yum-epel
 
 ### Platforms
 
-The following platforms and PHP versions are supported, as per [upstream](https://rpms.remirepo.net) -- `x` via a Yum repo, `M` via DNF modules:
+Remi currently publishes maintained repositories for Enterprise Linux 8, 9, and 10. The table below reflects the PHP module streams managed by this cookbook as of April 27, 2026.
 
-| PHP version     | 7.2 | 7.3 | 7.4 | 8.0 | 8.1 | 8.2 | 8.3 | 8.4 |
+| Platform        | 7.2 | 7.3 | 7.4 | 8.0 | 8.1 | 8.2 | 8.3 | 8.4 |
 | --------------- | --- | --- | --- | --- | --- | --- | --- | --- |
 | AlmaLinux 8     | M   | M   | M   | M   | M   | M   | M   | M   |
 | AlmaLinux 9     |     |     | M   | M   | M   | M   | M   | M   |
 | AlmaLinux 10    |     |     | M   | M   | M   | M   | M   | M   |
 | CentOS Stream 9 |     |     | M   | M   | M   | M   | M   | M   |
-| Fedora (latest) |     |     |     |     | M   | M   | M   | M   |
 | Rocky Linux 8   | M   | M   | M   | M   | M   | M   | M   | M   |
 | Rocky Linux 9   |     |     | M   | M   | M   | M   | M   | M   |
 
-## Recipes
+`M` indicates the cookbook enables the matching `php:remi-*` DNF module stream.
 
-- `::remi` - Sets up the base remi repository.
-- `::remi-safe` - Sets up the remi-safe repo. This contains the `phpXX` "software collections" packages, able to coexist with stock PHP.
-- `::remi-test` - Sets up the remi-test experimental repo.
-- `::remi-modular` - Sets up the remi-modular repo for DNF module information. (Only for platforms that support DNF modules i.e. CentOS 8+ / Fedora)
-- `::remi-phpXX` - Sets up the corresponding remi PHP version repo. These repos **override** the stock PHP packages. See the above table for supported versions.
+For upstream package and platform notes, see [LIMITATIONS.md](LIMITATIONS.md).
+
+## Migration
+
+The migration removes:
+
+* the root `recipes/` directory
+* the root `attributes/` directory
+* attribute-driven test configuration and examples
+
+Use the resources directly in your cookbooks instead:
+
+```ruby
+yum_remi 'default'
+
+yum_remi_modular 'default'
+
+yum_remi_php84 'default'
+```
+
+If you need details on moving from the legacy recipe or node attribute interface, see [migration.md](migration.md).
 
 ## Resources
 
-Same function as the above recipes, but as resources instead.
-
-- [`yum_remi`](documentation/remi.md)
-- [`yum_remi_safe`](documentation/remi_safe.md)
-- [`yum_remi_test`](documentation/remi_test.md)
-- [`yum_remi_modular`](documentation/remi_modular.md)
-- [`yum_remi_php72`](documentation/remi_php72.md)
-- [`yum_remi_php73`](documentation/remi_php73.md)
-- [`yum_remi_php74`](documentation/remi_php74.md)
-- [`yum_remi_php80`](documentation/remi_php80.md)
-- [`yum_remi_php81`](documentation/remi_php81.md)
-- [`yum_remi_php82`](documentation/remi_php82.md)
-- [`yum_remi_php83`](documentation/remi_php83.md)
-- [`yum_remi_php84`](documentation/remi_php84.md)
+* [`yum_remi`](documentation/remi.md)
+* [`yum_remi_safe`](documentation/remi_safe.md)
+* [`yum_remi_test`](documentation/remi_test.md)
+* [`yum_remi_modular`](documentation/remi_modular.md)
+* [`yum_remi_php72`](documentation/remi_php72.md)
+* [`yum_remi_php73`](documentation/remi_php73.md)
+* [`yum_remi_php74`](documentation/remi_php74.md)
+* [`yum_remi_php80`](documentation/remi_php80.md)
+* [`yum_remi_php81`](documentation/remi_php81.md)
+* [`yum_remi_php82`](documentation/remi_php82.md)
+* [`yum_remi_php83`](documentation/remi_php83.md)
+* [`yum_remi_php84`](documentation/remi_php84.md)
 
 ## Contributors
 
