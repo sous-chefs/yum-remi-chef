@@ -1,17 +1,14 @@
+# frozen_string_literal: true
+
 provides :yum_remi_php72
 unified_mode true
 
-use '_partials/_common'
-
-property :baseurl, String, default: lazy { remi_repo_baseurl('php72') }
-property :mirrorlist, String, default: lazy { remi_repo_mirrorlist('php72') }
-property :description, String, default: lazy { remi_repo_description('php72') }
-
-property :debug_baseurl, String, default: lazy { remi_repo_baseurl('debug-php72') }
-property :debug_description, String, default: lazy { remi_repo_description('debug-php72') }
+action_class do
+  include YumRemiChef::Cookbook::Helpers
+end
 
 action :create do
-  raise "`remi-php72` is not available for #{node['platform']} #{node['platform_version'].to_i}" if fedora?
+  validate_php_module_support!('7.2')
 
   yum_remi 'default'
 

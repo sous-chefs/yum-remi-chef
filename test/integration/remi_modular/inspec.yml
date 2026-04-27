@@ -1,0 +1,4 @@
+---
+name: remi_modular
+title: Integration tests for the yum_remi_modular resource
+version: 0.1.0

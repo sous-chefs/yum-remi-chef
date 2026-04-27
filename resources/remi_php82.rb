@@ -1,16 +1,15 @@
+# frozen_string_literal: true
+
 provides :yum_remi_php82
 unified_mode true
 
-use '_partials/_common'
-
-property :baseurl, String, default: lazy { remi_repo_baseurl('php82') }
-property :mirrorlist, String, default: lazy { remi_repo_mirrorlist('php82') }
-property :description, String, default: lazy { remi_repo_description('php82') }
-
-property :debug_baseurl, String, default: lazy { remi_repo_baseurl('debug-php82') }
-property :debug_description, String, default: lazy { remi_repo_description('debug-php82') }
+action_class do
+  include YumRemiChef::Cookbook::Helpers
+end
 
 action :create do
+  validate_php_module_support!('8.2')
+
   yum_remi 'default'
 
   yum_remi_modular 'default'

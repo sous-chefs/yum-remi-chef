@@ -1,0 +1,4 @@
+---
+name: remi_test
+title: Integration tests for the yum_remi_test resource
+version: 0.1.0
