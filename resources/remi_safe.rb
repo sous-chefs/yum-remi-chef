@@ -20,7 +20,7 @@ end
 action :create do
   validate_remi_platform!
 
-  include_recipe 'yum-epel' if new_resource.manage_epel && !fedora?
+  include_recipe 'yum-epel' if new_resource.manage_epel
 
   yum_repository 'remi-safe' do
     baseurl new_resource.baseurl

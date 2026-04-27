@@ -6,7 +6,7 @@
 [![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-The `yum-remi-chef` cookbook manages Remi repository configuration and PHP module stream selection on supported Enterprise Linux and Fedora releases.
+The `yum-remi-chef` cookbook manages Remi repository configuration and PHP module stream selection on supported Enterprise Linux releases.
 
 The legacy root recipes and node attributes were removed as part of the custom resource migration. See [migration.md](migration.md) for upgrade guidance.
 
@@ -27,7 +27,7 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 ### Platforms
 
-Remi currently publishes maintained repositories for Enterprise Linux 8, 9, and 10 plus Fedora 42, 43, and 44. The table below reflects the PHP module streams managed by this cookbook as of April 27, 2026.
+Remi currently publishes maintained repositories for Enterprise Linux 8, 9, and 10. The table below reflects the PHP module streams managed by this cookbook as of April 27, 2026.
 
 | Platform        | 7.2 | 7.3 | 7.4 | 8.0 | 8.1 | 8.2 | 8.3 | 8.4 |
 | --------------- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -35,7 +35,6 @@ Remi currently publishes maintained repositories for Enterprise Linux 8, 9, and 
 | AlmaLinux 9     |     |     | M   | M   | M   | M   | M   | M   |
 | AlmaLinux 10    |     |     | M   | M   | M   | M   | M   | M   |
 | CentOS Stream 9 |     |     | M   | M   | M   | M   | M   | M   |
-| Fedora 42-44    |     |     | M   | M   | M   | M   | M   | M   |
 | Rocky Linux 8   | M   | M   | M   | M   | M   | M   | M   | M   |
 | Rocky Linux 9   |     |     | M   | M   | M   | M   | M   | M   |
 

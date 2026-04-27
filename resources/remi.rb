@@ -19,7 +19,7 @@ end
 action :create do
   validate_remi_platform!
 
-  yum_remi_safe 'default' unless fedora?
+  yum_remi_safe 'default'
 
   yum_repository 'remi' do
     baseurl new_resource.baseurl

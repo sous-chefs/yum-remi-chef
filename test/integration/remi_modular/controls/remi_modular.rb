@@ -5,12 +5,7 @@ control 'remi-modular' do
     it { should exist }
     it { should be_enabled }
     its('mirrors') do
-      should cmp case os.name
-                 when 'fedora'
-                   "http://cdn.remirepo.net/fedora/#{os.release.to_i}/modular/#{os.arch}/mirror"
-                 else
-                   "http://cdn.remirepo.net/enterprise/#{os.release.to_i}/modular/#{os.arch}/mirror"
-                 end
+      should cmp "http://cdn.remirepo.net/enterprise/#{os.release.to_i}/modular/#{os.arch}/mirror"
     end
   end
 end

@@ -27,7 +27,6 @@ jobs:
           - almalinux-9
           - almalinux-10
           - centos-stream-9
-          - fedora-latest
           - rockylinux-8
           - rockylinux-9
         suite:
@@ -49,8 +48,6 @@ jobs:
             suite: remi-php72
           - os: centos-stream-9
             suite: remi-php72
-          - os: fedora-latest
-            suite: remi-php72
           - os: rockylinux-8
             suite: remi-php72
           - os: rockylinux-9
@@ -60,8 +57,6 @@ jobs:
           - os: almalinux-10
             suite: remi-php73
           - os: centos-stream-9
-            suite: remi-php73
-          - os: fedora-latest
             suite: remi-php73
           - os: rockylinux-8
             suite: remi-php73
