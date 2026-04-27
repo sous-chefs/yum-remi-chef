@@ -2,6 +2,25 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## [9.0.0](https://github.com/sous-chefs/yum-remi-chef/compare/v8.1.3...v9.0.0) (2026-04-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate yum-remi-chef to custom resources ([#75](https://github.com/sous-chefs/yum-remi-chef/issues/75))
+
+### Features
+
+* Add support for PHP 8.0 ([f2e026d](https://github.com/sous-chefs/yum-remi-chef/commit/f2e026daa2f33edf4d60bad036364ea1a1819145))
+* migrate yum-remi-chef to custom resources ([#75](https://github.com/sous-chefs/yum-remi-chef/issues/75)) ([9b6fa62](https://github.com/sous-chefs/yum-remi-chef/commit/9b6fa624e4e3bfbbf874a7c65b662314f52ad7ba))
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#70](https://github.com/sous-chefs/yum-remi-chef/issues/70)) ([a688743](https://github.com/sous-chefs/yum-remi-chef/commit/a688743ec134efbb2707f309370ecefca8b99436))
+* DRY up recipe inclusion ([5afc76b](https://github.com/sous-chefs/yum-remi-chef/commit/5afc76b0c1e994f797fa9200cffb499ccafa4c71))
+* Remove useless attribute setting ([1aee0a3](https://github.com/sous-chefs/yum-remi-chef/commit/1aee0a3bafc2adb878a70852f2696648798ffce4))
+
 ## [8.1.3](https://github.com/sous-chefs/yum-remi-chef/compare/8.1.2...v8.1.3) (2025-10-16)
 
 
