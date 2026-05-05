@@ -30,6 +30,7 @@ jobs:
           - rockylinux-8
           - rockylinux-9
         suite:
+          - 'default'
           - 'remi'
           - 'remi-test'
           - 'remi-modular'

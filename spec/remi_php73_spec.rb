@@ -18,6 +18,18 @@ describe 'yum_remi_php73' do
     it { is_expected.to switch_to_dnf_module('php:remi-7.3') }
   end
 
+  context 'when removing on AlmaLinux 8' do
+    platform 'almalinux', '8'
+
+    recipe do
+      yum_remi_php73 'default' do
+        action :remove
+      end
+    end
+
+    it { is_expected.to reset_dnf_module('php:remi-7.3') }
+  end
+
   context 'on Rocky Linux 9' do
     platform 'rocky', '9'
 
