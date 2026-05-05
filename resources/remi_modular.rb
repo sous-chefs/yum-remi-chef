@@ -38,3 +38,15 @@ action :create do
     gpgkey new_resource.gpgkey
   end if new_resource.debug_enabled
 end
+
+action :remove do
+  validate_remi_platform!
+
+  yum_repository 'remi-modular-debuginfo' do
+    action :remove
+  end
+
+  yum_repository 'remi-modular' do
+    action :remove
+  end
+end

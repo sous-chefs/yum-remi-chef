@@ -17,4 +17,16 @@ describe 'yum_remi_php74' do
     it { is_expected.to create_yum_repository('remi-modular') }
     it { is_expected.to switch_to_dnf_module('php:remi-7.4') }
   end
+
+  context 'when removing on AlmaLinux 9' do
+    platform 'almalinux', '9'
+
+    recipe do
+      yum_remi_php74 'default' do
+        action :remove
+      end
+    end
+
+    it { is_expected.to reset_dnf_module('php:remi-7.4') }
+  end
 end

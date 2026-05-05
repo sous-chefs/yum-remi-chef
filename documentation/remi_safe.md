@@ -9,6 +9,7 @@ Adds the `remi-safe` repo to the YUM / DNF repo list.
 | Action    | Description                    |
 |-----------|--------------------------------|
 | `:create` | Creates the repo configuration |
+| `:remove` | Removes the repo configuration |
 
 ## Properties
 

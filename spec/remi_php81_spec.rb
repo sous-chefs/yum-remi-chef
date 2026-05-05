@@ -17,4 +17,16 @@ describe 'yum_remi_php81' do
     it { is_expected.to create_yum_repository('remi-modular') }
     it { is_expected.to switch_to_dnf_module('php:remi-8.1') }
   end
+
+  context 'when removing on AlmaLinux 9' do
+    platform 'almalinux', '9'
+
+    recipe do
+      yum_remi_php81 'default' do
+        action :remove
+      end
+    end
+
+    it { is_expected.to reset_dnf_module('php:remi-8.1') }
+  end
 end

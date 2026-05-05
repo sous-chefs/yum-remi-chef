@@ -16,3 +16,11 @@ action :create do
 
   dnf_module 'php:remi-8.0'
 end
+
+action :remove do
+  validate_php_module_support!('8.0')
+
+  dnf_module 'php:remi-8.0' do
+    action :reset
+  end
+end

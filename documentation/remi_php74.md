@@ -9,6 +9,7 @@ Enables the `php:remi-7.4` DNF module stream after configuring the required Remi
 | Action    | Description                            |
 |-----------|----------------------------------------|
 | `:create` | Configures Remi and enables the stream |
+| `:remove` | Resets the DNF module stream           |
 
 ## Properties
 
