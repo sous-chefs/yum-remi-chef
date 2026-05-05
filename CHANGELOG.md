@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## [9.1.0](https://github.com/sous-chefs/yum-remi-chef/compare/v9.0.0...v9.1.0) (2026-05-05)
+
+
+### Features
+
+* add yum-remi removal actions ([#77](https://github.com/sous-chefs/yum-remi-chef/issues/77)) ([93b5e5d](https://github.com/sous-chefs/yum-remi-chef/commit/93b5e5d3c52d3f3dab762fcec02aca60c4f21d00))
+
 ## [9.0.0](https://github.com/sous-chefs/yum-remi-chef/compare/v8.1.3...v9.0.0) (2026-04-27)
 
 
