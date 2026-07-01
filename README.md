@@ -40,7 +40,7 @@ Remi currently publishes maintained repositories for Enterprise Linux 8, 9, and 
 
 `M` indicates the cookbook enables the matching `php:remi-*` DNF module stream.
 
-For upstream package and platform notes, see [LIMITATIONS.md](LIMITATIONS.md).
+For upstream package and platform notes, see [AGENTS.md](AGENTS.md).
 
 ## Migration
 

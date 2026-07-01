@@ -1,4 +1,15 @@
-# Limitations
+# AGENTS.md
+
+## Cookbook Purpose
+
+Installs and configures the Remi\
+
+## Agent Findings
+
+* This cookbook is in an incremental modernization pass. Preserve existing public recipes and attributes unless a later full migration is explicitly selected.
+* Dependency management should use `Policyfile.rb`; do not reintroduce Berkshelf.
+
+## Known Limitations
 
 This cookbook manages Remi RPM repositories and PHP module streams through custom
 resources.
