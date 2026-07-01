@@ -109,18 +109,26 @@ suites:
     verifier: *default_verifier
 
   - name: remi
+    provisioner:
+      named_run_list: remi
     run_list: *remi_run_list
     verifier: *remi_verifier
 
   - name: remi-test
+    provisioner:
+      named_run_list: remi_test
     run_list: *remi_test_run_list
     verifier: *remi_test_verifier
 
   - name: remi-modular
+    provisioner:
+      named_run_list: remi_modular
     run_list: *remi_modular_run_list
     verifier: *remi_modular_verifier
 
   - name: remi-php72
+    provisioner:
+      named_run_list: remi_php72
     run_list: *remi_php72_run_list
     verifier: *remi_php72_verifier
     excludes:
@@ -131,6 +139,8 @@ suites:
       - rockylinux-9
 
   - name: remi-php73
+    provisioner:
+      named_run_list: remi_php73
     run_list: *remi_php73_run_list
     verifier: *remi_php73_verifier
     excludes:
@@ -141,25 +151,37 @@ suites:
       - rockylinux-9
 
   - name: remi-php74
+    provisioner:
+      named_run_list: remi_php74
     run_list: *remi_php74_run_list
     verifier: *remi_php74_verifier
 
   - name: remi-php80
+    provisioner:
+      named_run_list: remi_php80
     run_list: *remi_php80_run_list
     verifier: *remi_php80_verifier
 
   - name: remi-php81
+    provisioner:
+      named_run_list: remi_php81
     run_list: *remi_php81_run_list
     verifier: *remi_php81_verifier
 
   - name: remi-php82
+    provisioner:
+      named_run_list: remi_php82
     run_list: *remi_php82_run_list
     verifier: *remi_php82_verifier
 
   - name: remi-php83
+    provisioner:
+      named_run_list: remi_php83
     run_list: *remi_php83_run_list
     verifier: *remi_php83_verifier
 
   - name: remi-php84
+    provisioner:
+      named_run_list: remi_php84
     run_list: *remi_php84_run_list
     verifier: *remi_php84_verifier
