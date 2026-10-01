@@ -23,7 +23,7 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 ### Cookbooks
 
 * yum >= 7.3.0
-* yum-epel
+* yum-epel >= 6.0
 
 ### Platforms
 

@@ -9,12 +9,24 @@ describe 'yum_remi_safe' do
     platform 'almalinux', '9'
 
     recipe do
+      yum_remi_safe 'default'
+    end
+
+    it { is_expected.to create_yum_epel('default') }
+    it { is_expected.to create_yum_repository('remi-safe') }
+  end
+
+  context 'without EPEL on AlmaLinux 9' do
+    platform 'almalinux', '9'
+
+    recipe do
       yum_remi_safe 'default' do
         debug_enabled true
         manage_epel false
       end
     end
 
+    it { is_expected.to_not create_yum_epel('default') }
     it { is_expected.to create_yum_repository('remi-safe') }
     it { is_expected.to create_yum_repository('remi-safe-debuginfo') }
   end
