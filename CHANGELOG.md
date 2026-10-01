@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## [9.1.1](https://github.com/sous-chefs/yum-remi-chef/compare/v9.1.0...v9.1.1) (2026-10-01)
+
+
+### Bug Fixes
+
+* **deps:** require yum-epel 6.0 for the yum_epel resource ([#90](https://github.com/sous-chefs/yum-remi-chef/issues/90)) ([83a4178](https://github.com/sous-chefs/yum-remi-chef/commit/83a41787b9727f695752e09e4694cea3846dc964))
+
 ## [9.1.0](https://github.com/sous-chefs/yum-remi-chef/compare/v9.0.0...v9.1.0) (2026-05-05)
 
 
