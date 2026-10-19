@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## [9.2.0](https://github.com/sous-chefs/yum-remi-chef/compare/v9.1.1...v9.2.0) (2026-10-19)
+
+
+### Features
+
+* pass manage_epel through to yum_remi_safe from every resource ([#93](https://github.com/sous-chefs/yum-remi-chef/issues/93)) ([f887b7a](https://github.com/sous-chefs/yum-remi-chef/commit/f887b7aa795340ddc856d13176082de41cd65b3a))
+
 ## [9.1.1](https://github.com/sous-chefs/yum-remi-chef/compare/v9.1.0...v9.1.1) (2026-10-01)
 
 
