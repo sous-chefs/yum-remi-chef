@@ -15,7 +15,11 @@ Enables the `php:remi-7.2` DNF module stream after configuring the required Remi
 
 ## Properties
 
-This resource does not expose repository properties. If you need to customize repository configuration, manage `yum_remi` and `yum_remi_modular` explicitly before declaring `yum_remi_php72`.
+| Name          | Type            | Default |
+|---------------|-----------------|---------|
+| `manage_epel` | `true`, `false` | `true`  |
+
+`manage_epel` is passed to the `yum_remi` and `yum_remi_modular` it declares. Set it to `false` where another cookbook already manages EPEL. For any other repository configuration, manage `yum_remi` and `yum_remi_modular` explicitly before declaring `yum_remi_php72`.
 
 ## Examples
 

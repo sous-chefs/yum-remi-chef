@@ -19,6 +19,18 @@ describe 'yum_remi' do
     end
   end
 
+  context 'with manage_epel false on AlmaLinux 9' do
+    platform 'almalinux', '9'
+
+    recipe do
+      yum_remi 'default' do
+        manage_epel false
+      end
+    end
+
+    it { is_expected.to create_yum_remi_safe('default').with(manage_epel: false) }
+  end
+
   context 'when removing on AlmaLinux 9' do
     platform 'almalinux', '9'
 

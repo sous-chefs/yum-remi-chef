@@ -24,8 +24,11 @@ These properties are passed through to `yum_repository`. More information on the
 | `debug_baseurl`     | `String`        | Platform specific, see [`remi_repo_baseurl`](../libraries/helpers.rb)     |
 | `debug_description` | `String`        | Platform specific, see [`remi_repo_description`](../libraries/helpers.rb) |
 | `debug_enabled`     | `true`, `false` | `false`                                                                   |
+| `manage_epel`       | `true`, `false` | `true`                                                                    |
 | `gpgkey`            | `String`        | Platform specific, see [`remi_gpg_key`](../libraries/helpers.rb)          |
 | `gpgcheck`          | `true`, `false` | `true`                                                                    |
+
+`manage_epel` is passed to the `yum_remi` it declares, which configures EPEL through `yum_epel` unless it is `false`.
 
 ## Examples
 
