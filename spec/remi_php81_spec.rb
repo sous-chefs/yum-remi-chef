@@ -18,6 +18,19 @@ describe 'yum_remi_php81' do
     it { is_expected.to switch_to_dnf_module('php:remi-8.1') }
   end
 
+  context 'with manage_epel false on AlmaLinux 9' do
+    platform 'almalinux', '9'
+
+    recipe do
+      yum_remi_php81 'default' do
+        manage_epel false
+      end
+    end
+
+    it { is_expected.to create_yum_remi('default').with(manage_epel: false) }
+    it { is_expected.to create_yum_remi_modular('default').with(manage_epel: false) }
+  end
+
   context 'when removing on AlmaLinux 9' do
     platform 'almalinux', '9'
 

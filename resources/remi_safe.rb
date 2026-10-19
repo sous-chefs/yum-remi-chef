@@ -8,7 +8,6 @@ use '_partials/_common'
 property :baseurl, String, default: lazy { remi_repo_baseurl('safe') }
 property :mirrorlist, String, default: lazy { remi_repo_mirrorlist('safe') }
 property :description, String, default: lazy { remi_repo_description('safe') }
-property :manage_epel, [true, false], default: true
 
 property :debug_baseurl, String, default: lazy { remi_repo_baseurl('debug-safe') }
 property :debug_description, String, default: lazy { remi_repo_description('debug-safe') }

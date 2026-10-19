@@ -19,6 +19,18 @@ describe 'yum_remi_test' do
     it { is_expected.to create_yum_repository('remi-test-debuginfo') }
   end
 
+  context 'with manage_epel false on AlmaLinux 9' do
+    platform 'almalinux', '9'
+
+    recipe do
+      yum_remi_test 'default' do
+        manage_epel false
+      end
+    end
+
+    it { is_expected.to create_yum_remi('default').with(manage_epel: false) }
+  end
+
   context 'when removing on AlmaLinux 9' do
     platform 'almalinux', '9'
 

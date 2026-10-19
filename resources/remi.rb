@@ -19,7 +19,9 @@ end
 action :create do
   validate_remi_platform!
 
-  yum_remi_safe 'default'
+  yum_remi_safe 'default' do
+    manage_epel new_resource.manage_epel
+  end
 
   yum_repository 'remi' do
     baseurl new_resource.baseurl

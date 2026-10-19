@@ -16,6 +16,18 @@ describe 'yum_remi_modular' do
     it { is_expected.to create_yum_repository('remi-modular') }
   end
 
+  context 'with manage_epel false on AlmaLinux 10' do
+    platform 'almalinux', '10'
+
+    recipe do
+      yum_remi_modular 'default' do
+        manage_epel false
+      end
+    end
+
+    it { is_expected.to create_yum_remi('default').with(manage_epel: false) }
+  end
+
   context 'when removing on AlmaLinux 10' do
     platform 'almalinux', '10'
 
