@@ -48,6 +48,8 @@ x-run_lists:
     - recipe[test::remi_php83]
   remi_php84: &remi_php84_run_list
     - recipe[test::remi_php84]
+  remi_mirror: &remi_mirror_run_list
+    - recipe[test::remi_mirror]
 
 x-verifiers:
   default: &default_verifier
@@ -102,6 +104,9 @@ x-verifiers:
       - path: test/integration/php
     inputs:
       version: '8.4'
+  remi_mirror: &remi_mirror_verifier
+    inspec_tests:
+      - path: test/integration/remi_mirror
 
 suites:
   - name: default
@@ -185,3 +190,9 @@ suites:
       named_run_list: remi_php84
     run_list: *remi_php84_run_list
     verifier: *remi_php84_verifier
+
+  - name: remi-mirror
+    provisioner:
+      named_run_list: remi_mirror
+    run_list: *remi_mirror_run_list
+    verifier: *remi_mirror_verifier
