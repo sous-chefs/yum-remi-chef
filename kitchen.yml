@@ -4,9 +4,9 @@ driver:
 
 provisioner:
   name: chef_zero
-  product_name: chef
+  product_name: cinc
   chef_license: accept-no-persist
-  chef_version: <%= ENV['CHEF_VERSION'] || 'current' %>
+  chef_version: <%= ENV['CHEF_VERSION'] || 'latest' %>
   multiple_converge: 2
   enforce_idempotency: true
   deprecations_as_errors: true
