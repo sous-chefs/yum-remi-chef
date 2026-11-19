@@ -2,6 +2,18 @@
 
 This file is used to list changes made in each version of the yum-remi-chef  cookbook.
 
+## [9.3.0](https://github.com/sous-chefs/yum-remi-chef/compare/v9.2.0...v9.3.0) (2026-11-19)
+
+
+### Features
+
+* pass mirror_url, gpgkey and metadata_expire through every resource ([5fb07f7](https://github.com/sous-chefs/yum-remi-chef/commit/5fb07f793090b31be56a4b5f8d9a8436b948b05a))
+
+
+### Bug Fixes
+
+* point remi-safe-debuginfo at Remi's debug-remi repo ([5fb07f7](https://github.com/sous-chefs/yum-remi-chef/commit/5fb07f793090b31be56a4b5f8d9a8436b948b05a))
+
 ## [9.2.0](https://github.com/sous-chefs/yum-remi-chef/compare/v9.1.1...v9.2.0) (2026-10-19)
 
 
