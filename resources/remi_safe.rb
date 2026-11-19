@@ -9,7 +9,8 @@ property :baseurl, String, default: lazy { remi_repo_baseurl('safe') }
 property :mirrorlist, String, default: lazy { remi_repo_mirrorlist('safe') }
 property :description, String, default: lazy { remi_repo_description('safe') }
 
-property :debug_baseurl, String, default: lazy { remi_repo_baseurl('debug-safe') }
+# Remi publishes no debug-safe tree; its own remi-safe.repo points debuginfo at debug-remi.
+property :debug_baseurl, String, default: lazy { remi_repo_baseurl('debug-remi') }
 property :debug_description, String, default: lazy { remi_repo_description('debug-safe') }
 
 action_class do

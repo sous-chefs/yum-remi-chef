@@ -28,7 +28,11 @@ describe 'yum_remi_safe' do
 
     it { is_expected.to_not create_yum_epel('default') }
     it { is_expected.to create_yum_repository('remi-safe') }
-    it { is_expected.to create_yum_repository('remi-safe-debuginfo') }
+    it do
+      is_expected.to create_yum_repository('remi-safe-debuginfo').with(
+        baseurl: 'http://rpms.remirepo.net/enterprise/9/debug-remi/$basearch/'
+      )
+    end
   end
 
   context 'when removing on AlmaLinux 9' do
