@@ -2,7 +2,7 @@
 
 # Declares yum_remi_safe both directly and through a php wrapper, as a host running
 # SCL and module PHP side by side does; idempotency fails if the two disagree.
-mirrors = %w(https://ftp2.osuosl.org/pub/remi https://mirror.usi.edu/pub/remi)
+mirrors = %w(https://mirror.usi.edu/pub/remi https://mirror.pit.teraswitch.com/remi)
 key_year = { 8 => '2018', 9 => '2021', 10 => '2024' }[node['platform_version'].to_i]
 gpgkeys = ["https://rpms.remirepo.net/RPM-GPG-KEY-remi#{key_year}"]
 

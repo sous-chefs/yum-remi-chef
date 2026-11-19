@@ -53,8 +53,8 @@ describe 'yum_remi_test' do
     it do
       is_expected.to create_yum_repository('remi-test').with(
         baseurl: %w(
-          https://ftp2.osuosl.org/pub/remi/enterprise/9/test/$basearch/
           https://mirror.usi.edu/pub/remi/enterprise/9/test/$basearch/
+          https://mirror.pit.teraswitch.com/remi/enterprise/9/test/$basearch/
         ),
         gpgkey: REMI_GPGKEYS,
         metadata_expire: '6h'

@@ -50,8 +50,8 @@ describe 'yum_remi_modular' do
     it do
       is_expected.to create_yum_repository('remi-modular').with(
         baseurl: %w(
-          https://ftp2.osuosl.org/pub/remi/enterprise/10/modular/$basearch/
           https://mirror.usi.edu/pub/remi/enterprise/10/modular/$basearch/
+          https://mirror.pit.teraswitch.com/remi/enterprise/10/modular/$basearch/
         ),
         gpgkey: REMI_GPGKEYS,
         metadata_expire: '6h'

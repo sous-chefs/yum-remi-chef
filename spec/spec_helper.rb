@@ -3,8 +3,8 @@
 require 'chefspec'
 require 'chefspec/policyfile'
 
-REMI_MIRRORS = %w(https://ftp2.osuosl.org/pub/remi https://mirror.usi.edu/pub/remi).freeze
-REMI_GPGKEYS = %w(https://ftp2.osuosl.org/pub/remi/RPM-GPG-KEY-remi https://rpms.remirepo.net/RPM-GPG-KEY-remi).freeze
+REMI_MIRRORS = %w(https://mirror.usi.edu/pub/remi https://mirror.pit.teraswitch.com/remi).freeze
+REMI_GPGKEYS = %w(https://rpms.remirepo.net/RPM-GPG-KEY-remi2021 https://rpms.remirepo.net/RPM-GPG-KEY-remi2024).freeze
 
 RSpec.configure do |config|
   config.color = true               # Use color in STDOUT

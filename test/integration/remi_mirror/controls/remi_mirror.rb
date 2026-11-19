@@ -1,4 +1,4 @@
-mirrors = %w(https://ftp2.osuosl.org/pub/remi https://mirror.usi.edu/pub/remi)
+mirrors = %w(https://mirror.usi.edu/pub/remi https://mirror.pit.teraswitch.com/remi)
 rel = os.release.to_i
 key_year = { 8 => '2018', 9 => '2021', 10 => '2024' }[rel]
 repos = { 'remi-safe' => 'safe', 'remi' => 'remi', 'remi-modular' => 'modular' }

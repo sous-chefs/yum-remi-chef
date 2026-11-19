@@ -59,7 +59,7 @@ describe 'yum_remi_safe' do
 
     recipe do
       yum_remi_safe 'default' do
-        mirror_url 'https://ftp2.osuosl.org/pub/remi/'
+        mirror_url 'https://mirror.pit.teraswitch.com/remi/'
         metadata_expire '6h'
         debug_enabled true
       end
@@ -67,13 +67,13 @@ describe 'yum_remi_safe' do
 
     it do
       is_expected.to create_yum_repository('remi-safe').with(
-        baseurl: 'https://ftp2.osuosl.org/pub/remi/enterprise/9/safe/$basearch/',
+        baseurl: 'https://mirror.pit.teraswitch.com/remi/enterprise/9/safe/$basearch/',
         metadata_expire: '6h'
       )
     end
     it do
       is_expected.to create_yum_repository('remi-safe-debuginfo').with(
-        baseurl: 'https://ftp2.osuosl.org/pub/remi/enterprise/9/debug-remi/$basearch/',
+        baseurl: 'https://mirror.pit.teraswitch.com/remi/enterprise/9/debug-remi/$basearch/',
         metadata_expire: '6h'
       )
     end
@@ -94,8 +94,8 @@ describe 'yum_remi_safe' do
     it do
       is_expected.to create_yum_repository('remi-safe').with(
         baseurl: %w(
-          https://ftp2.osuosl.org/pub/remi/enterprise/9/safe/$basearch/
           https://mirror.usi.edu/pub/remi/enterprise/9/safe/$basearch/
+          https://mirror.pit.teraswitch.com/remi/enterprise/9/safe/$basearch/
         ),
         gpgkey: REMI_GPGKEYS
       )
@@ -137,7 +137,7 @@ describe 'yum_remi_safe' do
 
     recipe do
       yum_remi_safe 'default' do
-        mirror_url 'ftp2.osuosl.org'
+        mirror_url 'mirror.usi.edu'
       end
     end
 
