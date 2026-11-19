@@ -42,4 +42,28 @@ describe 'yum_remi_php80' do
 
     it { is_expected.to reset_dnf_module('php:remi-8.0') }
   end
+
+  context 'with mirror passthrough on AlmaLinux 9' do
+    platform 'almalinux', '9'
+    cached(:subject) { chef_run }
+
+    recipe do
+      yum_remi_php80 'default' do
+        mirror_url REMI_MIRRORS
+        gpgkey REMI_GPGKEYS
+        metadata_expire '6h'
+      end
+    end
+
+    # ChefSpec matchers see only the last declaration, so check every one.
+    { yum_remi: 2, yum_remi_modular: 1 }.each do |type, count|
+      it "passes the mirror settings to all #{count} #{type} declarations" do
+        found = subject.find_resources(type)
+        expect(found.size).to eq(count)
+        expect(found.map(&:mirror_url)).to all(eq REMI_MIRRORS)
+        expect(found.map(&:gpgkey)).to all(eq REMI_GPGKEYS)
+        expect(found.map(&:metadata_expire)).to all(eq '6h')
+      end
+    end
+  end
 end

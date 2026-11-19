@@ -34,10 +34,15 @@ module YumRemiChef
         end
       end
 
-      def remi_repo_baseurl(repo_slug)
+      # With mirror_url, build one baseurl per mirror root, keeping the caller's order for dnf's failover.
+      def remi_repo_baseurl(repo_slug, mirror_url = nil)
         validate_remi_platform!
 
-        "http://rpms.remirepo.net/enterprise/#{node['platform_version'].to_i}/#{repo_slug}/$basearch/"
+        path = "enterprise/#{node['platform_version'].to_i}/#{repo_slug}/$basearch/"
+        return "http://rpms.remirepo.net/#{path}" unless mirror_url
+
+        urls = Array(mirror_url).map { |root| "#{root.chomp('/')}/#{path}" }
+        mirror_url.is_a?(Array) ? urls : urls.first
       end
 
       def remi_repo_mirrorlist(repo_slug)
