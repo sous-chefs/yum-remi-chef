@@ -13,11 +13,14 @@ Enables the `php:remi-8.0` DNF module stream after configuring the required Remi
 
 ## Properties
 
-| Name          | Type            | Default |
-|---------------|-----------------|---------|
-| `manage_epel` | `true`, `false` | `true`  |
+| Name              | Type              | Default                                                          |
+|-------------------|-------------------|------------------------------------------------------------------|
+| `manage_epel`     | `true`, `false`   | `true`                                                           |
+| `mirror_url`      | `String`, `Array` | `nil` (Remi's own servers)                                       |
+| `gpgkey`          | `String`, `Array` | Platform specific, see [`remi_gpg_key`](../libraries/helpers.rb) |
+| `metadata_expire` | `String`          | `nil` (dnf's default)                                            |
 
-`manage_epel` is passed to the `yum_remi` and `yum_remi_modular` it declares. Set it to `false` where another cookbook already manages EPEL. For any other repository configuration, manage `yum_remi` and `yum_remi_modular` explicitly before declaring `yum_remi_php80`.
+`manage_epel` is passed to the `yum_remi` and `yum_remi_modular` it declares. Set it to `false` where another cookbook already manages EPEL. `mirror_url`, `gpgkey` and `metadata_expire` are passed down the same way; see [`yum_remi`](remi.md#mirrors-keys-and-metadata) for what they do. Do not also declare `yum_remi` or `yum_remi_modular` yourself with other values: the declarations share the same repo files and would rewrite them on every run.
 
 ## Examples
 

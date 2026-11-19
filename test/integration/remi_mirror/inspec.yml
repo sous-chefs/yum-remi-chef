@@ -1,0 +1,4 @@
+---
+name: remi_mirror
+title: Integration tests for Remi repos served from local mirrors
+version: 0.1.0

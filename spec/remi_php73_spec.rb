@@ -54,4 +54,28 @@ describe 'yum_remi_php73' do
       expect { chef_run }.to raise_error(RuntimeError, /php:remi-7\.3/)
     end
   end
+
+  context 'with mirror passthrough on AlmaLinux 8' do
+    platform 'almalinux', '8'
+    cached(:subject) { chef_run }
+
+    recipe do
+      yum_remi_php73 'default' do
+        mirror_url REMI_MIRRORS
+        gpgkey REMI_GPGKEYS
+        metadata_expire '6h'
+      end
+    end
+
+    # ChefSpec matchers see only the last declaration, so check every one.
+    { yum_remi: 2, yum_remi_modular: 1 }.each do |type, count|
+      it "passes the mirror settings to all #{count} #{type} declarations" do
+        found = subject.find_resources(type)
+        expect(found.size).to eq(count)
+        expect(found.map(&:mirror_url)).to all(eq REMI_MIRRORS)
+        expect(found.map(&:gpgkey)).to all(eq REMI_GPGKEYS)
+        expect(found.map(&:metadata_expire)).to all(eq '6h')
+      end
+    end
+  end
 end
